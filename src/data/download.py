@@ -1,6 +1,8 @@
 import os
+
 import requests
-from pathlib import Path
+
+from src.data.paths import DATA_DIR
 
 
 def download_file(url: str, destination: str) -> None:
@@ -41,11 +43,7 @@ def download_data(url: str, file_name: str = None) -> None:
     if not file_name:
         file_name = os.path.basename(url)
 
-    # Paths
-    project_root = Path(__file__).parent.parent.parent
-    data_dir = project_root / "data"
-
-    download_file(url, data_dir / file_name)
+    download_file(url, DATA_DIR / file_name)
 
 
 def download_ipaws_data() -> None:
