@@ -23,7 +23,7 @@ def download_file(url: str, destination: str) -> None:
     os.makedirs(os.path.dirname(destination), exist_ok=True)
 
     # Download file
-    print(f"Downloading data from {url}...")
+    print(f"Downloading data from {url} to {destination}...")
     response = requests.get(url, stream=True)
     response.raise_for_status()
 
