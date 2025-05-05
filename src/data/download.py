@@ -4,6 +4,8 @@ import requests
 
 from src.data.paths import DATA_DIR
 
+from tqdm import tqdm
+
 
 def download_file(url: str, destination: str) -> None:
     """
@@ -17,17 +19,24 @@ def download_file(url: str, destination: str) -> None:
         print(f"File already exists at {destination}. Skipping download.")
         return
 
-    # Download file
-    print(f"Downloading data from {url}...")
-    response = requests.get(url)
-    response.raise_for_status()
-
     # Create ancestor directories if they don't exist
     os.makedirs(os.path.dirname(destination), exist_ok=True)
 
-    # Save file
+    # Download file
+    print(f"Downloading data from {url}...")
+    response = requests.get(url, stream=True)
+    response.raise_for_status()
+
     with open(destination, "wb") as w:
-        w.write(response.content)
+        with tqdm(
+            unit="B",
+            unit_scale=True,
+            desc="Downloading",
+    ) as progress_bar:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    w.write(chunk)
+                    progress_bar.update(len(chunk))
 
     print(f"File downloaded to {destination}")
 
@@ -48,7 +57,7 @@ def download_data(url: str, file_name: str = None) -> None:
 
 def download_ipaws_data() -> None:
     """Downloads the IPAWS Archived Alerts (JSON) file."""
-    download_data("https://www.fema.gov/api/open/v1/IpawsArchivedAlerts.json")
+    download_data("https://www.fema.gov/api/open/v1/IpawsArchivedAlerts.jsonl")
 
 
 if __name__ == "__main__":
