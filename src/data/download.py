@@ -50,7 +50,7 @@ def download_data(url: str, file_name: str = None) -> None:
 
 def download_ipaws_data() -> None:
     """Downloads the IPAWS Archived Alerts (JSON) file."""
-    download_data("https://www.fema.gov/api/open/v1/IpawsArchivedAlerts.json")
+    download_data("https://www.fema.gov/api/open/v1/IpawsArchivedAlerts.jsonl")
 
 
 if __name__ == "__main__":
