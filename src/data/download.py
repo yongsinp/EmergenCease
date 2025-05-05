@@ -15,17 +15,18 @@ def download_file(url: str, destination: str) -> None:
         print(f"File already exists at {destination}. Skipping download.")
         return
 
-    # Download file
-    print(f"Downloading data from {url}...")
-    response = requests.get(url)
-    response.raise_for_status()
-
     # Create ancestor directories if they don't exist
     os.makedirs(os.path.dirname(destination), exist_ok=True)
 
-    # Save file
+    # Download file
+    print(f"Downloading data from {url}...")
+    response = requests.get(url, stream=True)
+    response.raise_for_status()
+
     with open(destination, "wb") as w:
-        w.write(response.content)
+        for chunk in response.iter_content(chunk_size=8192):
+            if chunk:
+                w.write(chunk)
 
     print(f"File downloaded to {destination}")
 
