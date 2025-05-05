@@ -2,6 +2,8 @@ import os
 import requests
 from pathlib import Path
 
+from tqdm import tqdm
+
 
 def download_file(url: str, destination: str) -> None:
     """
@@ -24,9 +26,15 @@ def download_file(url: str, destination: str) -> None:
     response.raise_for_status()
 
     with open(destination, "wb") as w:
-        for chunk in response.iter_content(chunk_size=8192):
-            if chunk:
-                w.write(chunk)
+        with tqdm(
+            unit="B",
+            unit_scale=True,
+            desc="Downloading",
+    ) as progress_bar:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    w.write(chunk)
+                    progress_bar.update(len(chunk))
 
     print(f"File downloaded to {destination}")
 
