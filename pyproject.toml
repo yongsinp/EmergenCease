@@ -1,0 +1,22 @@
+[project]
+name = "EmergenCease"
+version = "0.1.0"
+description = "This project builds a pipeline to generate multilingual emergency alerts using FCC Alert Templates in 13 languages. It fetches alerts, classifies the emergency type, extracts key information, and fills out multilingual templates in the Common Alerting Protocol format. The goal is to improve alert accessibility for non-native speakers."
+readme = "README.md"
+authors = [
+    { name = "Ijeoma Osakwe", email = "iosakwe@uw.edu" },
+    { name = "Yongsin Park", email = "yongsin.nlp@gmail.com" }
+]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.11"
+dependencies = [
+]
+
+[project.urls]
+Homepage = "https://github.com/yongsinp/EmergenCease"
+Issues = "https://github.com/yongsinp/EmergenCease/issues"
