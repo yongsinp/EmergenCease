@@ -56,7 +56,7 @@ def download_data(url: str, file_name: str = None) -> None:
 
 
 def download_ipaws_data() -> None:
-    """Downloads the IPAWS Archived Alerts (JSON) file."""
+    """Downloads the IPAWS Archived Alerts (JSONL) file."""
     download_data("https://www.fema.gov/api/open/v1/IpawsArchivedAlerts.jsonl")
 
 
