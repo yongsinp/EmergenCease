@@ -2,7 +2,7 @@ import os
 
 import requests
 
-from src.data.paths import DATA_DIR
+from src.utils.paths import DATA_DIR
 
 from tqdm import tqdm
 
