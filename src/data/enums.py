@@ -2,38 +2,38 @@ from enum import StrEnum, auto
 
 
 class Category(StrEnum):
+    Env = "Environmental"
+    Fire = auto()
     Geo = "Geological"
+    Health = auto()
+    Infra = "Infrastructure"
     Met = "Meteorological"
+    Other = auto()
+    Rescue = auto()
     Safety = auto()
     Security = auto()
-    Rescue = auto()
-    Fire = auto()
-    Health = auto()
-    Env = "Environmental"
     Transport = auto()
-    Infra = "Infrastructure"
-    Other = auto()
 
 
 class Severity(StrEnum):
     Extreme = auto()
-    Severe = auto()
-    Moderate = auto()
     Minor = auto()
+    Moderate = auto()
+    Severe = auto()
 
 
 class Urgency(StrEnum):
-    Immediate = auto()
     Expected = auto()
     Future = auto()
+    Immediate = auto()
     Past = auto()
 
 
 class Certainty(StrEnum):
-    VeryLikely = "Very Likely"
     Likely = auto()
     Possible = auto()
     Unlikely = auto()
+    VeryLikely = "Very Likely"
 
 
 class Status(StrEnum):
@@ -44,16 +44,16 @@ class Status(StrEnum):
 
 
 class MsgType(StrEnum):
-    Alert = auto()  # Initial information requiring attention by targeted recipients
-    Update = auto()  # Updates and supersedes the earlier message(s)
-    Cancel = auto()  # Cancels the earlier message(s)
     Ack = "Acknowledgment"  # Acknowledges receipt and acceptance of the message(s)
+    Alert = auto()  # Initial information requiring attention by targeted recipients
+    Cancel = auto()  # Cancels the earlier message(s)
+    Update = auto()  # Updates and supersedes the earlier message(s)
 
 
 class Scope(StrEnum):
+    Private = auto()
     Public = auto()  # For general dissemination to unrestricted audiences.
     Restricted = auto()
-    Private = auto()
 
 
 class Region(StrEnum):
@@ -370,7 +370,6 @@ class Language(StrEnum):
     HU = "Hungarian"
     HY = "Armenian"
     HZ = "Herero"
-    I_HAK = "Hakka"
     IA = "Interlingua"
     ID = "Indonesian"
     IE = "Interlingue"
@@ -381,6 +380,7 @@ class Language(StrEnum):
     IS = "Icelandic"
     IT = "Italian"
     IU = "Inuktitut"
+    I_HAK = "Hakka"
     JA = "Japanese"
     JV = "Javanese"
     KA = "Georgian"
