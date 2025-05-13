@@ -37,19 +37,20 @@ class Certainty(StrEnum):
 
 
 class Status(StrEnum):
-    Actual = auto()
-    Exercise = auto()
-    System = auto()
+    Actual = auto()  # Actionable by all targeted recipients
+    Exercise = auto()  # Actionable only by designated exercise participants
+    System = auto()  # For messages that support alert network internal functions
     Test = auto()
 
 
 class MsgType(StrEnum):
-    Alert = auto()
-    Update = auto()
-    Cancel = auto()
+    Alert = auto()  # Initial information requiring attention by targeted recipients
+    Update = auto()  # Updates and supersedes the earlier message(s)
+    Cancel = auto()  # Cancels the earlier message(s)
+    Ack = "Acknowledgment"  # Acknowledges receipt and acceptance of the message(s)
 
 
 class Scope(StrEnum):
-    Public = auto()
+    Public = auto()  # For general dissemination to unrestricted audiences.
     Restricted = auto()
     Private = auto()
