@@ -50,6 +50,22 @@ class MsgType(StrEnum):
     Update = auto()  # Updates and supersedes the earlier message(s)
 
 
+class ResponseType(StrEnum):
+    """
+    Response types as per CAP 1.2.
+    None is replaced with None_ to avoid conflict with NoneType.
+    """
+    None_ = auto()
+    AllClear = auto()
+    Assess = auto()
+    Avoid = auto()
+    Evacuate = auto()
+    Execute = auto()
+    Monitor = auto()
+    Prepare = auto()
+    Shelter = auto()
+
+
 class Scope(StrEnum):
     Private = auto()
     Public = auto()  # For general dissemination to unrestricted audiences.
@@ -502,4 +518,3 @@ class Language(StrEnum):
     ZA = "Zhuang"
     ZH = "Chinese"
     ZU = "Zulu"
-
