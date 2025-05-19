@@ -78,7 +78,7 @@ class MsgType(StrEnum):
 class ResponseType(StrEnum):
     """
     Response types as per CAP 1.2.
-    None is replaced with None_ to avoid conflict with NoneType.
+    None is replaced with None_ to avoid conflict with the NoneType.
     """
     None_ = auto()
     AllClear = auto()
