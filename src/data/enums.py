@@ -48,7 +48,7 @@ class Event(StrEnum):
     TsunamiWarning = auto()
     EarthquakeWarning = auto()
     BoilWaterAdvisory = auto()
-    NineOneOneOutrageAlert = auto()
+    NineOneOneOutageAlert = auto()
     AvalancheWarning = auto()
     FireWarning = auto()
     HazardousMaterialsWarning = auto()
