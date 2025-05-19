@@ -1,0 +1,587 @@
+from enum import StrEnum, auto
+
+__all__ = [
+    "Category",
+    "Certainty",
+    "Event",
+    "Language",
+    "MsgType",
+    "Region",
+    "ResponseType",
+    "Scope",
+    "Severity",
+    "Status",
+    "Urgency",
+]
+
+
+class Category(StrEnum):
+    Env = "Environmental"
+    Fire = auto()
+    Geo = "Geological"
+    Health = auto()
+    Infra = "Infrastructure"
+    Met = "Meteorological"
+    Other = auto()
+    Rescue = auto()
+    Safety = auto()
+    Security = auto()
+    Transport = auto()
+
+
+class Event(StrEnum):
+    """
+    Event types from FCC Alert Templates.
+    All event types are in CamelCase, and 911 is replaced with NineOneOne.
+    """
+
+    def __eq__(self, other):
+        if isinstance(other, str):
+            other = other.replace(" ", "")
+
+        """Normalize and compare."""
+        if self.name == "NineOneOneOutageAlert":
+            return other == "911OutageAlert" or other == self.name
+
+        return super().__eq__(other)
+
+    TornadoEmergency = auto()
+    TornadoWarning = auto()
+    FlashFloodEmergency = auto()
+    FlashFloodWarning = auto()
+    SevereThunderstormWarning = auto()
+    SnowSquallWarning = auto()
+    DustStormWarning = auto()
+    HurricaneWarning = auto()
+    StormSurgeWarning = auto()
+    ExtremeWindWarning = auto()
+    TestAlert = auto()
+    TsunamiWarning = auto()
+    EarthquakeWarning = auto()
+    BoilWaterAdvisory = auto()
+    NineOneOneOutageAlert = auto()
+    AvalancheWarning = auto()
+    FireWarning = auto()
+    HazardousMaterialsWarning = auto()
+
+
+class Severity(StrEnum):
+    Extreme = auto()
+    Minor = auto()
+    Moderate = auto()
+    Severe = auto()
+
+
+class Urgency(StrEnum):
+    Expected = auto()
+    Future = auto()
+    Immediate = auto()
+    Past = auto()
+
+
+class Certainty(StrEnum):
+    Likely = auto()
+    Possible = auto()
+    Unlikely = auto()
+    VeryLikely = "Very Likely"
+
+
+class Status(StrEnum):
+    Actual = auto()  # Actionable by all targeted recipients
+    Exercise = auto()  # Actionable only by designated exercise participants
+    System = auto()  # For messages that support alert network internal functions
+    Test = auto()
+
+
+class MsgType(StrEnum):
+    Ack = "Acknowledgment"  # Acknowledges receipt and acceptance of the message(s)
+    Alert = auto()  # Initial information requiring attention by targeted recipients
+    Cancel = auto()  # Cancels the earlier message(s)
+    Update = auto()  # Updates and supersedes the earlier message(s)
+
+
+class ResponseType(StrEnum):
+    """
+    Response types as per CAP 1.2.
+    None is replaced with None_ to avoid conflict with the NoneType.
+    """
+
+    def __eq__(self, other):
+        """Normalize and compare."""
+        if self.name == "None_":
+            return other == "None" or other == self.name
+
+        return super().__eq__(other)
+
+    None_ = auto()
+    AllClear = auto()
+    Assess = auto()
+    Avoid = auto()
+    Evacuate = auto()
+    Execute = auto()
+    Monitor = auto()
+    Prepare = auto()
+    Shelter = auto()
+
+
+class Scope(StrEnum):
+    Private = auto()
+    Public = auto()  # For general dissemination to unrestricted audiences.
+    Restricted = auto()
+
+
+class Region(StrEnum):
+    """Country codes as per ISO 3166."""
+    AD = "Andorra"
+    AE = "United Arab Emirates"
+    AF = "Afghanistan"
+    AG = "Antigua And Barbuda"
+    AI = "Anguilla"
+    AL = "Albania"
+    AM = "Armenia"
+    AN = "Netherlands Antilles"
+    AO = "Angola"
+    AR = "Argentina"
+    AS = "American Samoa"
+    AT = "Austria"
+    AU = "Australia"
+    AW = "Aruba"
+    AX = "Åland Islands"
+    AZ = "Azerbaijan"
+    BA = "Bosnia And Herzegovina"
+    BB = "Barbados"
+    BD = "Bangladesh"
+    BE = "Belgium"
+    BF = "Burkina Faso"
+    BG = "Bulgaria"
+    BH = "Bahrain"
+    BI = "Burundi"
+    BJ = "Benin"
+    BM = "Bermuda"
+    BN = "Brunei Darussalam"
+    BO = "Bolivia"
+    BR = "Brazil"
+    BS = "Bahamas"
+    BT = "Bhutan"
+    BW = "Botswana"
+    BY = "Belarus"
+    BZ = "Belize"
+    CA = "Canada"
+    CC = "Cocos (Keeling) Islands"
+    CD = "Congo, The Democratic Republic Of The"
+    CF = "Central African Republic"
+    CG = "Congo"
+    CH = "Switzerland"
+    CI = "Côte D'ivoire"
+    CK = "Cook Islands"
+    CL = "Chile"
+    CM = "Cameroon"
+    CN = "China"
+    CO = "Colombia"
+    CR = "Costa Rica"
+    CS = "Serbia And Montenegro"
+    CU = "Cuba"
+    CV = "Cape Verde"
+    CX = "Christmas Island"
+    CY = "Cyprus"
+    CZ = "Czech Republic"
+    DE = "Germany"
+    DJ = "Djibouti"
+    DK = "Denmark"
+    DM = "Dominica"
+    DO = "Dominican Republic"
+    DZ = "Algeria"
+    EC = "Ecuador"
+    EE = "Estonia"
+    EG = "Egypt"
+    ER = "Eritrea"
+    ES = "Spain"
+    ET = "Ethiopia"
+    FI = "Finland"
+    FJ = "Fiji"
+    FK = "Falkland Islands (Malvinas)"
+    FM = "Micronesia, Federated States Of"
+    FO = "Faroe Islands"
+    FR = "France"
+    GA = "Gabon "
+    GB = "United Kingdom"
+    GD = "Grenada"
+    GE = "Georgia"
+    GF = "French Guiana"
+    GH = "Ghana"
+    GI = "Gibraltar"
+    GL = "Greenland"
+    GM = "Gambia"
+    GN = "Guinea"
+    GP = "Guadeloupe"
+    GQ = "Equatorial Guinea"
+    GR = "Greece"
+    GT = "Guatemala"
+    GU = "Guam"
+    GW = "Guinea-Bissau"
+    GY = "Guyana"
+    HK = "Hong Kong"
+    HN = "Honduras"
+    HR = "Croatia"
+    HT = "Haiti"
+    HU = "Hungary"
+    ID = "Indonesia"
+    IE = "Ireland"
+    IL = "Israel"
+    IN = "India"
+    IO = "British Indian Ocean Territory"
+    IQ = "Iraq"
+    IR = "Iran, Islamic Republic Of"
+    IS = "Iceland"
+    IT = "Italy"
+    JM = "Jamaica"
+    JO = "Jordan"
+    JP = "Japan"
+    KE = "Kenya"
+    KG = "Kyrgyzstan"
+    KH = "Cambodia"
+    KI = "Kiribati"
+    KM = "Comoros"
+    KN = "Saint Kitts And Nevis"
+    KP = "Korea, Democratic People's Republic Of"
+    KR = "Korea, Republic Of"
+    KW = "Kuwait"
+    KY = "Cayman Islands"
+    KZ = "Kazakhstan"
+    LA = "Lao People's Democratic Republic"
+    LB = "Lebanon"
+    LC = "Saint Lucia"
+    LI = "Liechtenstein"
+    LK = "Sri Lanka"
+    LR = "Liberia"
+    LS = "Lesotho"
+    LT = "Lithuania"
+    LU = "Luxembourg"
+    LV = "Latvia"
+    LY = "Libyan Arab Jamahiriya"
+    MA = "Morocco"
+    MC = "Monaco"
+    MD = "Moldova, Republic Of"
+    MG = "Madagascar"
+    MH = "Marshall Islands"
+    MK = "Macedonia, The Former Yugoslav Republic Of"
+    ML = "Mali"
+    MM = "Myanmar"
+    MN = "Mongolia"
+    MO = "Macao"
+    MP = "Northern Mariana Islands"
+    MQ = "Martinique"
+    MR = "Mauritania"
+    MS = "Montserrat"
+    MT = "Malta"
+    MU = "Mauritius"
+    MV = "Maldives"
+    MW = "Malawi"
+    MX = "Mexico"
+    MY = "Malaysia"
+    MZ = "Mozambique"
+    NA = "Namibia"
+    NC = "New Caledonia"
+    NE = "Niger"
+    NF = "Norfolk Island"
+    NG = "Nigeria"
+    NI = "Nicaragua"
+    NL = "Netherlands"
+    NO = "Norway"
+    NP = "Nepal"
+    NR = "Nauru"
+    NU = "Niue"
+    NZ = "New Zealand"
+    OM = "Oman"
+    PA = "Panama"
+    PE = "Peru"
+    PF = "French Polynesia"
+    PG = "Papua New Guinea"
+    PH = "Philippines"
+    PK = "Pakistan"
+    PL = "Poland"
+    PM = "Saint Pierre And Miquelon"
+    PN = "Pitcairn"
+    PR = "Puerto Rico"
+    PS = "Palestinian Territory, Occupied"
+    PT = "Portugal"
+    PW = "Palau"
+    PY = "Paraguay"
+    QA = "Qatar"
+    RE = "Réunion"
+    RO = "Romania"
+    RU = "Russian Federation"
+    RW = "Rwanda"
+    SA = "Saudi Arabia"
+    SB = "Solomon Islands"
+    SC = "Seychelles"
+    SD = "Sudan"
+    SE = "Sweden"
+    SG = "Singapore"
+    SH = "Saint Helena "
+    SI = "Slovenia"
+    SK = "Slovakia"
+    SL = "Sierra Leone"
+    SM = "San Marino"
+    SN = "Senegal"
+    SO = "Somalia"
+    SR = "Suriname"
+    ST = "Sao Tome And Principe"
+    SV = "El Salvador"
+    SY = "Syrian Arab Republic"
+    SZ = "Swaziland"
+    TC = "Turks And Caicos Islands"
+    TD = "Chad"
+    TG = "Togo"
+    TH = "Thailand"
+    TJ = "Tajikistan"
+    TK = "Tokelau"
+    TL = "Timor-Leste"
+    TM = "Turkmenistan"
+    TN = "Tunisia"
+    TO = "Tonga"
+    TR = "Turkey"
+    TT = "Trinidad And Tobago"
+    TV = "Tuvalu"
+    TW = "Taiwan, Province Of China"
+    TZ = "Tanzania, United Republic Of"
+    UA = "Ukraine"
+    UG = "Uganda"
+    UM = "United States Minor Outlying Islands"
+    US = "United States"
+    UY = "Uruguay"
+    UZ = "Uzbekistan"
+    VA = "Holy See (Vatican City State)"
+    VC = "Saint Vincent And The Grenadines"
+    VE = "Venezuela"
+    VG = "Virgin Islands, British"
+    VI = "Virgin Islands, U.S."
+    VN = "Viet Nam"
+    VU = "Vanuatu"
+    WF = "Wallis And Futuna"
+    WS = "Samoa"
+    YE = "Yemen"
+    YT = "Mayotte"
+    YU = "Yugoslavia"
+    ZA = "South Africa"
+    ZM = "Zambia"
+    ZW = "Zimbabwe"
+
+
+class Language(StrEnum):
+    """
+    Uppercased language codes as per ISO 639.
+    Hyphens are replaced with underscores.
+    """
+
+    def __eq__(self, other):
+        """Uppercase and replace hyphens with underscores for comparison."""
+        if isinstance(other, str):
+            normalized = other.upper().replace("-", "_")
+            return self.name == normalized
+
+        return super().__eq__(other)
+
+    AA = "Afar"
+    AB = "Abkhazian"
+    AE = "Avestan"
+    AF = "Afrikaans"
+    AK = "Akan"
+    AM = "Amharic"
+    AN = "Aragonese"
+    AR = "Arabic"
+    AS = "Assamese"
+    AV = "Avaric"
+    AY = "Aymara"
+    AZ = "Azerbaijani"
+    BA = "Bashkir"
+    BE = "Belarusian"
+    BG = "Bulgarian"
+    BH = "Bihari"
+    BI = "Bislama"
+    BM = "Bambara"
+    BN = "Bengali"
+    BO = "Tibetan"
+    BR = "Breton"
+    BS = "Bosnian"
+    BYN = "Blin"
+    CA = "Catalan"
+    CE = "Chechen"
+    CH = "Chamorro"
+    CO = "Corsican"
+    CR = "Cree"
+    CS = "Czech"
+    CU = "Church Slavic"
+    CV = "Chuvash"
+    CY = "Welsh"
+    DA = "Danish"
+    DE = "German"
+    DIN = "Dinka"
+    DSB = "Lower Sorbian"
+    DV = "Divehi"
+    DZ = "Dzongkha"
+    EE = "Ewe"
+    EL = "Greek"
+    EN = "English"
+    EO = "Esperanto"
+    ES = "Spanish"
+    ET = "Estonian"
+    EU = "Basque"
+    FA = "Persian"
+    FF = "Fulah"
+    FI = "Finnish"
+    FJ = "Fijian"
+    FO = "Faroese"
+    FR = "French"
+    FY = "Frisian"
+    GA = "Irish"
+    GD = "Gaelic"
+    GEZ = "Geez"
+    GIL = "Gilbertese"
+    GL = "Galician"
+    GN = "Guarani"
+    GU = "Gujarati"
+    GV = "Manx"
+    HA = "Hausa"
+    HAW = "Hawaiian"
+    HE = "Hebrew"
+    HI = "Hindi"
+    HO = "Hiri Motu"
+    HR = "Croatian"
+    HSB = "Upper Sorbian"
+    HT = "Haitian"
+    HU = "Hungarian"
+    HY = "Armenian"
+    HZ = "Herero"
+    IA = "Interlingua"
+    ID = "Indonesian"
+    IE = "Interlingue"
+    IG = "Igbo"
+    II = "Sichuan Yi"
+    IK = "Inupiaq"
+    IO = "Ido"
+    IS = "Icelandic"
+    IT = "Italian"
+    IU = "Inuktitut"
+    I_HAK = "Hakka"
+    JA = "Japanese"
+    JV = "Javanese"
+    KA = "Georgian"
+    KG = "Kongo"
+    KI = "Kikuyu"
+    KJ = "Kuanyama"
+    KK = "Kazakh"
+    KL = "Kalaallisut"
+    KM = "Khmer"
+    KN = "Kannada"
+    KO = "Korean"
+    KOK = "Konkani"
+    KR = "Kanuri"
+    KS = "Kashmiri"
+    KU = "Kurdish"
+    KV = "Komi"
+    KW = "Cornish"
+    KY = "Kirghiz"
+    LA = "Latin"
+    LB = "Luxembourgish"
+    LG = "Ganda"
+    LI = "Limburgan"
+    LN = "Lingala"
+    LO = "Lao"
+    LT = "Lithuanian"
+    LU = "Luba-Katanga"
+    LV = "Latvian"
+    MG = "Malagasy"
+    MH = "Marshallese"
+    MI = "Maori"
+    MK = "Macedonian"
+    ML = "Malayalam"
+    MN = "Mongolian"
+    MO = "Moldavian"
+    MR = "Marathi"
+    MS = "Malay"
+    MT = "Maltese"
+    MY = "Burmese"
+    NA = "Nauru"
+    NB = "Bokmål"
+    ND = "N. Ndebele"
+    NDS = "Low German"
+    NE = "Nepali"
+    NG = "Ndonga"
+    NL = "Dutch"
+    NN = "Nynorsk"
+    NO = "Norwegian"
+    NR = "S. Ndebele"
+    NV = "Navajo"
+    NY = "Chichewa"
+    OC = "Occitan"
+    OJ = "Ojibwa"
+    OM = "Oromo"
+    OR = "Oriya"
+    OS = "Ossetian"
+    PA = "Panjabi"
+    PI = "Pali"
+    PL = "Polish"
+    PS = "Pushto"
+    PT = "Portuguese"
+    QU = "Quechua"
+    RM = "Raeto-Romance"
+    RN = "Rundi"
+    RO = "Romanian"
+    RU = "Russian"
+    RW = "Kinyarwanda"
+    SA = "Sanskrit"
+    SC = "Sardinian"
+    SD = "Sindhi"
+    SE = "Northern Sami"
+    SG = "Sango"
+    SI = "Sinhala"
+    SID = "Sidamo"
+    SK = "Slovak"
+    SM = "Samoan"
+    SMA = "S. Sami"
+    SME = "N. Sami"
+    SMN = "Inari Sami"
+    SN = "Shona"
+    SO = "Somali"
+    SQ = "Albanian"
+    SR = "Serbian"
+    SS = "Swati"
+    ST = "Southern Sotho"
+    SU = "Sundanese"
+    SV = "Swedish"
+    SW = "Swahili"
+    SYR = "Syriac"
+    TA = "Tamil"
+    TE = "Telugu"
+    TG = "Tajik"
+    TH = "Thai"
+    TI = "Tigrinya"
+    TIG = "Tigre"
+    TK = "Turkmen"
+    TL = "Tagalog"
+    TN = "Tswana"
+    TO = "Tongan"
+    TR = "Turkish"
+    TS = "Tsonga"
+    TT = "Tatar"
+    TVL = "Tuvalu"
+    TW = "Twi"
+    TY = "Tahitian"
+    UG = "Uighur"
+    UK = "Ukrainian"
+    UR = "Urdu"
+    UZ = "Uzbek"
+    VE = "Venda"
+    VI = "Vietnamese"
+    VO = "Volapük"
+    WA = "Walloon"
+    WAL = "Walamo"
+    WEN = "Sorbian"
+    WO = "Wolof"
+    XH = "Xhosa"
+    YI = "Yiddish"
+    YO = "Yoruba"
+    ZA = "Zhuang"
+    ZH = "Chinese"
+    ZU = "Zulu"
