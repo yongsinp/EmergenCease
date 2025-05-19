@@ -15,6 +15,31 @@ class Category(StrEnum):
     Transport = auto()
 
 
+class Event(StrEnum):
+    """
+    Event types from FCC Alert Templates.
+    All event types are in CamelCase, and 911 is replaced with NineOneOne.
+    """
+    TornadoEmergency = auto()
+    TornadoWarning = auto()
+    FlashFloodEmergency = auto()
+    FlashFloodWarning = auto()
+    SevereThunderstormWarning = auto()
+    SnowSquallWarning = auto()
+    DustStormWarning = auto()
+    HurricaneWarning = auto()
+    StormSurgeWarning = auto()
+    ExtremeWindWarning = auto()
+    TestAlert = auto()
+    TsunamiWarning = auto()
+    EarthquakeWarning = auto()
+    BoilWaterAdvisory = auto()
+    NineOneOneOutrageAlert = auto()
+    AvalancheWarning = auto()
+    FireWarning = auto()
+    HazardousMaterialsWarning = auto()
+
+
 class Severity(StrEnum):
     Extreme = auto()
     Minor = auto()
