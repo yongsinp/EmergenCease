@@ -34,6 +34,17 @@ class Event(StrEnum):
     Event types from FCC Alert Templates.
     All event types are in CamelCase, and 911 is replaced with NineOneOne.
     """
+
+    def __eq__(self, other):
+        if isinstance(other, str):
+            other = other.replace(" ", "")
+
+        """Normalize and compare."""
+        if self.name == "NineOneOneOutageAlert":
+            return other == "911OutageAlert" or other == self.name
+
+        return super().__eq__(other)
+
     TornadoEmergency = auto()
     TornadoWarning = auto()
     FlashFloodEmergency = auto()
@@ -94,6 +105,14 @@ class ResponseType(StrEnum):
     Response types as per CAP 1.2.
     None is replaced with None_ to avoid conflict with the NoneType.
     """
+
+    def __eq__(self, other):
+        """Normalize and compare."""
+        if self.name == "None_":
+            return other == "None" or other == self.name
+
+        return super().__eq__(other)
+
     None_ = auto()
     AllClear = auto()
     Assess = auto()
@@ -354,6 +373,15 @@ class Language(StrEnum):
     Uppercased language codes as per ISO 639.
     Hyphens are replaced with underscores.
     """
+
+    def __eq__(self, other):
+        """Uppercase and replace hyphens with underscores for comparison."""
+        if isinstance(other, str):
+            normalized = other.upper().replace("-", "_")
+            return self.name == normalized
+
+        return super().__eq__(other)
+
     AA = "Afar"
     AB = "Abkhazian"
     AE = "Avestan"
