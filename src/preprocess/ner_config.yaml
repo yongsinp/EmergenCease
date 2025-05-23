@@ -7,7 +7,8 @@ info.description: description
 info.instruction: instruction
 
 # NEs
-info.areas.areaDesc: LOCATION
-info.senderName: SENDING AGENCY
-info.expires: TIME
-info.web: URL
+info.areas.areaDesc: location
+info.senderName: sending_agency
+info.expires: time
+info.web: url
+info.event: event
