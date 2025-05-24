@@ -1,7 +1,8 @@
 from typing import Any, Optional
 
 
-def get_nested_value(data: dict, key_path: str, default: None) -> Any:
+
+def get_nested_value(data: dict, key_path: str, default: Any = None) -> Any:
     """
     Retrieves a nested value from a dictionary using a dot-separated key path.
 
