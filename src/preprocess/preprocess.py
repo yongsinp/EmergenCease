@@ -8,6 +8,7 @@ import yaml
 from tqdm import tqdm
 
 from src.data.download import download_ipaws_data
+from src.utils.attribute_filter import get_nested_value
 from src.utils.paths import DATA_DIR
 
 
@@ -49,28 +50,6 @@ def get_config(file_path: str) -> dict:
     """Reads a YAML configuration file and returns its content as a dictionary."""
     with open(file_path, 'r') as r:
         return yaml.load(r, Loader=yaml.SafeLoader)
-
-
-def get_nested_value(data: dict, key_path: str, default: None) -> Any:
-    """
-    Retrieves a nested value from a dictionary using a dot-separated key path.
-
-    Parameters:
-        data: The dictionary to search.
-        key_path: A dot-separated string representing the path to the value.
-        default: The value to return if the key path does not exist.
-    """
-    keys = key_path.split('.')
-    result = data
-
-    try:
-        for key in keys:
-            result = result[key]
-            if isinstance(result, list) and result:
-                result = result[0]
-        return result
-    except (KeyError, TypeError, IndexError):
-        return default
 
 
 @singledispatch
