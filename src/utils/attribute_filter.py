@@ -54,3 +54,21 @@ def is_valid_scope(data: dict) -> bool:
 def is_valid_language(data: dict) -> bool:
     is_valid: Optional[str] = get_nested_value(data, "language")
     return is_valid is None or is_valid.startswith("en")
+
+
+def is_valid_alert(data: dict) -> bool:
+    """
+    Validates if the alert is valid based on its status, message type, scope, and language.
+
+    Parameters:
+        data: The dictionary representing the alert.
+
+    Returns:
+        bool: True if the alert is valid, False otherwise.
+    """
+    return (
+            is_valid_status(data)
+            and is_valid_msg_type(data)
+            and is_valid_scope(data)
+            and is_valid_language(data)
+    )
