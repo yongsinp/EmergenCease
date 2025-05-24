@@ -3,6 +3,7 @@ import os
 from functools import singledispatch
 from typing import Iterator, Any, Union
 
+import pandas as pd
 import yaml
 from tqdm import tqdm
 
@@ -35,6 +36,13 @@ def write_jsonl(file_path: str, data: list[dict[str, Any]]) -> None:
     with open(file_path, 'a', encoding='utf-8') as a:
         for item in data:
             a.write(json.dumps(item, ensure_ascii=True) + "\n")
+
+
+def write_csv(file_path: str, data: list[dict[str, Any]]) -> None:
+    """Writes a list of dictionaries to a CSV file."""
+    df = pd.DataFrame(data)
+    header = not os.path.exists(file_path)
+    df.to_csv(file_path, mode='a', index=False, encoding='utf-8', header=header)
 
 
 def get_config(file_path: str) -> dict:
@@ -95,7 +103,7 @@ if __name__ == "__main__":
     # Set file paths
     config_file = "ner_config.yaml"
     input_file = DATA_DIR / "IpawsArchivedAlerts.jsonl"
-    output_file = DATA_DIR / "extracted_data.jsonl"
+    output_file = DATA_DIR / "extracted_data.csv"
 
     # Load config
     config = get_config(config_file)
@@ -110,4 +118,4 @@ if __name__ == "__main__":
     # Process data
     for batch in tqdm(read_jsonl_in_batches(input_file), desc="Processing"):
         extracted_data = extract(batch, config)
-        write_jsonl(output_file, extracted_data)
+        write_csv(output_file, extracted_data)
