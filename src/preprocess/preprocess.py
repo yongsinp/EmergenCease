@@ -8,7 +8,7 @@ import yaml
 from tqdm import tqdm
 
 from src.data.download import download_ipaws_data
-from src.utils.attribute_filter import get_nested_value
+from src.utils.attribute_filter import get_nested_value, is_valid_alert
 from src.utils.paths import DATA_DIR
 
 
@@ -96,5 +96,6 @@ if __name__ == "__main__":
     # Todo: Add multi-processing
     # Process data
     for batch in tqdm(read_jsonl_in_batches(input_file), desc="Processing"):
+        batch = [item for item in batch if is_valid_alert(item)]
         extracted_data = extract(batch, config)
         write_csv(output_file, extracted_data)
