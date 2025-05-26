@@ -7,13 +7,16 @@ import spacy
 
 __all__ = ["get_urls"]
 
+# URL extraction
 REGEX_URL = re.compile(r"(?i)\b(?:https?:\/\/)?(?:www\.)[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?:\/\S*)?\b")
+
+# Date time extraction
+MODEL_NAME = "en_core_web_sm"
 TIME_ENTITIES = {"DATE", "TIME"}
 KEYWORDS = {"until", "expiring"}
 
 # Download and load the spaCy model
 try:
-    MODEL_NAME = "en_core_web_sm"
     nlp = spacy.load(MODEL_NAME)
 except OSError:
     print(f"Model '{MODEL_NAME}' not found. Downloading...")
@@ -38,7 +41,7 @@ def get_urls(input: str) -> list[str]:
     return urls if urls else []
 
 
-def get_time(input: str) -> str:
+def get_datetime(input: str) -> str:
     """
     Extracts the expiration time from the input string.
 
