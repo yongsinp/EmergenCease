@@ -196,6 +196,7 @@ class Extractor:
         print(f"Using device: {device}")
         return device
 
+    # Todo: Add support for batching
     def extract(self, headline: str = "", description: str = "", instruction: str = "") -> dict:
         """
         Extracts relevant fields from the alert message.
