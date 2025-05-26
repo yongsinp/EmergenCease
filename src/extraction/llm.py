@@ -1,11 +1,14 @@
 import json
 import os
+import pdb
 
 import jsonschema
+import pandas as pd
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 from src.data.enums import Event
+from src.utils.paths import DATA_DIR
 
 SCHEMA = {
     "type": "object",
@@ -243,37 +246,23 @@ class Extractor:
 
 
 if __name__ == "__main__":
+    def read_csv_in_batches(file_path: str, batch_size: int = 10):
+        """
+        Reads a CSV file in batches.
+        """
+        for chunk in pd.read_csv(file_path, chunksize=batch_size):
+            yield chunk
+
+
+    data_path = DATA_DIR / "extracted_data.csv"
     extractor = Extractor(model="unsloth/Llama-3.2-3B")
-    result = extractor.extract(
-        headline="Tornado Warning issued August 5 at 3:59PM MDT until August 5 at 4:30PM MDT by NWS Pueblo CO",
-        description="""The National Weather Service in Pueblo has issued a
 
-* Tornado Warning for...
-Southeastern El Paso County in east central Colorado...
-Northwestern Crowley County in southeastern Colorado...
-Northeastern Pueblo County in southeastern Colorado...
+    for batch in read_csv_in_batches(data_path):
+        for index, row in batch.iterrows():
+            headline = row.get("headline", "")
+            description = row.get("description", "")
+            instruction = row.get("instruction", "")
 
-* Until 430 PM MDT.
-
-* At 359 PM MDT, a severe thunderstorm capable of producing a tornado
-was located 11 miles south of Truckton, or 26 miles northeast of
-Pueblo Airport, moving southeast at 25 mph.
-
-HAZARD...Tornado.
-
-SOURCE...Radar indicated rotation.
-
-IMPACT...Flying debris will be dangerous to those caught without
-shelter. Mobile homes will be damaged or destroyed.
-Damage to roofs, windows, and vehicles will occur.  Tree
-damage is likely.
-
-* This tornadic thunderstorm will remain over mainly rural areas of
-southeastern El Paso, northwestern Crowley and northeastern Pueblo
-Counties.""",
-        instruction="""TAKE COVER NOW! Move to a basement or an interior room on the lowest
-floor of a sturdy building. Avoid windows. If you are outdoors, in a
-mobile home, or in a vehicle, move to the closest substantial shelter
-and protect yourself from flying debris.""",
-    )
-    print(result)
+            extracted_data = extractor.extract(headline, description, instruction)
+            print(f"Extracted data for index {index}: {extracted_data}")
+        break
