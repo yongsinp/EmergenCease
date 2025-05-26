@@ -186,9 +186,6 @@ class Extractor:
         # Check for Apple Silicon GPU
         elif torch.backends.mps.is_available():
             device = torch.device('mps')
-        # Check for AMD GPU
-        elif torch.backends.hip.is_available():
-            device = torch.device('hip')
         # Default to CPU
         else:
             device = torch.device('cpu')
