@@ -151,6 +151,7 @@ class Extractor:
     def device(self) -> torch.device:
         return self._device
 
+    # Todo: Check URL format
     # Todo: Check if values exist in the input
     @staticmethod
     def _validate_json(json_data: dict) -> bool:
