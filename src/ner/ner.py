@@ -18,9 +18,9 @@ def get_urls(input: str) -> list[str]:
     Returns:
         A list of URLs found in the input string. If no URLs are found, an empty list is returned.
     """
-    try:
-        urls = REGEX_URL.findall(input)
-        return urls if urls else []
-    except TypeError as e:
+    if pd.isna(input) or not str(input).strip():  # Check for NaN and empty string
         return []
+
+    urls = REGEX_URL.findall(input)
+    return urls if urls else []
 
