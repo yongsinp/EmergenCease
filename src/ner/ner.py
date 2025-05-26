@@ -52,3 +52,30 @@ def get_time(input: str) -> str:
         return []
 
     return [ent for ent in nlp(input).ents if ent.label_ in TIME_ENTITIES]
+
+
+def get_sending_agency(input: str) -> str:
+    """
+    Extracts the sending agency from the input string.
+
+    Parameters:
+        input: The input string from which to extract the sending agency.
+
+    Returns:
+        The sending agency if found, otherwise an empty string.
+    """
+    raise NotImplementedError("Sending agency extraction is not implemented yet.")
+
+
+def get_location(input: str) -> str:
+    """
+    Extracts the location from the input string.
+
+    Parameters:
+        input: The input string from which to extract the location.
+
+    Returns:
+        The location if found, otherwise an empty string.
+    """
+    # Location information is too critical to be extracted without proper care - but the mismatch between the 'location' column and the information in 'headline', 'description', and 'instruction' columns is too high.
+    raise NotImplementedError("Location extraction is not implemented yet.")
