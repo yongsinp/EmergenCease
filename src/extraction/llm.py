@@ -27,7 +27,7 @@ SCHEMA = {
         },
         "location": {
             "type": ["string", "null"],
-            "description": "The affected area of the alert message."
+            "description": "All affected areas of the alert message."
         },
         "event": {
             "type": ["string", "null"],
