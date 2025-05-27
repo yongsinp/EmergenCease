@@ -290,7 +290,8 @@ class Extractor:
             except json.JSONDecodeError:
                 self._logger.debug(f"Invalid JSON output: {output}")
 
-        raise RuntimeError(f"Failed to generate valid JSON after {self._retries + 1} tries.")
+        self._logger.error(f"Failed to generate a valid JSON after {self._retries + 1} tries.")
+        raise RuntimeError(f"Failed to generate a valid JSON after {self._retries + 1} tries.")
 
 
 if __name__ == "__main__":
