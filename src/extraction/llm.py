@@ -41,14 +41,12 @@ SCHEMA = {
 }
 
 # Todo: Convert the time format to ISO 8601
-PROMPT = """
-Generate a JSON object from the provided alert message which consists of a headline, a description, and an instruction, any of which could be empty.
+PROMPT = """Generate a JSON object from the provided alert message which consists of a headline, a description, and an instruction, any of which could be empty.
 The generated JSON object should have the following structure:
 {schema}
-The alert's event value must be categorized into one of the following events:
+Use the JSON literal null for any fields that are not present in the text.
+The event type MUST be one of the following. Use the closest one to the alert or the JSON literal null if there is no match:
 {events}
-Match the event name exactly as it is listed above.
-Use the JSON literal null for any fields that are not present in the text, or for events that are not listed in the above events.
 
 Following is an example of the expected input:
 headline: 
@@ -74,7 +72,7 @@ find an alternate route.
 
 Additional information can be found at weather.gov/chicago.
 
-And this is the expected JSON output:
+And the following is the expected JSON output:
 {{{{
     "event": "FlashFloodWarning",
     "expires": "November 23 at 9:00AM CST",
@@ -83,7 +81,7 @@ And this is the expected JSON output:
     "url": "weather.gov/chicago"
 }}}}
 
-The actual alert message to process is as follows:
+The actual alert message that needs to processed is as follows:
 headline: 
 {{headline}}
 description: 
@@ -94,7 +92,7 @@ instruction:
 Return only the JSON object, with no extra text or markdown:
 """.format(
     schema="{" + json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4) + "}",
-    events=', '.join(list(Event.__members__.keys()))
+    events='\n'.join(list(Event.__members__.keys()))
 )
 
 
