@@ -34,7 +34,7 @@ SCHEMA = {
         "event": {
             "type": ["string", "null"],
             "description": "The type of event the alert message is about.",
-            "enum": list(Event.__members__.keys()) + [None]
+            "enum": list(Event.__members__.keys())
         }
     },
     "required": ["url", "expires", "sender", "location", "event"]
