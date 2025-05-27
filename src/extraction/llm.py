@@ -139,10 +139,8 @@ class Extractor:
         self._device = self._get_accelerator()
 
         # Load model and tokenizer
-        # self._quantization_config = BitsAndBytesConfig(load_in_4bit=True)
         self._model = AutoModelForCausalLM.from_pretrained(
             self._model_name,
-            # quantization_config=self._quantization_config,
             device_map=self._device,
         )
         self._tokenizer = AutoTokenizer.from_pretrained(
