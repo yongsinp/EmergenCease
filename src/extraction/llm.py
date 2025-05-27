@@ -1,6 +1,5 @@
 import json
 import os
-import pdb
 
 import jsonschema
 import pandas as pd
@@ -40,15 +39,15 @@ SCHEMA = {
 
 # Todo: Convert the time format to ISO 8601
 PROMPT = """
-Generate a JSON object from the provided alert message.
-The JSON object should have the following structure:
+Generate a JSON object from the provided alert message which consists of a headline, a description, and an instruction, any of which could be empty.
+The generated JSON object should have the following structure:
 {schema}
-Categorize the alert into one of the following events:
+The alert's event value must be categorized into one of the following events:
 {events}
-Use null for any fields that are not present in the text, or for events that are not listed in the allowed events.
+Match the event name exactly as it is listed above.
+Use the JSON literal null for any fields that are not present in the text, or for events that are not listed in the above events.
 
-###### Example ######
-### Alert Message ###
+Following is an example of the expected input:
 headline: 
 Flood Advisory issued November 19 at 2:49PM CST expiring November 23 at 9:00AM CST by NWS Chicago IL 
 description: 
@@ -71,9 +70,8 @@ Safety message...If you encounter a flooded roadway...turn around and
 find an alternate route.
 
 Additional information can be found at weather.gov/chicago.
-### Alert Message End ###
 
-Expected JSON output:
+And this is the expected JSON output:
 {{{{
     "event": "FlashFloodWarning",
     "expires": "November 23 at 9:00AM CST",
@@ -82,17 +80,15 @@ Expected JSON output:
     "url": "weather.gov/chicago"
 }}}}
 
-###### Actual Task ######
-### Alert Message ###
+The actual alert message to process is as follows:
 headline: 
 {{headline}}
 description: 
 {{description}}
 instruction: 
 {{instruction}}
-### Alert Message End ###
 
-Expected JSON output:
+Return only the JSON object, with no extra text or markdown:
 """.format(
     schema="{" + json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4) + "}",
     events=', '.join(list(Event.__members__.keys()))
@@ -121,10 +117,12 @@ class Extractor:
         self._tokenizer = AutoTokenizer.from_pretrained(
             model,
             padding_side="left",
-            # use_fast=True,
+            use_fast=True,
         )
         self._generation_config = GenerationConfig(
+            bos_token_id=self._tokenizer.bos_token_id,
             eos_token_id=self._model.config.eos_token_id,
+            pad_token_id=self._tokenizer.eos_token_id,
         )
 
     @property
@@ -226,7 +224,7 @@ class Extractor:
         for _ in range(self._retries):
             generated_ids = self._model.generate(
                 **model_inputs,
-                # max_new_tokens=512,
+                max_new_tokens=64,
                 # do_sample=False,
                 # temperature=0.1
             )
@@ -257,10 +255,14 @@ if __name__ == "__main__":
 
     for batch in read_csv_in_batches(data_path):
         for index, row in batch.iterrows():
+            uuid = row.get("uuid", "")
             headline = row.get("headline", "")
             description = row.get("description", "")
             instruction = row.get("instruction", "")
 
-            extracted_data = extractor.extract(headline, description, instruction)
-            print(f"Extracted data for index {index}: {extracted_data}")
+            try:
+                extracted_data = extractor.extract(headline, description, instruction)
+                print(f"Extracted data for {uuid}: {extracted_data}")
+            except RuntimeError as e:
+                pass
         break
