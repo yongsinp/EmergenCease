@@ -148,6 +148,7 @@ class Extractor:
             padding_side="left",
             use_fast=True,
         )
+        self._tokenizer.pad_token = self._tokenizer.eos_token
         self._generation_config = GenerationConfig(
             bos_token_id=self._tokenizer.bos_token_id,
             eos_token_id=self._model.config.eos_token_id,
@@ -260,7 +261,7 @@ class Extractor:
         model_inputs = self._tokenizer(
             prompt,
             return_tensors="pt",
-            # padding=True,
+            padding=True,
             # truncation=True,
             # max_length=2048
         ).to(self._model.device)
