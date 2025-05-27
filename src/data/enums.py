@@ -63,6 +63,7 @@ class Event(StrEnum):
     AvalancheWarning = auto()
     FireWarning = auto()
     HazardousMaterialsWarning = auto()
+    Other = auto()
 
 
 class Severity(StrEnum):

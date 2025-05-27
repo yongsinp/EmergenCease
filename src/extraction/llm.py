@@ -45,7 +45,7 @@ PROMPT = """Generate a JSON object from the provided alert message which consist
 The generated JSON object should have the following structure:
 {schema}
 Use the JSON literal null for any fields that are not present in the text.
-The event type MUST be one of the following. Use the closest one to the alert or the JSON literal null if there is no match:
+The event type MUST be one of the following. Always use 'Other' if there is no match:
 {events}
 
 Following is an example of the expected input:
