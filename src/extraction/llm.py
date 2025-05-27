@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 import jsonschema
 import pandas as pd
@@ -99,6 +100,7 @@ class Extractor:
     """
     Extractor for extracting relevant information from alert messages using a predefined schema.
     """
+    REGEX_JSON = re.compile(r'\{[\s\S]+\}')
 
     def __init__(self, model: str, schema: str = SCHEMA, prompt: str = PROMPT, retries: int = 3) -> None:
         self._model_name = model
@@ -230,7 +232,11 @@ class Extractor:
             )
             output = self._tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)[0].strip()
 
-            # Todo: Check for ###### Actual Task End ######
+            # Extract JSON from output
+            if match := self.REGEX_JSON.search(output):
+                output = match.group(0)
+
+            # Parse and validate JSON output
             try:
                 json_data = json.loads(output)
                 if self._validate_json(json_data):
