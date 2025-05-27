@@ -266,7 +266,7 @@ class Extractor:
         input_length = model_inputs["input_ids"].shape[1]
 
         # Generate output
-        for _ in range(self._retries):
+        for _ in range(1 + self._retries):
             generated_ids = self._model.generate(
                 **model_inputs,
                 max_new_tokens=64,
