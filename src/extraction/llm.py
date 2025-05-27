@@ -188,6 +188,18 @@ class Extractor:
         if cls._logger is None:
             cls._logger = get_logger(cls.__name__, level=logging.INFO)
 
+    @classmethod
+    def set_logger_level(cls, level: Union[str, int] = logging.INFO) -> None:
+        """
+        Sets logging level for the class logger.
+
+        Parameters:
+            level: Logging level.
+        """
+        cls._logger.setLevel(level)
+        for handler in cls._logger.handlers:
+            handler.setLevel(level)
+
     # Todo: Check URL format
     # Todo: Check if values exist in the input
     @classmethod
@@ -292,6 +304,7 @@ if __name__ == "__main__":
 
     data_path = DATA_DIR / "extracted_data.csv"
     extractor = Extractor(model="unsloth/Llama-3.2-3B")
+    extractor.set_logger_level(logging.DEBUG)
 
     for batch in read_csv_in_batches(data_path):
         for index, row in batch.iterrows():
