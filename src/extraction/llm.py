@@ -1,6 +1,8 @@
 import json
+import logging
 import os
 import re
+from typing import Optional, Union
 
 import jsonschema
 import pandas as pd
@@ -96,13 +98,40 @@ Return only the JSON object, with no extra text or markdown:
 )
 
 
+def get_logger(name: str, level: Optional[Union[int, str]] = logging.INFO) -> logging.Logger:
+    """
+    Sets up and returns a logger with the specified name and level.
+
+    Parameters:
+        name: Name of the logger.
+        level: Logging level.
+
+    Returns:
+        logging.Logger: A logger instance.
+    """
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+
+    # Set handler
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(level)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+
+    return logger
+
+
 class Extractor:
     """
     Extractor for extracting relevant information from alert messages using a predefined schema.
     """
     REGEX_JSON = re.compile(r'\{[\s\S]+\}')
+    _logger = None
 
     def __init__(self, model: str, schema: str = SCHEMA, prompt: str = PROMPT, retries: int = 3) -> None:
+        self._initialize_class_attributes()
+
         self._model_name = model
         self._schema = schema
         self._prompt = prompt
@@ -154,10 +183,15 @@ class Extractor:
     def device(self) -> torch.device:
         return self._device
 
+    @classmethod
+    def _initialize_class_attributes(cls) -> None:
+        if cls._logger is None:
+            cls._logger = get_logger(cls.__name__, level=logging.INFO)
+
     # Todo: Check URL format
     # Todo: Check if values exist in the input
-    @staticmethod
-    def _validate_json(json_data: dict) -> bool:
+    @classmethod
+    def _validate_json(cls, json_data: dict) -> bool:
         """
         Validates the JSON object against the predefined schema.
 
@@ -171,11 +205,11 @@ class Extractor:
             jsonschema.validate(instance=json_data, schema=SCHEMA)
             return True
         except jsonschema.exceptions.ValidationError as e:
-            print(f"Invalid JSON format: {e.message}")
+            cls._logger.debug(f"Invalid JSON format: {e.message}")
             return False
 
-    @staticmethod
-    def _get_accelerator() -> torch.device:
+    @classmethod
+    def _get_accelerator(cls) -> torch.device:
         # Check for NVIDIA GPU
         if torch.cuda.is_available():
             device = torch.device('cuda')
@@ -190,7 +224,7 @@ class Extractor:
         else:
             device = torch.device('cpu')
 
-        print(f"Using device: {device}")
+        cls._logger.info(f"Using device: {device}")
         return device
 
     # Todo: Add support for batching
@@ -242,7 +276,7 @@ class Extractor:
                 if self._validate_json(json_data):
                     return json_data
             except json.JSONDecodeError:
-                print(f"Invalid JSON output: {output}")
+                self._logger.debug(f"Invalid JSON output: {output}")
 
         raise RuntimeError(f"Failed to generate valid JSON after {self._retries + 1} tries.")
 
