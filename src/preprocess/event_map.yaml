@@ -2,58 +2,311 @@ TornadoEmergency:
   -
 
 TornadoWarning:
-  -
+  - Tornado Warning
+  - Tornado Watch
 
 FlashFloodEmergency:
   -
 
 FlashFloodWarning:
   - Flash Flood Warning
+  - Flash Flood Statement
+  - Flash Flood Watch
+  - Flash Flooding 20230826
 
 SevereThunderstormWarning:
-  -
+  - Severe Thunderstorm Warning
+  - Severe Thunderstorm Watch
 
 SnowSquallWarning:
-  -
+  - Snow Squall Warning
 
 DustStormWarning:
-  -
+  - Dust Storm Warning
 
 HurricaneWarning:
-  -
+  - Hurricane Warning
+  - Hurricane Watch
 
 StormSurgeWarning:
-  -
+  - Storm Surge Warning
+  - Storm Surge Watch
 
 ExtremeWindWarning:
-  -
+  - Extreme Wind Warning
 
 TestAlert:
-  -
+  - COG test
+  - EAS Test
+  - EUP EMERGENCY ALERT TEST ONLY
+  - IPAWS Monthly Test
+  - IPAWS TEST
+  - IPAWS Test
+  - IPAWs Weekly Test
+  - Live WEA Test - April 10, 2019
+  - MCCD Required Monthly Test of IPAWS
+  - Monthly COG test
+  - Monthly TEST
+  - Monthly Test
+  - Monthly Test of WEA
+  - Monthly test
+  - NATIONAL PERIODIC TEST
+  - PRACTICE/DEMO WARNING
+  - Practice Demo Test
+  - Practice/Demo Warning
+  - REQUIRED MONTHLY TEST
+  - REQUIRED WEEKLY TEST
+  - Required Monthly Test
+  - Required Weekly Test
+  - Required Weekly Test 
+  - Required Weekly Test for IPAWS EAS via DisasterLAN
+  - Routine Monthly Test
+  - Routine Weekly Test
+  - Statewide Emergency Alert System Test
+  - TEMAWeeklyTest
+  - TEST
+  - TEST IPAWS WEA Alert TEST
+  - TEST ONLY
+  - TEST ONLY TO MONTEREY (fm Marin production system)
+  - TEST TEST TEST
+  - THIS IS A TEST OF SB ALERT
+  - TEST with Wasatch County
+  - Test
+  - Test Message
+  - Test Message IPAWS OPEN CAP EAS Feed
+  - Test message
+  - Test of the Montgomery County EAS system
+  - This a TEST to Marin County OES
+  - This is ONLY A TEST
+  - This is a Test of RSAN EAS ONLY a Test
+  - This is a test of the EAS.
+  - This is only a Test.
+  - WEA TEST 10:15 a.m.
+  - WEA TEST 11:15 am
+  - WEA TEST 11:30 am
+  - WEA Test
+  - Weekly Test
+  - required weekly test
+  - test  with Tooele
+  - test message
+  - test test test tooele
+  - test with Orem
+  - test2 with Utah County
+  - testmessage
+  - Demo Warning
 
 TsunamiWarning:
-  -
+  - Tsunami Warning
+  - Tsunami Watch
+  - Tsunami Advisory
 
 EarthquakeWarning:
-  -
+  - Earthquake Warning
 
 BoilWaterAdvisory:
-  -
+  - Boil Order
+  - Boil Water Advisory Bonnots Mill WEA2
+  - Camden Boil Water Alert
+  - WEA BOIL WATER
+  - BOIL WATER ADVISORY FOR ALL ROWAN COUNTY
+  - Boil Order Template
+  - City of Camden Boil Water Alert
 
 NineOneOneOutageAlert:
-  -
+  - 9-1-1 Call
+  - 911 Outage
+  - 911 Phone Lines Down
+  - 911 TELEPHONE OUTAGE EMERGENCY
+  - 911 Telephone Outage Emergency
+  - 911 outage
+  - 911 telephone Outage Emergency
 
 AvalancheWarning:
-  -
+  - Avalanche Warning
+  - Avalanche Advisory
 
 FireWarning:
-  -
+  - Fire Warning
 
 HazardousMaterialsWarning:
-  -
+  - Hazardous Materials Warning
+  - Hazardous materials Warning
+  - hazardous materials warning
 
 Other:
   - Coastal Flood Advisory
   - Coastal Flood Statement
   - Coastal Flood Warning
   - Coastal Flood Watch
+  - Air Stagnation Advisory
+  - Ashfall Advisory
+  - Beach Hazards Statement
+  - Daily Operations-Rochester
+  - Dense Fog Advisory
+  - Dense Smoke Advisory
+  - EVI
+  - Environmental Conditions Watch
+  - Environmental Hazard Warning
+  - Extreme Cold Warning (Alaska only)
+  - FRW
+  - Freezing Fog Advisory
+  - Freezing Rain Advisory
+  - Frost Advisory
+  - Hydrologic Outlook
+  - Ice Storm Warning
+  - Infrastructure - Not Otherwise Categorized
+  - LOCAL AREA EMERGENCY
+  - Marine Weather Statement
+  - Mudslide 
+  - NATIONAL EMERGENCY ACTION NOTIFICATION
+  - NWS Rebroadcast
+  - National Preparedness Month
+  - No State of Emergency
+  - Other - Not Otherwise Categorized
+  - Other Un-Categorized Safety Event
+  - Planned Event
+  - RESTRICT WATER USAGE
+  - RMT
+  - RWT
+  - Red Flag Warning
+  - Redel IPAWS Message 9/26/17
+  - Rip Current Statement
+  - Search and Rescue- Cleveland and East St
+  - Special Marine Warning
+  - Special Weather Statement
+  - State of Emergency
+  - Tropical Cyclone Statement
+  - WEA for Adams County 8/25/16
+  - Water Control Facilities
+  - Water Main Break
+  - Winter Weather Advisory
+  - Dust Advisory
+  - Blowing Dust Warning
+  - Blowing Dust Advisory
+  - AMBER
+  - AMBER ALERT - MISSOURI
+  - CHILD ABDUCTION EMERGENCY
+  - MISSING CHILD
+  - MISSOURI AMBER ALERT
+  - Missing Child
+  - Missing child
+  - Porter County Emergency Alert Test
+  - child abduction emergency
+  - gas leak
+  - Emergencia de Gas
+  - Gas Emergency
+  - Flood Advisory
+  - Flood Statement
+  - Flood Warning
+  - Flood Watch
+  - Lakeshore Flood Advisory
+  - Lakeshore Flood Statement
+  - Lakeshore Flood Warning
+  - Lakeshore Flood Watch
+  - Peach Creek Flooding Event
+  - Benton County Boil Water Alert Cancellation
+  - Gale Warning
+  - Gale Watch
+  - High Wind Warning
+  - High Wind Watch
+  - Hurricane Force Wind Warning
+  - Hurricane Force Wind Watch
+  - HazMat Incident at Bollio Gate - POM - ALL CLEAR - GATES OPEN
+  - HazMat Incident at Bollio Gate -Presidio of Monterey
+  - Blue Alert
+  - Blue Alert Warning
+  - Law Enforcement Blue Alert
+  - TN BLUE ALERT
+  - LOW WATER CROSSING CLOSED AT LIMEKILN AND POST RD.
+  - Low Water Advisory
+  - Closure of all Fort Cavazos Tactical Low Water Crossings
+  - EvacCenter
+  - Evacuation
+  - Evacuation Cancelled
+  - Evacuation Immediate
+  - Evacuation Immediate Warning
+  - Thurston County 9-1-1 Lines are Working
+  - Brisk Wind Advisory
+  - Lake Wind Advisory
+  - Wind Advisory
+  - Wind Chill Advisory
+  - Wind Chill Warning
+  - Wind Chill Watch
+  - ADR
+  - ADR 
+  - Administrative Message
+  - Administrative Message/Follow up Statement
+  - ADMINISTRATIVE MESSAGE
+  - Shelter In Place
+  - Shelter In Place Warning
+  - Shelter in Place CANCELLED
+  - Shelter in Place Warning
+  - [EMA] Shelter in Place
+  - CCSO - Police Situation
+  - Law Enforcement Warning
+  - Law Enforemen Warning
+  - Police Activity
+  - LAW ENFORCEMENT WARNING
+  - Blizzard Warning
+  - Blizzard Watch
+  - CIVIL DANGER WARNING
+  - CIVIL EMERGENCY MESSAGE
+  - Civil Danger Warning
+  - Civil Emergency Message
+  - Excessive Heat Warning
+  - Excessive Heat Watch
+  - Heat Advisory
+  - Blowing Dust Advisory
+  - Blowing Dust Warning
+  - Dust Advisory
+  - Wildfire
+  - Sevier County Wildfires
+  - Fire Weather Watch
+  - Mora County Fire Alert
+  - No Travel Advised
+  - No Travel Advised 
+  - Freeze Warning
+  - Freeze Watch
+  - Hard Freeze Warning
+  - Hard Freeze Watch
+  - Small Craft Advisory
+  - Small Craft Advisory for Hazardous Seas
+  - Small Craft Advisory for Rough Bar
+  - Small Craft Advisory for Winds
+  - Hazardous Seas Warning
+  - Hazardous Seas Watch
+  - Heavy Freezing Spray Advisory
+  - Heavy Freezing Spray Warning
+  - Heavy Freezing Spray Watch
+  - High Surf Advisory
+  - High Surf Warning
+  - Road Closure
+  - Roadway Disruption or Delay
+  - Lake Effect Snow Advisory
+  - Lake Effect Snow Warning
+  - Lake Effect Snow Watch
+  - LAE
+  - Local Area Emergency
+  - Local Area Emergency Warning
+  - Storm Warning
+  - Storm Watch
+  - Severe Weather Statement
+  - Severe Weather Warning
+  - Telecommunications Disruption
+  - Telecommunications Emergency
+  - Tropical Storm Warning
+  - Tropical Storm Watch
+  - Typhoon Warning
+  - Typhoon Watch
+  - WINTER STORM
+  - Winter Storm Warning
+  - Winter Storm Watch
+  - 2. IPAWS Tornado Warning has been Canceled
+  - CEM
+  - COVID-19 update: STAY HOME. 
+  - COVID 19 update
+  - NB US 127 M46 TRAFFIC CRASH
+  - prepare
+  - COVID-19 Response
+  - BLUE Alert
+  - Coronavirus entry order
