@@ -1,6 +1,10 @@
 ### Project
 /data
 
+### Python
+__pycache__/
+*.py[cod]
+
 ### Base Template template
 ### IntelliJ
 # IntelliJ project files
