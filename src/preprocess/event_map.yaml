@@ -1,0 +1,59 @@
+TornadoEmergency:
+  -
+
+TornadoWarning:
+  -
+
+FlashFloodEmergency:
+  -
+
+FlashFloodWarning:
+  - Flash Flood Warning
+
+SevereThunderstormWarning:
+  -
+
+SnowSquallWarning:
+  -
+
+DustStormWarning:
+  -
+
+HurricaneWarning:
+  -
+
+StormSurgeWarning:
+  -
+
+ExtremeWindWarning:
+  -
+
+TestAlert:
+  -
+
+TsunamiWarning:
+  -
+
+EarthquakeWarning:
+  -
+
+BoilWaterAdvisory:
+  -
+
+NineOneOneOutageAlert:
+  -
+
+AvalancheWarning:
+  -
+
+FireWarning:
+  -
+
+HazardousMaterialsWarning:
+  -
+
+Other:
+  - Coastal Flood Advisory
+  - Coastal Flood Statement
+  - Coastal Flood Warning
+  - Coastal Flood Watch

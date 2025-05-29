@@ -6,9 +6,16 @@ import pandas as pd
 from tqdm import tqdm
 
 from src.data.download import download_ipaws_data
+from src.data.enums import Event
 from src.data.file import read_yaml, read_jsonl_in_batches, write_csv
 from src.utils.attribute_filter import get_nested_value, is_valid_alert
 from src.utils.paths import DATA_DIR
+
+_EVENT_MAP = {
+    syn: event
+    for event, syn_list in read_yaml("event_map.yaml").items()  # Todo: Remove hardcoded path
+    for syn in syn_list
+}
 
 
 @singledispatch
@@ -22,8 +29,9 @@ def _(data: dict, config: dict) -> dict:
     """Extracts relevant fields from the data."""
     new_data = {}
 
-    for key, value in config.items():
-        new_data[value] = get_nested_value(data, key, None)
+    for k, v in config.items():
+        value = get_nested_value(data, k, None)
+        new_data[v] = _EVENT_MAP.get(value, Event.Other) if v == 'event' else value
 
     return new_data
 
