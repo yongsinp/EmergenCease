@@ -40,12 +40,13 @@ SCHEMA = {
     "required": ["url", "expires", "sender", "location", "event"]
 }
 
+SYSTEM_PROMPT = """You are a helpful and scrupulous assistant that extracts relevant information from the given data and generates a JSON object with the following schema:
+{schema}"""
+
 # Todo: Convert the time format to ISO 8601
-PROMPT = """Generate a JSON object from the provided alert message which consists of a headline, a description, and an instruction, any of which could be empty.
-The generated JSON object should have the following structure:
-{schema}
-Use the JSON literal null if the information for a field is not present in the text.
-The event type MUST be one of the following. Always use 'Other' if there is no match:
+USER_PROMPT = """Generate a JSON object from the provided alert message.
+Use the JSON literal null if the information for a field cannot be found in the message.
+The event type MUST be one of the following. Use 'Other' if there is no match:
 {events}
 
 Following is an example of the expected input:
@@ -72,7 +73,7 @@ find an alternate route.
 
 Additional information can be found at weather.gov/chicago.
 
-And the following is the expected JSON output:
+This is the expected JSON output you should generate from the above alert message:
 {{{{
     "event": "FlashFloodWarning",
     "expires": "November 23 at 9:00AM CST",
@@ -81,7 +82,7 @@ And the following is the expected JSON output:
     "url": "weather.gov/chicago"
 }}}}
 
-The actual alert message that needs to processed is as follows:
+The actual alert message that you need to process is as follows:
 headline: 
 {{headline}}
 description: 
@@ -89,9 +90,8 @@ description:
 instruction: 
 {{instruction}}
 
-Return only the JSON object, with no extra text or markdown:
+Return the JSON object, and only the JSON object, using the information above with no extra text or markdown.
 """.format(
-    schema="{" + json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4) + "}",
     events='\n'.join(list(Event.__members__.keys()))
 )
 
@@ -127,12 +127,15 @@ class Extractor:
     REGEX_JSON = re.compile(r'\{[\s\S]+\}')
     _logger = None
 
-    def __init__(self, model: str, schema: str = SCHEMA, prompt: str = PROMPT, retries: int = 3) -> None:
+    def __init__(self, model: str, schema: str = SCHEMA, prompt: str = USER_PROMPT, retries: int = 3) -> None:
         self._initialize_class_attributes()
 
         self._model_name = model
         self._schema = schema
-        self._prompt = prompt
+        self._system_prompt = SYSTEM_PROMPT.format(
+            schema=json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4)
+        )
+        self._user_prompt = prompt
         self._retries = retries
         self._device = self._get_accelerator()
 
@@ -152,6 +155,11 @@ class Extractor:
             eos_token_id=self._model.config.eos_token_id,
             pad_token_id=self._tokenizer.eos_token_id,
         )
+        self._chat_template_config = {
+            "tokenize": False,
+            "add_generation_prompt": False,  # Llama does not support generation prompts
+            "continue_final_message": True,
+        }
 
     @property
     def model(self) -> str:
@@ -163,7 +171,7 @@ class Extractor:
 
     @property
     def prompt(self) -> str:
-        return self._prompt
+        return self._user_prompt
 
     @property
     def retries(self) -> int:
@@ -197,7 +205,7 @@ class Extractor:
         for handler in cls._logger.handlers:
             handler.setLevel(level)
 
-    # Todo: Check URL format
+    # Todo: Check URL format using regex
     # Todo: Check if values exist in the input
     @classmethod
     def _validate_json(cls, json_data: dict) -> bool:
@@ -236,28 +244,34 @@ class Extractor:
         cls._logger.info(f"Using device: {device}")
         return device
 
+    def _apply_cml(self, user_prompt: str) -> list:
+        return [
+            {"role": "system", "content": self._system_prompt},
+            {"role": "user", "content": user_prompt},
+            {"role": "assistant", "content": "The JSON:\n"},
+        ]
+
     # Todo: Add support for batching
-    def extract(self, headline: str = "", description: str = "", instruction: str = "") -> dict:
+    def extract(self, **source) -> dict:
         """
         Extracts relevant fields from the alert message.
 
         Parameters:
-            headline: The headline of the alert message.
-            description: The description of the alert message.
-            instruction: The instruction of the alert message.
+           source: Keyword arguments containing the alert message fields.
 
         Returns:
             A dictionary containing the extracted fields.
         """
         # Format prompt
-        prompt = self._prompt.format(
-            headline=headline,
-            description=description,
-            instruction=instruction
-        )
+        prompts = [
+            self._tokenizer.apply_chat_template(
+                self._apply_cml(self._user_prompt.format(**source)),
+                **self._chat_template_config,
+            )
+        ]
 
         model_inputs = self._tokenizer(
-            prompt,
+            prompts,
             return_tensors="pt",
             padding=True,
             # truncation=True,
@@ -269,7 +283,7 @@ class Extractor:
         for _ in range(1 + self._retries):
             generated_ids = self._model.generate(
                 **model_inputs,
-                max_new_tokens=64,
+                max_new_tokens=128,
                 # do_sample=False,
                 # temperature=0.1
             )
@@ -301,7 +315,7 @@ if __name__ == "__main__":
 
 
     data_path = DATA_DIR / "extracted_data.csv"
-    extractor = Extractor(model="unsloth/Llama-3.2-3B")
+    extractor = Extractor(model="unsloth/Llama-3.2-3B-Instruct")
     extractor.set_logger_level(logging.DEBUG)
 
     for batch in read_csv_in_batches(data_path):
@@ -312,7 +326,7 @@ if __name__ == "__main__":
             instruction = row.get("instruction", "")
 
             try:
-                extracted_data = extractor.extract(headline, description, instruction)
+                extracted_data = extractor.extract(headline=headline, description=description, instruction=instruction)
                 print(f"Extracted data for {uuid}: {extracted_data}")
             except RuntimeError as e:
                 pass
