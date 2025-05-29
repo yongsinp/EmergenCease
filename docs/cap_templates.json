@@ -10,7 +10,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -19,7 +19,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -28,7 +28,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -37,7 +37,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -46,7 +46,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -55,7 +55,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -64,7 +64,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -73,7 +73,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -82,7 +82,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -91,7 +91,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -100,7 +100,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -109,7 +109,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -118,7 +118,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -127,7 +127,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -136,7 +136,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "TornadoEmergency",
         "urgency": "",
         "severity": "",
@@ -158,7 +158,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -167,7 +167,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -176,7 +176,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -185,7 +185,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -194,7 +194,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -203,7 +203,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -212,7 +212,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -221,7 +221,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -230,7 +230,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -239,7 +239,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -248,7 +248,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -257,7 +257,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -266,7 +266,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -275,7 +275,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -284,7 +284,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "TornadoWarning",
         "urgency": "",
         "severity": "",
@@ -306,7 +306,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -315,7 +315,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -324,7 +324,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -333,7 +333,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -342,7 +342,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -351,7 +351,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -360,7 +360,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -369,7 +369,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -378,7 +378,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -387,7 +387,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -396,7 +396,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -405,7 +405,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -414,7 +414,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -423,7 +423,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -432,7 +432,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodEmergency",
         "urgency": "",
         "severity": "",
@@ -454,7 +454,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -463,7 +463,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -472,7 +472,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -481,7 +481,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -490,7 +490,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -499,7 +499,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -508,7 +508,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -517,7 +517,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -526,7 +526,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -535,7 +535,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -544,7 +544,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -553,7 +553,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -562,7 +562,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -571,7 +571,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -580,7 +580,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "FlashFloodWarning",
         "urgency": "",
         "severity": "",
@@ -602,7 +602,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -611,7 +611,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -620,7 +620,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -629,7 +629,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -638,7 +638,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -647,7 +647,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -656,7 +656,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -665,7 +665,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -674,7 +674,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -683,7 +683,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -692,7 +692,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -701,7 +701,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -710,7 +710,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -719,7 +719,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -728,7 +728,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "SevereThunderstormWarning",
         "urgency": "",
         "severity": "",
@@ -750,7 +750,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -759,7 +759,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -768,7 +768,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -777,7 +777,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -786,7 +786,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -795,7 +795,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -804,7 +804,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -813,7 +813,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -822,7 +822,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -831,7 +831,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -840,7 +840,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -849,7 +849,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -858,7 +858,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -867,7 +867,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -876,7 +876,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "SnowSquallWarning",
         "urgency": "",
         "severity": "",
@@ -898,7 +898,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -907,7 +907,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -916,7 +916,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -925,7 +925,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -934,7 +934,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -943,7 +943,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -952,7 +952,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -961,7 +961,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -970,7 +970,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -979,7 +979,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -988,7 +988,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -997,7 +997,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -1006,7 +1006,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -1015,7 +1015,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -1024,7 +1024,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "DustStormWarning",
         "urgency": "",
         "severity": "",
@@ -1046,7 +1046,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1055,7 +1055,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1064,7 +1064,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1073,7 +1073,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1082,7 +1082,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1091,7 +1091,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1100,7 +1100,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1109,7 +1109,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1118,7 +1118,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1127,7 +1127,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1136,7 +1136,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1145,7 +1145,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1154,7 +1154,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1163,7 +1163,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1172,7 +1172,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "HurricaneWarning",
         "urgency": "",
         "severity": "",
@@ -1194,7 +1194,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1203,7 +1203,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1212,7 +1212,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1221,7 +1221,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1230,7 +1230,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1239,7 +1239,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1248,7 +1248,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1257,7 +1257,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1266,7 +1266,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1275,7 +1275,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1284,7 +1284,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1293,7 +1293,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1302,7 +1302,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1311,7 +1311,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1320,7 +1320,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "StormSurgeWarning",
         "urgency": "",
         "severity": "",
@@ -1342,7 +1342,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1351,7 +1351,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1360,7 +1360,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1369,7 +1369,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1378,7 +1378,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1387,7 +1387,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1396,7 +1396,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1405,7 +1405,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1414,7 +1414,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1423,7 +1423,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1432,7 +1432,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1441,7 +1441,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1450,7 +1450,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1459,7 +1459,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1468,7 +1468,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "ExtremeWindWarning",
         "urgency": "",
         "severity": "",
@@ -1483,14 +1483,14 @@
     "identifier": "",
     "sender": "",
     "sent": "",
-    "status": "",
+    "status": "Test",
     "msgType": "",
     "scope": "",
     
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1499,7 +1499,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1508,7 +1508,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1517,7 +1517,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1526,7 +1526,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1535,7 +1535,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1544,7 +1544,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1553,7 +1553,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1562,7 +1562,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1571,7 +1571,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1580,7 +1580,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1589,7 +1589,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1598,7 +1598,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1607,7 +1607,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1616,7 +1616,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "TestAlert",
         "urgency": "",
         "severity": "",
@@ -1638,7 +1638,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1647,7 +1647,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1656,7 +1656,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1665,7 +1665,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1674,7 +1674,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1683,7 +1683,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1692,7 +1692,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1701,7 +1701,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1710,7 +1710,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1719,7 +1719,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1728,7 +1728,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1737,7 +1737,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1746,7 +1746,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1755,7 +1755,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1764,7 +1764,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "TsunamiWarning",
         "urgency": "",
         "severity": "",
@@ -1786,7 +1786,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1795,7 +1795,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1804,7 +1804,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1813,7 +1813,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1822,7 +1822,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1831,7 +1831,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1840,7 +1840,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1849,7 +1849,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1858,7 +1858,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1867,7 +1867,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1876,7 +1876,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1885,7 +1885,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1894,7 +1894,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1903,7 +1903,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1912,7 +1912,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "EarthquakeWarning",
         "urgency": "",
         "severity": "",
@@ -1934,7 +1934,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -1943,7 +1943,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -1952,7 +1952,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -1961,7 +1961,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -1970,7 +1970,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -1979,7 +1979,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -1988,7 +1988,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -1997,7 +1997,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2006,7 +2006,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2015,7 +2015,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2024,7 +2024,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2033,7 +2033,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2042,7 +2042,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2051,7 +2051,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2060,7 +2060,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "BoilWaterAdvisory",
         "urgency": "",
         "severity": "",
@@ -2082,7 +2082,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2091,7 +2091,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2100,7 +2100,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2109,7 +2109,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2118,7 +2118,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2127,7 +2127,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2136,7 +2136,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2145,7 +2145,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2154,7 +2154,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2163,7 +2163,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2172,7 +2172,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2181,7 +2181,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2190,7 +2190,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2199,7 +2199,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2208,7 +2208,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "NineOneOneOutageAlert",
         "urgency": "",
         "severity": "",
@@ -2230,7 +2230,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2239,7 +2239,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2248,7 +2248,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2257,7 +2257,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2266,7 +2266,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2275,7 +2275,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2284,7 +2284,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2293,7 +2293,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2302,7 +2302,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2311,7 +2311,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2320,7 +2320,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2329,7 +2329,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2338,7 +2338,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2347,7 +2347,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2356,7 +2356,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "AvalancheWarning",
         "urgency": "",
         "severity": "",
@@ -2378,7 +2378,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "Fire",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2387,7 +2387,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "Fire",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2396,7 +2396,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2405,7 +2405,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2414,7 +2414,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2423,7 +2423,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2432,7 +2432,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2441,7 +2441,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2449,7 +2449,7 @@
         "description": "{SENDING_AGENCY}: {LOCATION} में {TIME} तक आग की चेतावनी जारी की गई है। अपने परिवार और पालतू जानवरों को अभी किसी और स्थान पर ले जाएं, देर न करें। इलाके में दृश्यता कम होगी और सड़कें अवरुद्ध हो सकती हैं। अगर आप अभी नहीं जाते हैं, तो आप फंस सकते हैं, आपको चोट लग सकती है या आपकी जान जा सकती है। {LOCATION} के आस-पास के इलाके को छोड़ दें। कम दृश्यता, भारी धुएं और साँस लेने में मुश्किल की अपेक्षा करें। वाहन चलाते वक्त सावधान रहें। इलाके में कार्यरत सार्वजनिक सुरक्षा कर्मियों को खोजते रहें और उनके निर्देशों का पालन करें। {URL}"},
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2458,7 +2458,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2467,7 +2467,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2476,7 +2476,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2485,7 +2485,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2494,7 +2494,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2503,7 +2503,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "FireWarning",
         "urgency": "",
         "severity": "",
@@ -2525,7 +2525,7 @@
     "info": [
       {
         "language": "EN",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2534,7 +2534,7 @@
       },
       {
         "language": "AR",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2543,7 +2543,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2552,7 +2552,7 @@
       },
       {
         "language": "ZH",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2561,7 +2561,7 @@
       },
       {
         "language": "FR",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2570,7 +2570,7 @@
       },
       {
         "language": "DE",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2579,7 +2579,7 @@
       },
       {
         "language": "HT",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2588,7 +2588,7 @@
       },
       {
         "language": "HI",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2597,7 +2597,7 @@
       },
       {
         "language": "IT",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2606,7 +2606,7 @@
       },
       {
         "language": "KO",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2615,7 +2615,7 @@
       },
       {
         "language": "PT",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2624,7 +2624,7 @@
       },
       {
         "language": "RU",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2633,7 +2633,7 @@
       },
       {
         "language": "ES",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "",
         "severity": "",
@@ -2642,7 +2642,7 @@
       },
       {
         "language": "TL",
-        "category": [""],
+        "category": "",
         "event": "HazardousMaterialsWarning",
         "urgency": "HazardousMaterialsWarning",
         "severity": "",
@@ -2651,7 +2651,7 @@
       },
       {
         "language": "VI",
-        "category": [""],
+        "category": "",
         "event": "",
         "urgency": "",
         "severity": "",
