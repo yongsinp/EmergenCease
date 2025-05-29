@@ -29,7 +29,7 @@ SCHEMA = {
         },
         "location": {
             "type": ["string", "null"],
-            "description": "All affected areas of the alert message."
+            "description": "All affected areas of the alert message, separated by semicolons."
         },
         "event": {
             "type": ["string", "null"],
