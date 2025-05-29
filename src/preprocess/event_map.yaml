@@ -58,7 +58,7 @@ TestAlert:
   - REQUIRED WEEKLY TEST
   - Required Monthly Test
   - Required Weekly Test
-  - Required Weekly Test 
+  - Required Weekly Test
   - Required Weekly Test for IPAWS EAS via DisasterLAN
   - Routine Monthly Test
   - Routine Weekly Test
@@ -157,7 +157,7 @@ Other:
   - Infrastructure - Not Otherwise Categorized
   - LOCAL AREA EMERGENCY
   - Marine Weather Statement
-  - Mudslide 
+  - Mudslide
   - NATIONAL EMERGENCY ACTION NOTIFICATION
   - NWS Rebroadcast
   - National Preparedness Month
@@ -233,7 +233,7 @@ Other:
   - Wind Chill Warning
   - Wind Chill Watch
   - ADR
-  - ADR 
+  - ADR
   - Administrative Message
   - Administrative Message/Follow up Statement
   - ADMINISTRATIVE MESSAGE
@@ -241,7 +241,7 @@ Other:
   - Shelter In Place Warning
   - Shelter in Place CANCELLED
   - Shelter in Place Warning
-  - [EMA] Shelter in Place
+  - "[EMA] Shelter in Place"
   - CCSO - Police Situation
   - Law Enforcement Warning
   - Law Enforemen Warning
@@ -264,7 +264,7 @@ Other:
   - Fire Weather Watch
   - Mora County Fire Alert
   - No Travel Advised
-  - No Travel Advised 
+  - No Travel Advised
   - Freeze Warning
   - Freeze Watch
   - Hard Freeze Warning
@@ -303,7 +303,7 @@ Other:
   - Winter Storm Watch
   - 2. IPAWS Tornado Warning has been Canceled
   - CEM
-  - COVID-19 update: STAY HOME. 
+  - "COVID-19 update: STAY HOME."
   - COVID 19 update
   - NB US 127 M46 TRAFFIC CRASH
   - prepare
