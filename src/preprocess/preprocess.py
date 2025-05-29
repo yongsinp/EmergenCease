@@ -1,55 +1,13 @@
-import json
 import os
 from functools import singledispatch
-from typing import Iterator, Any, Union
+from typing import Union
 
-import pandas as pd
-import yaml
 from tqdm import tqdm
 
 from src.data.download import download_ipaws_data
+from src.data.file import read_yaml, read_jsonl_in_batches, write_csv
 from src.utils.attribute_filter import get_nested_value, is_valid_alert
 from src.utils.paths import DATA_DIR
-
-
-def read_jsonl_in_batches(file_path: str, batch_size=1000) -> Iterator[list[dict[str, Any]]]:
-    """Yields batches of parsed JSON objects from a JSONL file."""
-    batch = []
-
-    with open(file_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            line = line.strip()
-            if line:
-                try:
-                    batch.append(json.loads(line))
-                except json.JSONDecodeError:
-                    pass
-                if len(batch) == batch_size:
-                    yield batch
-                    batch = []
-
-        if batch:
-            yield batch
-
-
-def write_jsonl(file_path: str, data: list[dict[str, Any]]) -> None:
-    """Writes a list of dictionaries to a JSONL file."""
-    with open(file_path, 'a', encoding='utf-8') as a:
-        for item in data:
-            a.write(json.dumps(item, ensure_ascii=True) + "\n")
-
-
-def write_csv(file_path: str, data: list[dict[str, Any]]) -> None:
-    """Writes a list of dictionaries to a CSV file."""
-    df = pd.DataFrame(data)
-    header = not os.path.exists(file_path)
-    df.to_csv(file_path, mode='a', index=False, encoding='utf-8', header=header)
-
-
-def get_config(file_path: str) -> dict:
-    """Reads a YAML configuration file and returns its content as a dictionary."""
-    with open(file_path, 'r') as r:
-        return yaml.load(r, Loader=yaml.SafeLoader)
 
 
 @singledispatch
@@ -85,7 +43,7 @@ if __name__ == "__main__":
     output_file = DATA_DIR / "extracted_data.csv"
 
     # Load config
-    config = get_config(config_file)
+    config = read_yaml(config_file)
 
     # Delete existing output file
     try:
