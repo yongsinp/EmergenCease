@@ -44,7 +44,7 @@ SCHEMA = {
 PROMPT = """Generate a JSON object from the provided alert message which consists of a headline, a description, and an instruction, any of which could be empty.
 The generated JSON object should have the following structure:
 {schema}
-Use the JSON literal null for any fields that are not present in the text.
+Use the JSON literal null if the information for a field is not present in the text.
 The event type MUST be one of the following. Always use 'Other' if there is no match:
 {events}
 
