@@ -3,6 +3,7 @@ from functools import singledispatch
 from typing import Union
 
 import pandas as pd
+from pandas import DataFrame
 from tqdm import tqdm
 
 from src.data.download import download_ipaws_data
@@ -91,6 +92,16 @@ def split_dataset(file_path: str, train_ratio: float = 0.8, val_ratio: float = 0
     return train_path, val_path, test_path
 
 
+def sample_dataset(data: DataFrame, column_name: str, classes: set[str], num_sample_per_class: int = 2) -> pd.DataFrame:
+    sampled_data = []
+
+    for cls in classes:
+        class_data = data[data[column_name] == cls]
+        sampled_data.append(class_data.sample(n=min(len(class_data), num_sample_per_class), random_state=42))
+
+    return pd.concat(sampled_data, ignore_index=True)
+
+
 if __name__ == "__main__":
     # Download data
     download_ipaws_data()
@@ -117,4 +128,26 @@ if __name__ == "__main__":
         write_csv(output_file, extracted_data)
 
     # Split data
-    split_dataset(output_file, 0.8, 0.1, 0.1, 4)
+    split_dataset(output_file, 0.8, 0.1, 0.1, 575)
+
+    subset_train = pd.read_csv(DATA_DIR / "extracted_data_train.csv")
+    sample_dataset(
+        subset_train,
+        column_name="event",
+        classes=set(_EVENT_MAP.values()),
+        num_sample_per_class=2
+    ).to_csv(DATA_DIR / "finetune_train.csv", index=False)
+    subset_val = pd.read_csv(DATA_DIR / "extracted_data_val.csv")
+    sample_dataset(
+        subset_val,
+        column_name="event",
+        classes=set(_EVENT_MAP.values()),
+        num_sample_per_class=2
+    ).to_csv(DATA_DIR / "finetune_val.csv", index=False)
+    subset_test = pd.read_csv(DATA_DIR / "extracted_data_test.csv")
+    sample_dataset(
+        subset_test,
+        column_name="event",
+        classes=set(_EVENT_MAP.values()),
+        num_sample_per_class=2
+    ).to_csv(DATA_DIR / "finetune_test.csv", index=False)
