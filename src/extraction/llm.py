@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import re
+from copy import deepcopy
 from typing import Optional, Union, Any
 
 import jsonschema
@@ -10,29 +11,30 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 from src.data.enums import Event
+from src.extraction.ner import REGEX_URL
 from src.utils.paths import DATA_DIR
 
 SCHEMA = {
     "type": "object",
     "properties": {
         "url": {
-            "type": ["string", "null"],
-            "description": "URL containing additional information."
+            "type": ["string"],
+            "description": "URL leading to additional information, exactly as written in the alert message, separated by semicolons. Leave empty if no URL is found.",
         },
         "expires": {
-            "type": ["string", "null"],
-            "description": "The expiration date and time of the information of the alert message."
+            "type": ["string"],
+            "description": "The expiration date and time of the information of the alert message. Leave empty if no expiration time is found."
         },
         "sender": {
-            "type": ["string", "null"],
-            "description": "The originator of the alert message."
+            "type": ["string"],
+            "description": "The organization that sent the alert message. Leave empty if no sender is found."
         },
         "location": {
-            "type": ["string", "null"],
-            "description": "All affected areas of the alert message, separated by semicolons."
+            "type": ["string"],
+            "description": "All affected areas (i.e., the longest substring as written in the alert message), separated by semicolons. Leave empty if no location is found."
         },
         "event": {
-            "type": ["string", "null"],
+            "type": ["string"],
             "description": "The type of event the alert message is about.",
             "enum": list(Event.__members__.keys())
         }
@@ -50,34 +52,18 @@ The event type MUST be one of the following. Use "Other" if there is no match:
 {events}
 
 Following is an example of the expected input:
-headline: 
-Flood Advisory issued November 19 at 2:49PM CST expiring November 23 at 9:00AM CST by NWS Chicago IL 
-description: 
-Illinois River at Ottawa affecting La Salle County
-The National Weather Service in Chicago has issued a
-* Flood Advisory for
-The Illinois River at Ottawa.
-* until Thursday morning.
-* At  230 PM Sunday the stage was 461.0 feet.
-* Action stage is 461.0 feet.
-* Flood stage is 463.0 feet.
-* Forecast...The river will rise to near 462.0 feet by Monday
-morning.
-* Impact...At 462.4 feet...Allen Park entrance threatened and west
-boat ramp is submerged. 
-instruction: 
-PRECAUTIONARY/PREPAREDNESS ACTIONS...
-
-Safety message...If you encounter a flooded roadway...turn around and
-find an alternate route.
-
-Additional information can be found at weather.gov/chicago.
+headline:
+Flash Flood Warning issued November 19 at 2:49PM CST expiring November 23 at 9:00AM CST by NWS Chicago IL  
+description:
+Illinois River at Ottawa affecting La Salle County The National Weather Service in Chicago has issued a * Flash Flood Warning for The Illinois River at Ottawa. * until Thursday morning. * At  230 PM Sunday the stage was 461.0 feet. * Action stage is 461.0 feet. * Flood stage is 463.0 feet. * Forecast...The river will rise to near 462.0 feet by Monday morning. * Impact...At 462.4 feet...Allen Park entrance threatened and west boat ramp is submerged.  
+instruction:
+PRECAUTIONARY/PREPAREDNESS ACTIONS...  Safety message...If you encounter a flooded roadway...turn around and find an alternate route.  Additional information can be found at weather.gov/chicago.
 
 This is the expected JSON output you should generate from the above alert message:
 {{{{
     "event": "FlashFloodWarning",
     "expires": "November 23 at 9:00AM CST",
-    "location": "La Salle",
+    "location": "Illinois River at Ottawa; La Salle County; Allen Park",
     "sender": "NWS Chicago IL",
     "url": "weather.gov/chicago"
 }}}}
@@ -206,6 +192,56 @@ class Extractor:
                     if value == original:
                         target[i] = replacement
 
+    @staticmethod
+    def _preprocess(source: dict) -> dict:
+        """
+        Applies basic preprocessing to the source.
+
+        Parameters:
+            source: A dictionary containing the source fields.
+
+        Returns:
+            A dictionary with preprocessed values.
+        """
+        new_dict = deepcopy(source)
+
+        for key, value in new_dict.items():
+            source[key] = str(value.strip()).replace("\n", " ")
+
+        return source
+
+    @staticmethod
+    def _postprocess(source: dict, json_data: dict) -> dict:
+        """
+        Post-processes the extracted JSON data.
+
+        Parameters:
+            json_data: A dictionary to post-process.
+
+        Returns:
+            A dictionary with post-processed values.
+        """
+        new_data = deepcopy(json_data)
+
+        Extractor._replace(new_data, None, "")
+
+        # Replace unrecognized event types with "Other"
+        if new_data.get("event", "") not in Event.__members__.keys():
+            new_data["event"] = Event.Other.value
+
+        # Remove URL if not present in the source fields
+        if all(not REGEX_URL.search(value) for value in source.values()):
+            new_data["url"] = ""
+
+        # Remove expires and sender if not present in the source fields
+        for key in ["expires", "sender"]:
+            value = new_data.get(key, "").strip().lower()
+            if all(not value in str(src_value).strip().lower() for src_value in source.values()):
+                new_data[key] = ""
+
+
+        return new_data
+
     @classmethod
     def _initialize_class_attributes(cls) -> None:
         if cls._logger is None:
@@ -223,19 +259,27 @@ class Extractor:
         for handler in cls._logger.handlers:
             handler.setLevel(level)
 
-    # Todo: Check URL format using regex
     # Todo: Check if values exist in the input
     @classmethod
-    def _validate_json(cls, json_data: dict) -> bool:
+    def _validate_json(cls, source: dict, json_data: dict) -> bool:
         """
         Validates the JSON object against the predefined schema.
 
         Parameters:
+            source: A dictionary containing the source fields to check against.
             json_data: The JSON object to validate.
 
         Returns:
             bool: True if the JSON object is valid, False otherwise.
         """
+        # Check URL validity
+        urls = json_data.get("url", "").split(";")
+        for url in filter(None, urls):
+            if not isinstance(url, str) or not REGEX_URL.match(url):
+                raise ValueError(f"Malformed URL: {url}")
+            elif all(url.lower().strip() not in value.lower().strip() for value in source.values()):
+                raise ValueError(f"URL '{url}' not found in the source fields.")
+
         try:
             jsonschema.validate(instance=json_data, schema=SCHEMA)
             return True
@@ -280,6 +324,8 @@ class Extractor:
         Returns:
             A dictionary containing the extracted fields.
         """
+        source = self._preprocess(source)
+
         # Format prompt
         prompts = [
             self._tokenizer.apply_chat_template(
@@ -314,12 +360,11 @@ class Extractor:
             # Parse and validate JSON output
             try:
                 json_data = json.loads(output)
-                self._replace(json_data, None, "")
-
-                if self._validate_json(json_data):
+                json_data = self._postprocess(source, json_data)
+                if self._validate_json(source, json_data):
                     return json_data
-            except json.JSONDecodeError:
-                self._logger.debug(f"Invalid JSON output: {output}")
+            except (json.JSONDecodeError, ValueError) as e:
+                self.debug = self._logger.debug(f"Invalid JSON output: {e}")
 
         self._logger.error(f"Failed to generate a valid JSON after {self._retries + 1} tries.")
         raise RuntimeError(f"Failed to generate a valid JSON after {self._retries + 1} tries.")
