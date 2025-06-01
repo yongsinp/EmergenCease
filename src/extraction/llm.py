@@ -314,7 +314,7 @@ if __name__ == "__main__":
             yield chunk
 
 
-    data_path = DATA_DIR / "extracted_data.csv"
+    data_path = DATA_DIR / "finetune" / "finetune_test.csv"
     extractor = Extractor(model="unsloth/Llama-3.2-3B-Instruct")
     extractor.set_logger_level(logging.DEBUG)
 
