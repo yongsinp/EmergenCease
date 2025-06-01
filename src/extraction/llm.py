@@ -2,7 +2,7 @@ import json
 import logging
 import os
 import re
-from typing import Optional, Union
+from typing import Optional, Union, Any
 
 import jsonschema
 import pandas as pd
@@ -45,8 +45,8 @@ SYSTEM_PROMPT = """You are a helpful and scrupulous assistant that extracts rele
 
 # Todo: Convert the time format to ISO 8601
 USER_PROMPT = """Generate a JSON object from the provided alert message.
-Use the JSON literal null if the information for a field cannot be found in the message.
-The event type MUST be one of the following. Use 'Other' if there is no match:
+Use empty string "" if the information for a field cannot be found in the message.
+The event type MUST be one of the following. Use "Other" if there is no match:
 {events}
 
 Following is an example of the expected input:
@@ -188,6 +188,24 @@ class Extractor:
     def device(self) -> torch.device:
         return self._device
 
+    @staticmethod
+    def _replace(target: Union[dict, list], original: Any, replacement: Any) -> None:
+        """Recursively replaces original value with the replacement value."""
+        if isinstance(target, dict):
+            for key, value in target.items():
+                if isinstance(value, (dict, list)):
+                    Extractor._replace(value, original, replacement)
+                else:
+                    if value == original:
+                        target[key] = replacement
+        elif isinstance(target, list):
+            for i, value in enumerate(target):
+                if isinstance(value, (dict, list)):
+                    Extractor._replace(value, original, replacement)
+                else:
+                    if value == original:
+                        target[i] = replacement
+
     @classmethod
     def _initialize_class_attributes(cls) -> None:
         if cls._logger is None:
@@ -296,6 +314,8 @@ class Extractor:
             # Parse and validate JSON output
             try:
                 json_data = json.loads(output)
+                self._replace(json_data, None, "")
+
                 if self._validate_json(json_data):
                     return json_data
             except json.JSONDecodeError:
