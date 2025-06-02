@@ -1,4 +1,5 @@
 import difflib
+import time
 from dataclasses import dataclass
 from functools import wraps
 from typing import Iterable
@@ -25,6 +26,7 @@ class Result:
     url_em: float  # Set F1 (exact match)
     url_partial: float  # Set F1 (partial match)
     failed: int
+    time_per_sample: int
 
 
 class Evaluator:
@@ -177,6 +179,7 @@ class Evaluator:
         url_partial = 0
         failed = 0
 
+        start = time.time()
         for index, row in tqdm(data.iterrows(), total=len(data), desc="Evaluating"):
             input = {
                 "headline": row["headline"],
@@ -211,7 +214,8 @@ class Evaluator:
             time_rouge_l=time_rouge_l / len_data,
             url_em=url_em / len_data,
             url_partial=url_partial / len_data,
-            failed=failed
+            failed=failed,
+            time_per_sample=(time.time() - start) / len(data)
         )
 
 
@@ -241,5 +245,6 @@ if __name__ == '__main__':
         url_em=sum(r.url_em for r in results) / runs,
         url_partial=sum(r.url_partial for r in results) / runs,
         failed=sum(r.failed for r in results) / runs,
+        time_per_sample=sum(r.time_per_sample for r in results) / runs
     )
     print(average_result)
