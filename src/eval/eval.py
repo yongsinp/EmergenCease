@@ -147,7 +147,7 @@ class Evaluator:
 
         # Explicitly handle empty strings
         if not pred and not ref:
-            return  1.0
+            return 1.0
         elif not pred or not ref:
             return 0.0
 
