@@ -202,15 +202,16 @@ class Evaluator:
                 failed += 1
                 pass
 
+        len_data = len(data) - failed
         return Result(
-            event=event / len(data),
-            location_em=location_em / len(data),
-            location_partial=location_partial / len(data),
-            sender=sender / len(data),
-            time_em=time_em / len(data),
-            time_rouge_l=time_rouge_l / len(data),
-            url_em=url_em / len(data),
-            url_partial=url_partial / len(data),
+            event=event / len_data,
+            location_em=location_em / len_data,
+            location_partial=location_partial / len_data,
+            sender=sender / len_data,
+            time_em=time_em / len_data,
+            time_rouge_l=time_rouge_l / len_data,
+            url_em=url_em / len_data,
+            url_partial=url_partial / len_data,
             failed=failed
         )
 
