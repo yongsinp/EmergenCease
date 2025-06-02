@@ -189,7 +189,8 @@ class Evaluator:
             try:
                 extracted_data = self._extractor.extract(**input)
 
-                # Todo: bidirectional match
+                # Todo: Try bidirectional match
+                # Todo: Simply evaluation by putting these in a dictionary
                 event += self.exact_match(extracted_data['event'], row['event'])
                 location_em += self.set_f1(extracted_data['location'].split(";"), row['location'].split(";"),
                                            match_="exact")
