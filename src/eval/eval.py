@@ -222,16 +222,17 @@ class Evaluator:
 
 if __name__ == '__main__':
     models = [
+        "unsloth/Llama-3.2-1B-Instruct",
         "unsloth/Llama-3.2-3B",
         "unsloth/Llama-3.2-3B-Instruct",
         "meta-llama/Meta-Llama-3.1-8B-Instruct"
     ]
-    evalulator = Evaluator(models[1])
+    evalulator = Evaluator(models[2])
 
     runs = 3
     results = []
     for _ in range(runs):
-        result = evalulator.evaluate(DATA_DIR / "finetune" / "finetune_val.csv")
+        result = evalulator.evaluate(DATA_DIR / "finetune" / "finetune_test.csv")
         results.append(result)
         print(result)
 
