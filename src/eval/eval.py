@@ -202,8 +202,8 @@ class Evaluator:
                 url_em += self.set_f1(extracted_data['url'].split(";"), row['url'].split(";"), match_="exact")
                 url_partial += self.set_f1(extracted_data['url'].split(";"), row['url'].split(";"), match_="partial")
             except RuntimeError as e:
+                print(f"Error processing {row['uuid']}: {e}")
                 failed += 1
-                pass
 
         len_data = len(data) - failed
         return Result(
