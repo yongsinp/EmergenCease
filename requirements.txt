@@ -7,3 +7,6 @@ spacy~=3.8.6
 transformers~=4.52.3
 torch~=2.6.0
 accelerate~=1.7.0
+levenshtein~=0.27.1
+nltk~=3.9.1
+rouge~=1.0.1
