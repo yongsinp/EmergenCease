@@ -52,12 +52,28 @@ The event type MUST be one of the following. Use "Other" if there is no match:
 {events}
 
 Following is an example of the expected input:
-headline:
-Flash Flood Warning issued November 19 at 2:49PM CST expiring November 23 at 9:00AM CST by NWS Chicago IL  
-description:
-Illinois River at Ottawa affecting La Salle County The National Weather Service in Chicago has issued a * Flash Flood Warning for The Illinois River at Ottawa. * until Thursday morning. * At  230 PM Sunday the stage was 461.0 feet. * Action stage is 461.0 feet. * Flood stage is 463.0 feet. * Forecast...The river will rise to near 462.0 feet by Monday morning. * Impact...At 462.4 feet...Allen Park entrance threatened and west boat ramp is submerged.  
-instruction:
-PRECAUTIONARY/PREPAREDNESS ACTIONS...  Safety message...If you encounter a flooded roadway...turn around and find an alternate route.  Additional information can be found at weather.gov/chicago.
+headline: 
+Flash Flood Warning issued November 19 at 2:49PM CST expiring November 23 at 9:00AM CST by NWS Chicago IL 
+description: 
+Illinois River at Ottawa affecting La Salle County
+The National Weather Service in Chicago has issued a
+* Flash Flood Warning for
+The Illinois River at Ottawa.
+* until Thursday morning.
+* At  230 PM Sunday the stage was 461.0 feet.
+* Action stage is 461.0 feet.
+* Flood stage is 463.0 feet.
+* Forecast...The river will rise to near 462.0 feet by Monday
+morning.
+* Impact...At 462.4 feet...Allen Park entrance threatened and west
+boat ramp is submerged. 
+instruction: 
+PRECAUTIONARY/PREPAREDNESS ACTIONS...
+
+Safety message...If you encounter a flooded roadway...turn around and
+find an alternate route.
+
+Additional information can be found at weather.gov/chicago.
 
 This is the expected JSON output you should generate from the above alert message:
 {{{{
@@ -193,24 +209,6 @@ class Extractor:
                         target[i] = replacement
 
     @staticmethod
-    def _preprocess(source: dict) -> dict:
-        """
-        Applies basic preprocessing to the source.
-
-        Parameters:
-            source: A dictionary containing the source fields.
-
-        Returns:
-            A dictionary with preprocessed values.
-        """
-        new_dict = deepcopy(source)
-
-        for key, value in new_dict.items():
-            source[key] = str(value.strip()).replace("\n", " ")
-
-        return source
-
-    @staticmethod
     def _postprocess(source: dict, json_data: dict) -> dict:
         """
         Post-processes the extracted JSON data.
@@ -238,7 +236,6 @@ class Extractor:
             value = new_data.get(key, "").strip().lower()
             if all(not value in str(src_value).strip().lower() for src_value in source.values()):
                 new_data[key] = ""
-
 
         return new_data
 
@@ -324,8 +321,6 @@ class Extractor:
         Returns:
             A dictionary containing the extracted fields.
         """
-        source = self._preprocess(source)
-
         # Format prompt
         prompts = [
             self._tokenizer.apply_chat_template(
