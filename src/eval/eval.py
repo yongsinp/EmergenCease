@@ -223,5 +223,24 @@ if __name__ == '__main__':
         "meta-llama/Meta-Llama-3.1-8B-Instruct"
     ]
     evalulator = Evaluator(models[1])
-    result = evalulator.evaluate(DATA_DIR / "finetune" / "finetune_val.csv")
-    print(result)
+
+    runs = 3
+    results = []
+    for _ in range(runs):
+        result = evalulator.evaluate(DATA_DIR / "finetune" / "finetune_val.csv")
+        results.append(result)
+        print(result)
+
+    # Print average
+    average_result = Result(
+        event=sum(r.event for r in results) / runs,
+        location_em=sum(r.location_em for r in results) / runs,
+        location_partial=sum(r.location_partial for r in results) / runs,
+        sender=sum(r.sender for r in results) / runs,
+        time_em=sum(r.time_em for r in results) / runs,
+        time_rouge_l=sum(r.time_rouge_l for r in results) / runs,
+        url_em=sum(r.url_em for r in results) / runs,
+        url_partial=sum(r.url_partial for r in results) / runs,
+        failed=sum(r.failed for r in results) / runs,
+    )
+    print(average_result)
