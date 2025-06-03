@@ -32,6 +32,12 @@ def read_yaml(file_path: str) -> dict:
         return yaml.load(r, Loader=yaml.SafeLoader)
 
 
+def write_json(file_path: str, data: dict[str, Any], mode: str = 'w') -> None:
+    """Writes a dictionary to a JSON file."""
+    with open(file_path, mode, encoding='utf-8') as w:
+        json.dump(data, w, ensure_ascii=True, indent=4)
+
+
 def write_jsonl(file_path: str, data: list[dict[str, Any]], mode: str = 'a') -> None:
     """Writes a list of dictionaries to a JSONL file."""
     with open(file_path, mode, encoding='utf-8') as w:
