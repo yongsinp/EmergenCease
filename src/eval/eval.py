@@ -1,4 +1,5 @@
 import difflib
+import os.path
 import time
 from dataclasses import dataclass
 from functools import wraps
@@ -12,7 +13,7 @@ from rouge import Rouge
 from tqdm import tqdm
 
 from src.extraction.llm import Extractor
-from src.utils.paths import DATA_DIR
+from src.utils.paths import DATA_DIR, MODEL_DIR
 
 
 @dataclass
@@ -30,8 +31,8 @@ class Result:
 
 
 class Evaluator:
-    def __init__(self, model: str):
-        self._extractor = Extractor(model)
+    def __init__(self, model: str, adapter: str = None):
+        self._extractor = Extractor(model, adapter=adapter)
         self._rouge = None
 
     @staticmethod
@@ -222,14 +223,14 @@ class Evaluator:
 
 if __name__ == '__main__':
     models = [
-        "unsloth/Llama-3.2-1B-Instruct",
-        "unsloth/Llama-3.2-3B",
-        "unsloth/Llama-3.2-3B-Instruct",
-        "meta-llama/Meta-Llama-3.1-8B-Instruct"
+        "Llama-3.1-8B-Instruct",
+        "Llama-3.2-1B-Instruct",
+        "Llama-3.2-3B-Instruct"
     ]
-    evalulator = Evaluator(models[2])
+    adapter_path = "/gscratch/stf/yongsinp/EmergenCease/models/finetuned_llama_3.1_8b_instruct/epoch_0"
+    evalulator = Evaluator(os.path.join(MODEL_DIR, models[0]), adapter=adapter_path)
 
-    runs = 3
+    runs = 5
     results = []
     for _ in range(runs):
         result = evalulator.evaluate(DATA_DIR / "finetune" / "finetune_test.csv")

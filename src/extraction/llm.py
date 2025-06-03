@@ -8,7 +8,8 @@ from typing import Optional, Union, Any
 import jsonschema
 import pandas as pd
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
+from peft import PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 
 from src.data.enums import Event
 from src.extraction.ner import REGEX_URL
@@ -129,10 +130,12 @@ class Extractor:
     REGEX_JSON = re.compile(r'\{[\s\S]+\}')
     _logger = None
 
-    def __init__(self, model: str, schema: str = SCHEMA, prompt: str = USER_PROMPT, retries: int = 3) -> None:
+    def __init__(self, model: str, schema: str = SCHEMA, prompt: str = USER_PROMPT, adapter: str = None,
+                 retries: int = 3) -> None:
         self._initialize_class_attributes()
 
         self._model_name = model
+        self._adapter_path = adapter
         self._schema = schema
         self._system_prompt = SYSTEM_PROMPT.format(
             schema=json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4)
@@ -162,6 +165,10 @@ class Extractor:
             "add_generation_prompt": False,  # Llama does not support generation prompts
             "continue_final_message": True,
         }
+
+        # Load adapter if provided
+        if self._adapter_path:
+            self._model = PeftModel.from_pretrained(self._model, self._adapter_path)
 
     @property
     def model(self) -> str:
