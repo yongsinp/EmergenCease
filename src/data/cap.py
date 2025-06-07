@@ -52,7 +52,7 @@ SCHEMA = {
         "id": {"type": ["string", "null"]},
         "xmlns": {"type": ["string", "null"]},
 
-        "info": {"type": ["array", "null"], "items": {"$ref": "#/$defs/info"}}
+        "info": {"type": ["array"], "items": {"$ref": "#/$defs/info"}}
     },
 
     "$defs": {
@@ -166,19 +166,17 @@ class Cap:
     @staticmethod
     def _create_empty_cap(schema) -> dict:
         t = schema.get("type")
-        if t == "object":
+        if t == "object" or "object" in t:
             obj = {}
             for k, sub in schema.get("properties", {}).items():
-                if "default" in sub:
-                    obj[k] = copy.deepcopy(sub["default"])
-                elif sub.get("type") == "array":
+                if "array" in sub.get("type"):
                     obj[k] = []
-                elif sub.get("type") == "object":
+                elif "object" in sub.get("type"):
                     obj[k] = Cap._create_empty_cap(sub)
                 else:
                     obj[k] = None
             return obj
-        elif t == "array":
+        elif t == "array" or "array" in t:
             return []
         else:
             return None
@@ -209,8 +207,13 @@ class Cap:
         return original
 
     @classmethod
-    def from_string(self, content: str) -> 'Cap':
-        raise NotImplementedError
+    def from_string(cls, content: str) -> 'Cap':
+        cap = cls()
+        info = {
+            "description": content,
+        }
+        cap.add_info(info)
+        return cap
 
     @classmethod
     def from_dict(cls, content: dict) -> 'Cap':
