@@ -16,6 +16,7 @@ __all__ = [
 
 
 class Category(StrEnum):
+    CBRNE = auto()
     Env = "Environmental"
     Fire = auto()
     Geo = "Geological"
@@ -71,6 +72,7 @@ class Severity(StrEnum):
     Minor = auto()
     Moderate = auto()
     Severe = auto()
+    Unknown = auto()
 
 
 class Urgency(StrEnum):
@@ -78,13 +80,16 @@ class Urgency(StrEnum):
     Future = auto()
     Immediate = auto()
     Past = auto()
+    Unknown = auto()
 
 
 class Certainty(StrEnum):
     Likely = auto()
+    Observed = auto()
     Possible = auto()
+    Unknown = auto()
     Unlikely = auto()
-    VeryLikely = "Very Likely"
+    VeryLikely = "Very Likely"  # Not part of CAP 1.2, but found in some implementations
 
 
 class Status(StrEnum):
@@ -115,9 +120,9 @@ class ResponseType(StrEnum):
         return super().__eq__(other)
 
     None_ = auto()
-    AllClear = auto()
+    AllClear = auto()  # Not part of CAP 1.2, but found in some implementations
     Assess = auto()
-    Avoid = auto()
+    Avoid = auto()  # Not part of CAP 1.2, but found in some implementations
     Evacuate = auto()
     Execute = auto()
     Monitor = auto()
