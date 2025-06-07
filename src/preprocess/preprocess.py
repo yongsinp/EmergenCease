@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 from src.data.download import download_ipaws_data
 from src.data.enums import Event
-from src.data.file import read_yaml, read_jsonl_in_batches, write_csv
+from src.utils.file import read_yaml, read_jsonl_in_batches
 from src.utils.attribute_filter import get_nested_value, is_valid_alert
 from src.utils.paths import DATA_DIR
 

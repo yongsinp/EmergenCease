@@ -24,7 +24,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: تسري حالة طوارئ الإعصار في {LOCATION} حتى {TIME}. تم رصد إعصار في هذه المنطقة. هذا وضع يهدد الحياة. احتمِ الآن في قبو أو غرفة داخلية في الطابق السفلي من مبنى قوي. إذا كنت في الهواء الطلق أو في منزل متنقل أو في سيارة، فانتقل إلى أقرب مأوى قوي واحمِ نفسك من الأشياء المتطايرة. اطلع على آخر مستجدات وسائل الإعلام. {URL"
+        "description": "{SENDING_AGENCY}: تسري حالة طوارئ الإعصار في {LOCATION} حتى {TIME}. تم رصد إعصار في هذه المنطقة. هذا وضع يهدد الحياة. احتمِ الآن في قبو أو غرفة داخلية في الطابق السفلي من مبنى قوي. إذا كنت في الهواء الطلق أو في منزل متنقل أو في سيارة، فانتقل إلى أقرب مأوى قوي واحمِ نفسك من الأشياء المتطايرة. اطلع على آخر مستجدات وسائل الإعلام. {URL}"
       },
       {
         "language": "ZH",
@@ -42,7 +42,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 處於龍捲風緊急狀態，該狀態將持續至{TIME}。該地區發現龍捲風。這是有生命危險的緊急狀況。現在就請立即躲到地下室或堅固建築物最底層的房間內。如果您在戶外、移動房屋或車輛中，請前往最近的堅固避難所並保護自己免受飛行物體的傷害。在媒體上查看最新消息。{URL}  "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 處於龍捲風緊急狀態，該狀態將持續至{TIME}。該地區發現龍捲風。這是有生命危險的緊急狀況。現在就請立即躲到地下室或堅固建築物最底層的房間內。如果您在戶外、移動房屋或車輛中，請前往最近的堅固避難所並保護自己免受飛行物體的傷害。在媒體上查看最新消息。{URL}"
       },
       {
         "language": "FR",
@@ -114,7 +114,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: ЧРЕЗВЫЧАЙНАЯ СИТУАЦИЯ. ТОРНАДО в {LOCATION} до {TIME}. В зоне, где вы находитесь, обнаружен торнадо. Это явление опасно для жизни. Укройтесь в подвале или внутреннем помещении на нижнем этаже устойчивого здания. Если вы на улице, в передвижном доме или в транспортном средстве, отправляйтесь в ближайшее надежное укрытие, чтобы защититься от летящих объектов. Следите за новостями. {URL} "
+        "description": "{SENDING_AGENCY}: ЧРЕЗВЫЧАЙНАЯ СИТУАЦИЯ. ТОРНАДО в {LOCATION} до {TIME}. В зоне, где вы находитесь, обнаружен торнадо. Это явление опасно для жизни. Укройтесь в подвале или внутреннем помещении на нижнем этаже устойчивого здания. Если вы на улице, в передвижном доме или в транспортном средстве, отправляйтесь в ближайшее надежное укрытие, чтобы защититься от летящих объектов. Следите за новостями. {URL
       },
       {
         "language": "ES",
@@ -154,7 +154,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -262,7 +262,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ О ТОРНАДО. В зоне, где вы находитесь, обнаружен торнадо. Укройтесь в подвале или внутреннем помещении на нижнем этаже устойчивого здания. Если вы на улице, в передвижном доме или в транспортном средстве, отправляйтесь в ближайшее надежное укрытие, чтобы защититься от летящих объектов. Следите за новостями. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ О ТОРНАДО. В зоне, где вы находитесь, обнаружен торнадо. Укройтесь в подвале или внутреннем помещении на нижнем этаже устойчивого здания. Если вы на улице, в передвижном доме или в транспортном средстве, отправляйтесь в ближайшее надежное укрытие, чтобы защититься от летящих объектов. Следите за новостями. {URL
       },
       {
         "language": "ES",
@@ -271,7 +271,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": " {SENDING_AGENCY}: UNA EMERGENCIA POR TORNADO está en efecto para {LOCATION} hasta {TIME}. Un tornado fue detectado en esta zona. Esta es una situación que pone en peligro la vida. Resguárdese de inmediato en un sótano o una habitación en el piso más bajo de un edificio resistente. Si se encuentra al aire libre, en una casa rodante o un vehículo, diríjase al edificio más cercano y resistente posible y protéjase de los escombros. Consulte los medios de comunicación. {URL} "
+        "description": " {SENDING_AGENCY}: UNA EMERGENCIA POR TORNADO está en efecto para {LOCATION} hasta {TIME}. Un tornado fue detectado en esta zona. Esta es una situación que pone en peligro la vida. Resguárdese de inmediato en un sótano o una habitación en el piso más bajo de un edificio resistente. Si se encuentra al aire libre, en una casa rodante o un vehículo, diríjase al edificio más cercano y resistente posible y protéjase de los escombros. Consulte los medios de comunicación. {URL
       },
       {
         "language": "TL",
@@ -302,7 +302,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -383,7 +383,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: EMERGENZA ALLUVIONE IMMEDIATA in vigore per {LOCATION} fino alle {TIME}.  Si tratta di una situazione estremamente pericolosa, anche per la vita. Si esortano gli utenti a non mettersi in viaggio a meno che non ci si stia allontanando da un’area soggetta ad inondazioni o ad un ordine di evacuazione. {URL} "
+        "description": "{SENDING_AGENCY}: EMERGENZA ALLUVIONE IMMEDIATA in vigore per {LOCATION} fino alle {TIME}.  Si tratta di una situazione estremamente pericolosa, anche per la vita. Si esortano gli utenti a non mettersi in viaggio a meno che non ci si stia allontanando da un’area soggetta ad inondazioni o ad un ordine di evacuazione. {URL
       },
       {
         "language": "KO",
@@ -419,7 +419,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA EMERGENCIA POR INUNDACIÓN REPENTINA está en efecto para {LOCATION} hasta {TIME}. La situación es extremadamente peligrosa y con riesgo de muerte. No intente movilizarse, a menos que esté huyendo de un área que pueda inundarse o con orden de evacuación. {URL} "
+        "description": "{SENDING_AGENCY}: UNA EMERGENCIA POR INUNDACIÓN REPENTINA está en efecto para {LOCATION} hasta {TIME}. La situación es extremadamente peligrosa y con riesgo de muerte. No intente movilizarse, a menos que esté huyendo de un área que pueda inundarse o con orden de evacuación. {URL
       },
       {
         "language": "TL",
@@ -450,7 +450,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -558,7 +558,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о ВНЕЗАПНОМ НАВОДНЕНИИ. Это явление опасно для жизни. Не совершайте поездок, если вы не эвакуируетесь из района, который может подвергнуться затоплению, самостоятельно или по приказу об эвакуации. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о ВНЕЗАПНОМ НАВОДНЕНИИ. Это явление опасно для жизни. Не совершайте поездок, если вы не эвакуируетесь из района, который может подвергнуться затоплению, самостоятельно или по приказу об эвакуации. {URL
       },
       {
         "language": "ES",
@@ -567,7 +567,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": " {SENDING_AGENCY}: UNA EMERGENCIA POR INUNDACION REPENTINA está en efecto para {LOCATION} hasta {TIME}. Esta es una situación extremadamente peligrosa y potencialmente mortal. No intente trasladarse a menos que esté huyendo de una zona que pueda inundarse o con orden de evacuación. {URL} "
+        "description": " {SENDING_AGENCY}: UNA EMERGENCIA POR INUNDACION REPENTINA está en efecto para {LOCATION} hasta {TIME}. Esta es una situación extremadamente peligrosa y potencialmente mortal. No intente trasladarse a menos que esté huyendo de una zona que pueda inundarse o con orden de evacuación. {URL
       },
       {
         "language": "TL",
@@ -598,7 +598,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -634,7 +634,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈嚴重雷暴雨預警，該預警持續至{TIME}，風速為每小時 80 英里，具有破壞性。請躲在堅固的建築物內，遠離窗戶。飛行物體可能會對沒有躲進堅固避難所的人造成致命傷害。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈嚴重雷暴雨預警，該預警持續至{TIME}，風速為每小時 80 英里，具有破壞性。請躲在堅固的建築物內，遠離窗戶。飛行物體可能會對沒有躲進堅固避難所的人造成致命傷害。{URL
       },
       {
         "language": "FR",
@@ -706,7 +706,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о СИЛЬНОЙ ГРОЗЕ с РАЗРУШИТЕЛЬНЫМИ порывами ветра скоростью 129 км/ч. Укройтесь в устойчивом здании и не подходите к окнам. Если вы не в надежном укрытии, столкновение с летящими объектами может оказаться смертельным. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о СИЛЬНОЙ ГРОЗЕ с РАЗРУШИТЕЛЬНЫМИ порывами ветра скоростью 129 км/ч. Укройтесь в устойчивом здании и не подходите к окнам. Если вы не в надежном укрытии, столкновение с летящими объектами может оказаться смертельным. {URL
       },
       {
         "language": "ES",
@@ -715,7 +715,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE FUERTE TORMENTA ELÉCTRICA está en efecto para {LOCATION} hasta {TIME} por vientos DESTRUCTIVOS de 80 millas por hora. Resguárdese en un edificio resistente, lejos de las ventanas. Los escombros impulsados por el viento pueden ser mortales para quienes no estén resguardados. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE FUERTE TORMENTA ELÉCTRICA está en efecto para {LOCATION} hasta {TIME} por vientos DESTRUCTIVOS de 80 millas por hora. Resguárdese en un edificio resistente, lejos de las ventanas. Los escombros impulsados por el viento pueden ser mortales para quienes no estén resguardados. {URL
       },
       {
         "language": "TL",
@@ -746,7 +746,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -782,7 +782,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了雪颮預警，該預警將持續至{TIME}。請放慢車速或推遲出行！做好準備，應對能見度突然降至接近零以及大雪中道路結冰的情況。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了雪颮預警，該預警將持續至{TIME}。請放慢車速或推遲出行！做好準備，應對能見度突然降至接近零以及大雪中道路結冰的情況。{URL
       },
       {
         "language": "FR",
@@ -854,7 +854,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ О ШКВАЛИСТОМ СНЕГЕ. По возможности отложите поездки. В противном случае снизьте скорость передвижения. Возможно резкое ухудшение видимости до нулевой, а также обледенение дорог из-за сильного снегопада. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ О ШКВАЛИСТОМ СНЕГЕ. По возможности отложите поездки. В противном случае снизьте скорость передвижения. Возможно резкое ухудшение видимости до нулевой, а также обледенение дорог из-за сильного снегопада. {URL
       },
       {
         "language": "ES",
@@ -863,7 +863,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE TORMENTA DE NIEVE está en efecto para {LOCATION} hasta {TIME} ¡Baje la velocidad o postergue su viaje! Prepárese para una repentina reducción o ausencia total de visibilidad y carreteras congeladas con intensas nevadas. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE TORMENTA DE NIEVE está en efecto para {LOCATION} hasta {TIME} ¡Baje la velocidad o postergue su viaje! Prepárese para una repentina reducción o ausencia total de visibilidad y carreteras congeladas con intensas nevadas. {URL
       },
       {
         "language": "TL",
@@ -894,7 +894,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -930,7 +930,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了塵暴預警，該預警將持續至{TIME}。做好能見度突然降至零的準備。請靠路邊停車，確保生命安全！當能見度下降時，將車駛離道路並停好。關掉車燈並將腳移離刹車板。敦促嬰兒、老年人和呼吸困難者採取預防措施。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了塵暴預警，該預警將持續至{TIME}。做好能見度突然降至零的準備。請靠路邊停車，確保生命安全！當能見度下降時，將車駛離道路並停好。關掉車燈並將腳移離刹車板。敦促嬰兒、老年人和呼吸困難者採取預防措施。{URL
       },
       {
         "language": "FR",
@@ -1002,7 +1002,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о ПЫЛЕВОЙ БУРЕ. Возможно резкое ухудшение видимости до нулевой. Съедьте на обочину, чтобы остаться в живых! При ухудшении видимости съедьте на обочину дороги и припаркуйте транспортное средство. Выключите фары и уберите ногу с тормоза. Младенцам, пожилым людям и лицам, испытывающим трудности с дыханием, может потребоваться помощь. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о ПЫЛЕВОЙ БУРЕ. Возможно резкое ухудшение видимости до нулевой. Съедьте на обочину, чтобы остаться в живых! При ухудшении видимости съедьте на обочину дороги и припаркуйте транспортное средство. Выключите фары и уберите ногу с тормоза. Младенцам, пожилым людям и лицам, испытывающим трудности с дыханием, может потребоваться помощь. {URL
       },
       {
         "language": "ES",
@@ -1011,7 +1011,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE TORMENTA DE POLVO está en efecto para {LOCATION} hasta {TIME}. Prepárese para una repentina reducción o total ausencia de visibilidad. Deténgase y salga de la carretera. ¡No pierda su vida! Ponga el embrague de su vehículo en “estacionar.” Apague las luces y saque el pie del freno. Tome precauciones especialmente para niños, ancianos y personas con problemas respiratorios. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE TORMENTA DE POLVO está en efecto para {LOCATION} hasta {TIME}. Prepárese para una repentina reducción o total ausencia de visibilidad. Deténgase y salga de la carretera. ¡No pierda su vida! Ponga el embrague de su vehículo en “estacionar.” Apague las luces y saque el pie del freno. Tome precauciones especialmente para niños, ancianos y personas con problemas respiratorios. {URL
       },
       {
         "language": "TL",
@@ -1042,7 +1042,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -1078,7 +1078,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發布了颶風預警，危險且具破壞性的強風將持續至{TIME}。此警報最早會在危險情況開始前 36 小時發出。請採取措施保護生命財產安全。準備 3 天以上的食物、水、現金、燃料和藥物。遵循當地官員的指示。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發布了颶風預警，危險且具破壞性的強風將持續至{TIME}。此警報最早會在危險情況開始前 36 小時發出。請採取措施保護生命財產安全。準備 3 天以上的食物、水、現金、燃料和藥物。遵循當地官員的指示。{URL
       },
       {
         "language": "FR",
@@ -1150,7 +1150,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ ОБ УРАГАНЕ с опасными и разрушительными порывами ветра. Это предупреждение разослано за 36 часов до начала чрезвычайной ситуации. Примите меры по защите своей жизни и собственности. Подготовьте еду, питьевую воду, наличные деньги, топливо и медикаменты на срок более 3 дней. СЛЕДУЙТЕ ИНСТРУКЦИЯМ МЕСТНЫХ ВЛАСТЕЙ. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ ОБ УРАГАНЕ с опасными и разрушительными порывами ветра. Это предупреждение разослано за 36 часов до начала чрезвычайной ситуации. Примите меры по защите своей жизни и собственности. Подготовьте еду, питьевую воду, наличные деньги, топливо и медикаменты на срок более 3 дней. СЛЕДУЙТЕ ИНСТРУКЦИЯМ МЕСТНЫХ ВЛАСТЕЙ. {URL
       },
       {
         "language": "ES",
@@ -1159,7 +1159,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE HURACÁN está en efecto para {LOCATION} hasta {TIME} por vientos peligrosos y dañinos. Esta advertencia se emite hasta 36 horas antes de que las condiciones peligrosas comiencen. Tome medidas para proteger vidas y propiedad. Tenga alimentos, agua, dinero en efectivo, combustible y medicamentos para un mínimo de 3 días. SIGA LAS INSTRUCCIONES DE LAS AUTORIDADES LOCALES. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE HURACÁN está en efecto para {LOCATION} hasta {TIME} por vientos peligrosos y dañinos. Esta advertencia se emite hasta 36 horas antes de que las condiciones peligrosas comiencen. Tome medidas para proteger vidas y propiedad. Tenga alimentos, agua, dinero en efectivo, combustible y medicamentos para un mínimo de 3 días. SIGA LAS INSTRUCCIONES DE LAS AUTORIDADES LOCALES. {URL
       },
       {
         "language": "TL",
@@ -1190,7 +1190,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -1226,7 +1226,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了風暴潮警報，危及生命的危險洪水將持續至{TIME}。此警報最早會在危險情況開始前 36 小時發出。請採取措施保護生命財產安全。如果有針對該區域的疏散令，請遵守疏散令，以避免溺水或緊急服務中斷。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了風暴潮警報，危及生命的危險洪水將持續至{TIME}。此警報最早會在危險情況開始前 36 小時發出。請採取措施保護生命財產安全。如果有針對該區域的疏散令，請遵守疏散令，以避免溺水或緊急服務中斷。{URL
       },
       {
         "language": "FR",
@@ -1298,7 +1298,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} объявлено ПРЕДУПРЕЖДЕНИЕ о ШТОРМОВОМ ПРИЛИВЕ и существует риск опасного для жизни подтопления до {TIME}. Это предупреждение разослано за 36 часов до начала чрезвычайной ситуации. Примите меры по защите своей жизни и собственности. Если в вашем районе действует приказ об эвакуации, следуйте ему, чтобы не утонуть или не оказаться вне досягаемости экстренных служб. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} объявлено ПРЕДУПРЕЖДЕНИЕ о ШТОРМОВОМ ПРИЛИВЕ и существует риск опасного для жизни подтопления до {TIME}. Это предупреждение разослано за 36 часов до начала чрезвычайной ситуации. Примите меры по защите своей жизни и собственности. Если в вашем районе действует приказ об эвакуации, следуйте ему, чтобы не утонуть или не оказаться вне досягаемости экстренных служб. {URL
       },
       {
         "language": "ES",
@@ -1307,7 +1307,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE MAREJADA CICLÓNICA está en efecto para {LOCATION} hasta {TIME} por peligro de inundaciones con riesgo de muerte. Esta advertencia se emite hasta 36 horas antes de que las condiciones peligrosas comiencen. Tome medidas para proteger vidas y propiedad. Siga las órdenes de evacuación si se emiten para esta área, para evitar ahogarse o quedar aislado de los servicios de emergencia. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE MAREJADA CICLÓNICA está en efecto para {LOCATION} hasta {TIME} por peligro de inundaciones con riesgo de muerte. Esta advertencia se emite hasta 36 horas antes de que las condiciones peligrosas comiencen. Tome medidas para proteger vidas y propiedad. Siga las órdenes de evacuación si se emiten para esta área, para evitar ahogarse o quedar aislado de los servicios de emergencia. {URL
       },
       {
         "language": "TL",
@@ -1316,7 +1316,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: May bisa ang BABALA SA STORM SURGE para sa {LOCATION} dahil sa panganib ng nagbabanta sa buhay na pagbaha hanggang {TIME}. Ibinibigay ang babalang ito hanggang 36 na oras bago magsimula ang mga mapanganib na kondisyon. Magsagawa ng mga hakbang para ma protektahan ang buhay at ari-arian. Sundin ang mga utos sa paglikas kung ibinigay para sa lugar na ito para maiwasan ang pagkalunod o pagkaputol sa mga serbisyong pang-emergency. {URL} "
+        "description": "{SENDING_AGENCY}: May bisa ang BABALA SA STORM SURGE para sa {LOCATION} dahil sa panganib ng nagbabanta sa buhay na pagbaha hanggang {TIME}. Ibinibigay ang babalang ito hanggang 36 na oras bago magsimula ang mga mapanganib na kondisyon. Magsagawa ng mga hakbang para ma protektahan ang buhay at ari-arian. Sundin ang mga utos sa paglikas kung ibinigay para sa lugar na ito para maiwasan ang pagkalunod o pagkaputol sa mga serbisyong pang-emergency. {URL
       },
       {
         "language": "VI",
@@ -1338,7 +1338,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -1374,7 +1374,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了極端風警報，危及生命的危險狂風將持續至{TIME}。請立即躲到堅固建築物的房間內，遠離窗戶。保護您的頭部免受飛行物體傷害。請勿在強風暫時平靜時外出！風很快就會再次變得危險。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了極端風警報，危及生命的危險狂風將持續至{TIME}。請立即躲到堅固建築物的房間內，遠離窗戶。保護您的頭部免受飛行物體傷害。請勿在強風暫時平靜時外出！風很快就會再次變得危險。{URL
       },
       {
         "language": "FR",
@@ -1437,7 +1437,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: Um AVISO DE VENTOS EXTREMOS está em vigor para {LOCATION} pelo perigo imediato de ventos potencialmente fatais até {TIME}. Proteja-se AGORA em uma sala no interior de um prédio seguro, longe das janelas. Proteja sua cabeça de objetos voadores. NÃO saia do abrigo se o vento acalmar! Os ventos rapidamente se tornarão perigosos novamente. {URL} "
+        "description": "{SENDING_AGENCY}: Um AVISO DE VENTOS EXTREMOS está em vigor para {LOCATION} pelo perigo imediato de ventos potencialmente fatais até {TIME}. Proteja-se AGORA em uma sala no interior de um prédio seguro, longe das janelas. Proteja sua cabeça de objetos voadores. NÃO saia do abrigo se o vento acalmar! Os ventos rapidamente se tornarão perigosos novamente. {URL
       },
       {
         "language": "RU",
@@ -1446,7 +1446,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ ОБ УРАГАННОМ ВЕТРЕ с опасными для жизни порывами. НЕМЕДЛЕННО укройтесь во внутреннем помещении устойчивого здания и оставайтесь вдали от окон. Защитите голову от летящих объектов. НЕ ВЫХОДИТЕ наружу, если ветер стих! Опасные для жизни порывы ветра могут возобновиться в любой момент. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ ОБ УРАГАННОМ ВЕТРЕ с опасными для жизни порывами. НЕМЕДЛЕННО укройтесь во внутреннем помещении устойчивого здания и оставайтесь вдали от окон. Защитите голову от летящих объектов. НЕ ВЫХОДИТЕ наружу, если ветер стих! Опасные для жизни порывы ветра могут возобновиться в любой момент. {URL
       },
       {
         "language": "ES",
@@ -1455,7 +1455,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: Una ADVERTENCIA DE VIENTOS EXTREMADAMENTE FUERTES está en efecto para {LOCATION} hasta {TIME} por peligro inmediato de fuertes vientos con riesgo de muerte.  Resguárdese AHORA en una habitación interior de un edificio resistente, lejos de las ventanas. Proteja su cabeza de los escombros. ¡NO salga aunque el viento se calme! Los vientos pronto volverán a ser peligrosos. {URL} "
+        "description": "{SENDING_AGENCY}: Una ADVERTENCIA DE VIENTOS EXTREMADAMENTE FUERTES está en efecto para {LOCATION} hasta {TIME} por peligro inmediato de fuertes vientos con riesgo de muerte.  Resguárdese AHORA en una habitación interior de un edificio resistente, lejos de las ventanas. Proteja su cabeza de los escombros. ¡NO salga aunque el viento se calme! Los vientos pronto volverán a ser peligrosos. {URL
       },
       {
         "language": "TL",
@@ -1486,7 +1486,7 @@
     "status": "Test",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -1522,7 +1522,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "這是{SENDING_AGENCY}發送的對國家無線緊急警報系統的測試警報。  目的是維持和改善聯邦、州、地方、部落和地區各級的預警和警報能力，並評估國家的公共預警和警報能力。公眾無需採取任何行動。{URL} "
+        "description": "這是{SENDING_AGENCY}發送的對國家無線緊急警報系統的測試警報。  目的是維持和改善聯邦、州、地方、部落和地區各級的預警和警報能力，並評估國家的公共預警和警報能力。公眾無需採取任何行動。{URL
       },
       {
         "language": "FR",
@@ -1594,7 +1594,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "ЭТО ТЕСТОВОЕ ПРЕДУПРЕЖДЕНИЕ от Национальной беспроводной системы аварийного оповещения, отправленное {SENDING_AGENCY}. Его цель — убедиться, что оповещения и предупреждения можно получить на уровне страны, штата, района, резервации и других территорий, улучшить систему рассылки предупреждений и оценить ее эффективность. От населения не требуется никаких действий. {URL} "
+        "description": "ЭТО ТЕСТОВОЕ ПРЕДУПРЕЖДЕНИЕ от Национальной беспроводной системы аварийного оповещения, отправленное {SENDING_AGENCY}. Его цель — убедиться, что оповещения и предупреждения можно получить на уровне страны, штата, района, резервации и других территорий, улучшить систему рассылки предупреждений и оценить ее эффективность. От населения не требуется никаких действий. {URL
       },
       {
         "language": "ES",
@@ -1603,7 +1603,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "ESTA ES UNA PRUEBA del sistema nacional de alertas de emergencia inalámbricas (National Wireless Emergency Alert System) enviada por {SENDING_AGENCY}.  El propósito es mantener y mejorar las capacidades de alerta y advertencia a nivel federal, estatal, local, Tribal y territorial, y evaluar la capacidad de las alertas y advertencias públicas a nivel nacional. No se requiere ninguna acción por parte del público. {URL} "
+        "description": "ESTA ES UNA PRUEBA del sistema nacional de alertas de emergencia inalámbricas (National Wireless Emergency Alert System) enviada por {SENDING_AGENCY}.  El propósito es mantener y mejorar las capacidades de alerta y advertencia a nivel federal, estatal, local, Tribal y territorial, y evaluar la capacidad de las alertas y advertencias públicas a nivel nacional. No se requiere ninguna acción por parte del público. {URL
       },
       {
         "language": "TL",
@@ -1634,7 +1634,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -1670,7 +1670,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了海嘯預警，該預警將持續至{TIME}。一連串強大的海浪和強流可能影響您附近的海岸。您正處於危險之中。請遠離沿海水域。立即轉移到高地或內陸。在當地官員表示可以安全返回之前，請遠離海岸。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了海嘯預警，該預警將持續至{TIME}。一連串強大的海浪和強流可能影響您附近的海岸。您正處於危險之中。請遠離沿海水域。立即轉移到高地或內陸。在當地官員表示可以安全返回之前，請遠離海岸。{URL
       },
       {
         "language": "FR",
@@ -1742,7 +1742,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о ЦУНАМИ до {TIME}. Серия мощных волн и сильных течений может достичь побережья в зоне, где вы находитесь. Вы в опасности. Покиньте территорию рядом с побережьем и перейдите на возвышенности или отдаленные от воды зоны. Не приближайтесь к побережью до тех пор, пока местные власти не подтвердят, что это безопасно. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ о ЦУНАМИ до {TIME}. Серия мощных волн и сильных течений может достичь побережья в зоне, где вы находитесь. Вы в опасности. Покиньте территорию рядом с побережьем и перейдите на возвышенности или отдаленные от воды зоны. Не приближайтесь к побережью до тех пор, пока местные власти не подтвердят, что это безопасно. {URL
       },
       {
         "language": "ES",
@@ -1751,7 +1751,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE TSUNAMI para {LOCATION} está en efecto hasta {TIME}. Una serie de grandes olas y fuertes corrientes pueden afectar las costas cercanas. Usted está en peligro. Aléjese ahora mismo de las aguas costeras y diríjase a terrenos elevados o hacia el interior. Manténgase alejado de la costa hasta que las autoridades le avisen que puede regresar sin peligro. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE TSUNAMI para {LOCATION} está en efecto hasta {TIME}. Una serie de grandes olas y fuertes corrientes pueden afectar las costas cercanas. Usted está en peligro. Aléjese ahora mismo de las aguas costeras y diríjase a terrenos elevados o hacia el interior. Manténgase alejado de la costa hasta que las autoridades le avisen que puede regresar sin peligro. {URL
       },
       {
         "language": "TL",
@@ -1782,7 +1782,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -1818,7 +1818,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "偵測到地震！請放下手中的一切、尋求掩護、堅持住。保護自己。{SENDING_AGENCY} {URL} "
+        "description": "偵測到地震！請放下手中的一切、尋求掩護、堅持住。保護自己。{SENDING_AGENCY} {URL
       },
       {
         "language": "FR",
@@ -1890,7 +1890,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "ОБНАРУЖЕНО ЗЕМЛЕТРЯСЕНИЕ. Опуститесь на четвереньки, прикройте голову и держитесь за какую-либо устойчивую конструкцию. Защитите себя. {SENDING_AGENCY} {URL} "
+        "description": "ОБНАРУЖЕНО ЗЕМЛЕТРЯСЕНИЕ. Опуститесь на четвереньки, прикройте голову и держитесь за какую-либо устойчивую конструкцию. Защитите себя. {SENDING_AGENCY} {URL
       },
       {
         "language": "ES",
@@ -1899,7 +1899,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "¡TERREMOTO DETECTADO! Agáchese, cúbrase, agárrese, protéjase. {SENDING_AGENCY} {URL} "
+        "description": "¡TERREMOTO DETECTADO! Agáchese, cúbrase, agárrese, protéjase. {SENDING_AGENCY} {URL
       },
       {
         "language": "TL",
@@ -1930,7 +1930,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -2038,7 +2038,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} необходимо ОБЯЗАТЕЛЬНО КИПЯТИТЬ ВОДУ (предупреждение действует до {TIME}). Вода в вашем районе может вызвать проблемы со здоровьем. По возможности используйте бутилированную воду. Не используйте воду из крана или фильтра для питья, готовки, чистки зубов или уборки до того, как прокипятите ее. Кипятите воду в течение ТРЕХ МИНУТ. Дайте воде остыть перед применением. Не используйте лед из некипяченой воды. Если вы кормите грудного ребенка смесью, используйте готовые смеси. Не давайте домашним животным пить некипяченую воду. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} необходимо ОБЯЗАТЕЛЬНО КИПЯТИТЬ ВОДУ (предупреждение действует до {TIME}). Вода в вашем районе может вызвать проблемы со здоровьем. По возможности используйте бутилированную воду. Не используйте воду из крана или фильтра для питья, готовки, чистки зубов или уборки до того, как прокипятите ее. Кипятите воду в течение ТРЕХ МИНУТ. Дайте воде остыть перед применением. Не используйте лед из некипяченой воды. Если вы кормите грудного ребенка смесью, используйте готовые смеси. Не давайте домашним животным пить некипяченую воду. {URL
       },
       {
         "language": "ES",
@@ -2047,7 +2047,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: ¡ALERTA! HIERVA EL AGUA en {LOCATION} hasta {TIME}. El agua en su comunidad puede enfermarle. Use agua embotellada si está disponible. No beba agua del grifo, aunque esté filtrada; no la use para cocinar o lavarse los dientes ni para limpiar su hogar. Hierva el agua por TRES MINUTOS por lo menos. Enfríe el agua antes de usarla. No use hielo preparado con agua sin hervir. Si usa leche preparada para su bebé, use la que viene lista (no la que requiere agua). Asegúrese de que sus mascotas no beban agua sin hervir. {URL} "
+        "description": "{SENDING_AGENCY}: ¡ALERTA! HIERVA EL AGUA en {LOCATION} hasta {TIME}. El agua en su comunidad puede enfermarle. Use agua embotellada si está disponible. No beba agua del grifo, aunque esté filtrada; no la use para cocinar o lavarse los dientes ni para limpiar su hogar. Hierva el agua por TRES MINUTOS por lo menos. Enfríe el agua antes de usarla. No use hielo preparado con agua sin hervir. Si usa leche preparada para su bebé, use la que viene lista (no la que requiere agua). Asegúrese de que sus mascotas no beban agua sin hervir. {URL
       },
       {
         "language": "TL",
@@ -2078,7 +2078,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -2114,7 +2114,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：{LOCATION} 發佈了 9-1-1 故障警報 ，當前生效中。 如果發生緊急情況，請直接撥打當地電話號碼聯絡警察、消防、醫療或其他緊急服務部門。如果撥打 9-1-1，您可能得不到幫助。{URL} "
+        "description": "{SENDING_AGENCY}：{LOCATION} 發佈了 9-1-1 故障警報 ，當前生效中。 如果發生緊急情況，請直接撥打當地電話號碼聯絡警察、消防、醫療或其他緊急服務部門。如果撥打 9-1-1，您可能得不到幫助。{URL
       },
       {
         "language": "FR",
@@ -2177,7 +2177,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: Um ALERTA DE INTERRUPÇÃO DO SERVIÇO 9-1-1 está em vigor para {LOCATION}. Em caso de emergência, entre em contato com a polícia, bombeiros, médicos ou outros serviços de emergência diretamente por meio dos seus números de telefone locais. É possível você não conseguir ajuda ao discar 9-1-1. {URL} "
+        "description": "{SENDING_AGENCY}: Um ALERTA DE INTERRUPÇÃO DO SERVIÇO 9-1-1 está em vigor para {LOCATION}. Em caso de emergência, entre em contato com a polícia, bombeiros, médicos ou outros serviços de emergência diretamente por meio dos seus números de telefone locais. É possível você não conseguir ajuda ao discar 9-1-1. {URL
       },
       {
         "language": "RU",
@@ -2195,7 +2195,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ALERTA POR INTERRUPCIÓN DE LOS SERVICIOS 9-1-1 está en efecto en {LOCATION}. En caso de emergencia, comuníquese directamente con la policía, los bomberos, los servicios médicos u otros servicios de emergencia, llamando a sus números locales. Si llama al 9-1-1, es posible que no reciba ayuda. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ALERTA POR INTERRUPCIÓN DE LOS SERVICIOS 9-1-1 está en efecto en {LOCATION}. En caso de emergencia, comuníquese directamente con la policía, los bomberos, los servicios médicos u otros servicios de emergencia, llamando a sus números locales. Si llama al 9-1-1, es posible que no reciba ayuda. {URL
       },
       {
         "language": "TL",
@@ -2204,7 +2204,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: May bisa ang ALERT SA PAGKWALA NG 9-1-1 sa {LOCATION} hanggang {TIME}. Pakikontak ang pulisya, bumbero, medikal, o iba pang mga serbisyong pang-emergency nang direkta sa kanilang mga lokal na numero ng telepono kung sakaling magkaroon ng emergency. Kung magda-dial ka sa 9-1-1, maaaring hindi ka makakuha ng tulong. {URL} "
+        "description": "{SENDING_AGENCY}: May bisa ang ALERT SA PAGKWALA NG 9-1-1 sa {LOCATION} hanggang {TIME}. Pakikontak ang pulisya, bumbero, medikal, o iba pang mga serbisyong pang-emergency nang direkta sa kanilang mga lokal na numero ng telepono kung sakaling magkaroon ng emergency. Kung magda-dial ka sa 9-1-1, maaaring hindi ka makakuha ng tulong. {URL
       },
       {
         "language": "VI",
@@ -2226,7 +2226,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -2262,7 +2262,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了雪崩預警，該預警將持續至{TIME}。不穩定、快速移動的積雪可能會很快發生，造成傷害或死亡，並可能堵塞受影響地區的道路並損壞財產。離開{LOCATION} 附近的地區。除非得到當地官員的指示，否則疏散後請勿返回該地區。不建議在該地區旅行。雪崩可能會蔓延很遠的距離。{URL} "
+        "description": "{SENDING_AGENCY}：當前{LOCATION} 發佈了雪崩預警，該預警將持續至{TIME}。不穩定、快速移動的積雪可能會很快發生，造成傷害或死亡，並可能堵塞受影響地區的道路並損壞財產。離開{LOCATION} 附近的地區。除非得到當地官員的指示，否則疏散後請勿返回該地區。不建議在該地區旅行。雪崩可能會蔓延很遠的距離。{URL
       },
       {
         "language": "FR",
@@ -2271,7 +2271,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY} : un AVIS D'AVALANCHE pour {LOCATION} est en vigueur jusqu'à {TIME}. Une neige instable, qui atteint des vitesses élevées en mouvement, peut se produire rapidement et entraîner des blessures ou la mort, bloquer les routes et causer des dégâts matériels dans les zones touchées. QUITTEZ les zones situées à côté de {LOCATION}. Ne retournez pas dans les zones impactées par l’ordre d’évacuation à moins d’avoir reçu la permission des autorités locales. Les déplacements dans ces zones sont déconseillés. Les avalanches peuvent couvrir de longues distances. {URL} "
+        "description": "{SENDING_AGENCY} : un AVIS D'AVALANCHE pour {LOCATION} est en vigueur jusqu'à {TIME}. Une neige instable, qui atteint des vitesses élevées en mouvement, peut se produire rapidement et entraîner des blessures ou la mort, bloquer les routes et causer des dégâts matériels dans les zones touchées. QUITTEZ les zones situées à côté de {LOCATION}. Ne retournez pas dans les zones impactées par l’ordre d’évacuation à moins d’avoir reçu la permission des autorités locales. Les déplacements dans ces zones sont déconseillés. Les avalanches peuvent couvrir de longues distances. {URL
       },
       {
         "language": "DE",
@@ -2334,7 +2334,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: В {LOCATION} объявлено ПРЕДУПРЕЖДЕНИЕ о СХОДЕ ЛАВИН до {TIME}. Быстрый сход нестабильных масс снега может привести к травмам или гибели, заблокировать дороги и повредить здания. ПОКИНЬТЕ территорию рядом с {LOCATION}. После эвакуации НЕ ВОЗВРАЩАЙТЕСЬ в эту зону до тех пор, пока местные власти не подтвердят, что это безопасно. Передвижение в этой зоне не рекомендуется, так как лавины могут преодолевать большие расстояния. {URL} "
+        "description": "{SENDING_AGENCY}: В {LOCATION} объявлено ПРЕДУПРЕЖДЕНИЕ о СХОДЕ ЛАВИН до {TIME}. Быстрый сход нестабильных масс снега может привести к травмам или гибели, заблокировать дороги и повредить здания. ПОКИНЬТЕ территорию рядом с {LOCATION}. После эвакуации НЕ ВОЗВРАЩАЙТЕСЬ в эту зону до тех пор, пока местные власти не подтвердят, что это безопасно. Передвижение в этой зоне не рекомендуется, так как лавины могут преодолевать большие расстояния. {URL
       },
       {
         "language": "ES",
@@ -2343,7 +2343,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE AVALANCHA para {LOCATION} está en efecto hasta {TIME}. El rápido movimiento de nieve inestable puede ocurrir repentinamente, con peligro de daño físico o muerte, y puede bloquear caminos y dañar propiedades en las áreas afectadas. ABANDONE las áreas cercanas a {LOCATION}. NO vuelva al área tras la evacuación hasta que las autoridades locales se lo indiquen. No se recomienda viajar en el área. Las avalanchas pueden alcanzar grandes distancias. {URL} "
+        "description": "{SENDING_AGENCY}: UNA ADVERTENCIA DE AVALANCHA para {LOCATION} está en efecto hasta {TIME}. El rápido movimiento de nieve inestable puede ocurrir repentinamente, con peligro de daño físico o muerte, y puede bloquear caminos y dañar propiedades en las áreas afectadas. ABANDONE las áreas cercanas a {LOCATION}. NO vuelva al área tras la evacuación hasta que las autoridades locales se lo indiquen. No se recomienda viajar en el área. Las avalanchas pueden alcanzar grandes distancias. {URL
       },
       {
         "language": "TL",
@@ -2374,7 +2374,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -2410,7 +2410,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY} 當前{LOCATION} 發佈了火災預警，該預警將持續至{TIME}。立即疏散您的家人和寵物，切勿拖延。該地區的能見度將會降低，道路可能會被堵塞。如果現在不離開，您可能會被困住、受傷或死亡。離開{LOCATION} 附近的地區。預計會出現能見度降低、濃煙和呼吸困難。  開車時務必小心。留意在該地區工作的公共安全人員並遵循他們的指示。{URL} "
+        "description": "{SENDING_AGENCY} 當前{LOCATION} 發佈了火災預警，該預警將持續至{TIME}。立即疏散您的家人和寵物，切勿拖延。該地區的能見度將會降低，道路可能會被堵塞。如果現在不離開，您可能會被困住、受傷或死亡。離開{LOCATION} 附近的地區。預計會出現能見度降低、濃煙和呼吸困難。  開車時務必小心。留意在該地區工作的公共安全人員並遵循他們的指示。{URL
       },
       {
         "language": "FR",
@@ -2481,7 +2481,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY} предупреждает о ПРИРОДНОМ ПОЖАРЕ в зоне {LOCATION} (предупреждение действует до {TIME}). Немедленно эвакуируйтесь со своей семьей и домашними животными. Ожидается ухудшение видимости и пробки на дорогах. Если вы не покинете эту зону, вы рискуете быть изолированными, получить травму или погибнуть. ПОКИНЬТЕ территорию рядом с {LOCATION}. Возможны ухудшение видимости, сильная задымленность и проблемы с дыханием. Соблюдайте осторожность при вождении транспортного средства. Найдите сотрудников экстренных служб в зоне, где вы находитесь, и следуйте их указаниям. {URL} "
+        "description": "{SENDING_AGENCY} предупреждает о ПРИРОДНОМ ПОЖАРЕ в зоне {LOCATION} (предупреждение действует до {TIME}). Немедленно эвакуируйтесь со своей семьей и домашними животными. Ожидается ухудшение видимости и пробки на дорогах. Если вы не покинете эту зону, вы рискуете быть изолированными, получить травму или погибнуть. ПОКИНЬТЕ территорию рядом с {LOCATION}. Возможны ухудшение видимости, сильная задымленность и проблемы с дыханием. Соблюдайте осторожность при вождении транспортного средства. Найдите сотрудников экстренных служб в зоне, где вы находитесь, и следуйте их указаниям. {URL
       },
       {
         "language": "ES",
@@ -2490,7 +2490,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY} Una ADVERTENCIA DE INCENDIO en {LOCATION} está en efecto hasta {TIME}. Evacúe a su familia y mascotas ahora, sin demoras. La visibilidad del área disminuirá y los caminos pueden bloquearse. Si no sale ahora, podría quedar atrapado, resultar herido o morir. ABANDONE las áreas cercanas a {LOCATION}. Prepárese para una reducción de la visibilidad, denso humo y dificultad para respirar.  Maneje con cuidado. Preste atención al personal de seguridad pública en el área y siga sus instrucciones. {URL} "
+        "description": "{SENDING_AGENCY} Una ADVERTENCIA DE INCENDIO en {LOCATION} está en efecto hasta {TIME}. Evacúe a su familia y mascotas ahora, sin demoras. La visibilidad del área disminuirá y los caminos pueden bloquearse. Si no sale ahora, podría quedar atrapado, resultar herido o morir. ABANDONE las áreas cercanas a {LOCATION}. Prepárese para una reducción de la visibilidad, denso humo y dificultad para respirar.  Maneje con cuidado. Preste atención al personal de seguridad pública en el área y siga sus instrucciones. {URL
       },
       {
         "language": "TL",
@@ -2521,7 +2521,7 @@
     "status": "",
     "msgType": "",
     "scope": "",
-    
+
     "info": [
       {
         "language": "EN",
@@ -2629,7 +2629,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}: в зоне {LOCATION} произошел ВЫБРОС ОПАСНЫХ МАТЕРИАЛОВ. При воздействии этих материалов возможны проблемы с дыханием, нарушение координации движений, жжение в глазах, носу, горле или легких, а также тошнота и даже смерть. ПОКИНЬТЕ территорию рядом с {LOCATION}. Если вы эвакуируетесь НА ТРАНСПОРТНОМ СРЕДСТВЕ, не открывайте окна и не используйте вентиляционную систему. После эвакуации НЕ ВОЗВРАЩАЙТЕСЬ в зону ЧС до тех пор, пока местные власти не подтвердят, что это безопасно. {URL} "
+        "description": "{SENDING_AGENCY}: в зоне {LOCATION} произошел ВЫБРОС ОПАСНЫХ МАТЕРИАЛОВ. При воздействии этих материалов возможны проблемы с дыханием, нарушение координации движений, жжение в глазах, носу, горле или легких, а также тошнота и даже смерть. ПОКИНЬТЕ территорию рядом с {LOCATION}. Если вы эвакуируетесь НА ТРАНСПОРТНОМ СРЕДСТВЕ, не открывайте окна и не используйте вентиляционную систему. После эвакуации НЕ ВОЗВРАЩАЙТЕСЬ в зону ЧС до тех пор, пока местные власти не подтвердят, что это безопасно. {URL
       },
       {
         "language": "ES",
@@ -2638,7 +2638,7 @@
         "urgency": "",
         "severity": "",
         "certainty": "",
-        "description": "{SENDING_AGENCY}:  UNA EMANACIÓN DE SUSTANCIAS PELIGROSAS ha ocurrido a las {TIME} en {LOCATION}. La exposición puede causar dificultades respiratorias, pérdida de coordinación, sensación de ardor en los ojos, nariz, garganta o pulmones, nausea y riesgo de muerte. ABANDONE las áreas cercanas a {LOCATION}. SI CONDUCE para evacuar el área, mantenga el vehículo con las ventanas y ventilaciones cerradas. NO VUELVA al área tras la evacuación a menos que las autoridades locales se lo indiquen. {URL} "
+        "description": "{SENDING_AGENCY}:  UNA EMANACIÓN DE SUSTANCIAS PELIGROSAS ha ocurrido a las {TIME} en {LOCATION}. La exposición puede causar dificultades respiratorias, pérdida de coordinación, sensación de ardor en los ojos, nariz, garganta o pulmones, nausea y riesgo de muerte. ABANDONE las áreas cercanas a {LOCATION}. SI CONDUCE para evacuar el área, mantenga el vehículo con las ventanas y ventilaciones cerradas. NO VUELVA al área tras la evacuación a menos que las autoridades locales se lo indiquen. {URL
       },
       {
         "language": "TL",
