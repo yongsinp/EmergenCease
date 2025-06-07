@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from src.data.file import write_json
+from src.utils.file import write_json
 from src.extraction.llm import USER_PROMPT
 from src.utils.paths import DATA_DIR
 
