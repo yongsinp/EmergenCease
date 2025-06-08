@@ -15,6 +15,7 @@ from src.utils.paths import DATA_DIR, MODEL_DIR
 class Translator:
     """
     A class to translate Common Alerting Protocol (CAP) data into multiple languages.
+
     Events and languages supported by the FCC Wireless Emergency Alert Templates are translated using these templates and an LLM for information extraction.
     The English info block serves as the source for information extraction by the LLM.
     If the CAP data already includes information in a specific language, the original information is preserved.
@@ -69,6 +70,7 @@ class Translator:
     def translate(self, source: Union[dict, Cap]) -> Cap:
         """
         Translates the source CAP data into a multilingual CAP (Common Alerting Protocol) data.
+
         Only the events and languages supported by the FCC Wireless Emergency Alert Templates are translated.
         Original information in the source is always prioritized.
 
