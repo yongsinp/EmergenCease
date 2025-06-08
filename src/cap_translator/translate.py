@@ -1,6 +1,5 @@
 import copy
 import os.path
-import random
 from logging import DEBUG
 from typing import Union, Optional
 
