@@ -138,7 +138,7 @@ def main():
     """Example code to demonstrate the usage of the Translator class."""
     model_path = os.path.join(MODEL_DIR, "Llama-3.2-1B-Instruct")
     adapter_path = os.path.join(MODEL_DIR, "LoRA-Llama-3.2-1B-Instruct")
-    translator = Translator(model=model_path)
+    translator = Translator(model=model_path, adapter=adapter_path)
 
     # Example usage with text
     cap = Cap.from_string(
