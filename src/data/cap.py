@@ -193,6 +193,7 @@ class Cap:
         Parameters:
             original: Original content dictionary.
             updates: Updates to be applied.
+
         Returns:
             dict: New updated content dictionary.
         """
@@ -208,6 +209,7 @@ class Cap:
 
     @classmethod
     def from_string(cls, headline: str, description: str, instruction: str, language: Language = Language.en) -> 'Cap':
+        """ Creates a Cap instance from string inputs."""
         cap = cls()
         info = {
             "headline": headline,
@@ -220,6 +222,7 @@ class Cap:
 
     @classmethod
     def from_dict(cls, content: dict) -> 'Cap':
+        """ Creates a Cap instance from a dictionary conforming to the CAP schema."""
         jsonschema.validate(instance=content, schema=SCHEMA)
 
         # Create a new Cap instance and set its content
