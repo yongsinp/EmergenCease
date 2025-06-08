@@ -5,14 +5,12 @@ import os.path
 from typing import Union, Optional
 
 import jsonschema.exceptions
-from markdown_it.rules_block.table import headerLineRe
 
 from src.data.cap import Cap
 from src.data.enums import Language, Event
 from src.extraction.llm import Extractor, SCHEMA
 from src.preprocess.preprocess import EVENT_MAP
-from src.utils.file import read_jsonl_in_batches, read_json
-from src.utils.paths import DATA_DIR, MODEL_DIR
+from src.utils.file import read_json
 
 
 class Translator:
