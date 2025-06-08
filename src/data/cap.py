@@ -257,6 +257,16 @@ class Cap:
 
 
 def main():
+    """Example code for creating a Cap instance."""
+    # Example usage with test
+    cap = Cap.from_string(
+        headline="This is an alert headline.",
+        description="This is an alert description.",
+        instruction="This is an alert instruction.",
+        language=Language.en
+    )
+
+    # Example usage with dictionary conforming to the CAP schema
     data_path = DATA_DIR / "IpawsArchivedAlerts.jsonl"
     batch = next(read_jsonl_in_batches(data_path, batch_size=10))
     caps = [Cap.from_dict(alert) for alert in batch]
