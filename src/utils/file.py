@@ -31,6 +31,12 @@ def read_jsonl_in_batches(file_path: str, batch_size=1000) -> Iterator[list[dict
             yield batch
 
 
+def read_csv_in_batches(file_path: str, batch_size: int = 10):
+    """Reads a CSV file in batches."""
+    for chunk in pd.read_csv(file_path, chunksize=batch_size):
+        yield chunk
+
+
 def read_yaml(file_path: str) -> dict:
     """Reads a YAML configuration file and returns its content as a dictionary."""
     with open(file_path, 'r') as r:

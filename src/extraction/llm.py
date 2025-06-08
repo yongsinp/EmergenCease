@@ -6,13 +6,13 @@ from copy import deepcopy
 from typing import Optional, Union, Any
 
 import jsonschema
-import pandas as pd
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 
 from src.data.enums import Event
 from src.extraction.ner import REGEX_URL
+from src.utils.file import read_csv_in_batches
 from src.utils.paths import DATA_DIR
 
 SCHEMA = {
@@ -394,11 +394,6 @@ class Extractor:
 
 
 def main():
-    def read_csv_in_batches(file_path: str, batch_size: int = 10):
-        """Reads a CSV file in batches."""
-        for chunk in pd.read_csv(file_path, chunksize=batch_size):
-            yield chunk
-
     """Example code for extracting information from alert texts using the Extractor class."""
     data_path = DATA_DIR / "finetune" / "finetune_test.csv"
     extractor = Extractor(model="unsloth/Llama-3.2-3B-Instruct")
