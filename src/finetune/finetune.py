@@ -21,8 +21,9 @@ def update_config(original: dict, updates: dict) -> dict:
     Parameters:
         original: Original config dictionary.
         updates: Updates to be applied.
+
     Returns:
-        dict: Updated config dictionary.
+        dict: The updated config dictionary.
     """
     original = copy.deepcopy(original)
 
@@ -31,13 +32,15 @@ def update_config(original: dict, updates: dict) -> dict:
             original[key] = update_config(original.get(key, {}) or {}, value)
         else:
             original[key] = value
+
     return original
 
 
 class ModelTuner:
+    """A class to fine-tune LLMs using the torchtune framework."""
     _logger = None
 
-    def __init__(self, model: str, hf_token: Optional[str] = None):
+    def __init__(self, model: str, hf_token: Optional[str] = None) -> None:
         """
         Initializes the ModelTuner class.
 
@@ -51,7 +54,7 @@ class ModelTuner:
 
     @property
     def model(self) -> str:
-        """Model to fine-tune."""
+        """Name or path of the model to fine-tune."""
         return self._model
 
     @staticmethod
@@ -74,7 +77,15 @@ class ModelTuner:
 
     @staticmethod
     def get_epochs_trained(output_dir: str) -> int:
-        """Checks the maximum number of epochs the model has been trained before."""
+        """
+        Checks the maximum number of epochs the model has been trained before.
+
+        Parameters:
+            output_dir: Directory where the model weights are saved.
+
+        Returns:
+            int: The maximum number of epochs trained, or 0 if no epochs are found.
+        """
         regex_epoch = re.compile(r'^epoch_(\d+)$')
         epochs = [0]
 
@@ -86,9 +97,10 @@ class ModelTuner:
         return max(epochs)
 
     @classmethod
-    def _initialize_class_attributes(cls):
+    def _initialize_class_attributes(cls) -> None:
+        """Initializes class-level attributes."""
+        # Set up logger
         if cls._logger is None:
-            # Set up logger
             cls._logger = cls._setup_logger()
             cls.set_logger_level(logging.INFO)
 
@@ -143,6 +155,7 @@ class ModelTuner:
         Parameters:
             model: Model to fine-tune.
             output_dir: Directory to save the output and config file.
+            train_data: Path to the training data file.
             epochs: Number of epochs to train the model.
             batch_size: Batch size for training.
             use_dev_data: Whether to use dev data for training.
@@ -200,7 +213,8 @@ class ModelTuner:
         return new_config_path
 
     @classmethod
-    def _run_torchtune(cls, config_path: str) -> subprocess.Popen:
+    def _run_torchtune(cls, config_path: str) -> None:
+        """ Runs the torchtune command with the specified config file."""
         cmd = (["tune", "run"] +
                ["lora_finetune_single_device"] +
                ["--config", config_path])
@@ -241,6 +255,7 @@ class ModelTuner:
 
 
 def main():
+    """Main function to parse arguments and run ModelTuner."""
     parser = argparse.ArgumentParser(description="Script for fine-tuning LLaMa 3 Instruct models.")
 
     # Dataset arguments
