@@ -2,7 +2,7 @@
 
 This project builds a pipeline to generate multilingual emergency alerts using FCC Wireless Emergency Alert Templates in
 14 languages. It classifies the emergency type, extracts key information, and fills out multilingual templates in the
-Common Alerting Protocol format. The goal is to improve alert accessibility for non-native speakers.
+Common Alerting Protocol (CAP) format. The goal is to improve alert accessibility for non-native speakers.
 
 ## Getting Started
 
@@ -46,9 +46,11 @@ The project's main code is located in the `src` directory. Use this directory as
 
 Run the following command with at least one of the `--headline`, `--description`, or `--instruction` arguments to
 generate a multilingual CAP alert.
-You can also choose to run the command with the `--cap` argument which expects a JSON string conforming to the Common Alerting Protocol (CAP) format.
+You can also choose to run the command with the `--cap` argument which expects a JSON string conforming to the Common
+Alerting Protocol (CAP) format.
 
-By default, the pipeline uses the **Llama 3.2 1B Instruct** model with a LoRA adapter trained on a small set of IPAWS Archived Alerts data to generate the alert.
+By default, the pipeline uses the **Llama 3.2 1B Instruct** model with a LoRA adapter trained on a small set of IPAWS
+Archived Alerts data to generate the alert.
 
 ```bash
 # Running the command without any arguments will generate a sample Tornado Warning alert
@@ -124,6 +126,64 @@ python -m src.preprocess.preprocess  # --train 0.8 --val 0.1 --test 0.1 --random
 ```
 
 Run `python -m src.preprocess.preprocess -h` for help.
+
+Converting the split dataset in CSV format to the JSON format can be done by running the following command:
+
+```bash
+python -m src.data.convert
+```
+
+## Miscellaneous
+
+### Common Alerting Protocol (CAP) Templates
+
+The CAP templates are stored at `src/cap_translator/cap_templtes.json`, in the following format:
+
+```json
+{
+  "EVENT1": {
+    "LANGUAGE1": "EVENT1 template in LANGUAGE1",
+    "LANGUAGE2": "EVENT1 template in LANGUAGE2",
+    ...
+  },
+  "EVENT2": {
+    "LANGUAGE1": "EVENT2 template in LANGUAGE1",
+    "LANGUAGE2": "EVENT2 template in LANGUAGE2",
+    ...
+  }
+}
+```
+
+### Common Alerting Protocol (CAP) JSON Schema
+
+The Common Alerting Protocol (CAP) JSON schema is stored at `src.data.cap.SCHEMA`. This schema defines the structure and
+constraints for CAP messages, ensuring that generated alerts conform to the expected format.
+
+Possible values for `status`, `msgType`, `scope`, `urgency`, `category`, `severity`, `certainty`, `responseType`, and
+others, including language and region codes, are defined in `src/data/enums.py`
+
+### Emergency (Event) and Nested Field Mapping
+
+The event types found in the IPAWS Archived Alerts dataset are mapped to the FCC Wireless Emergency Alert Template
+events using the file at `src/preprocess/event_map.yaml`, in the following format:
+
+```yaml
+FCC_EVENT_TYPE_1:
+  - IPAWS_EVENT_TYPE_1
+  - IPAWS_EVENT_TYPE_2
+FCC_EVENT_TYPE_2:
+  - IPAWS_EVENT_TYPE_3
+  - IPAWS_EVENT_TYPE_4
+...
+```
+
+The nested field names found in the CAP templates are mapped to the internal field names using the file at
+`src/preprocess/ner_config.yaml`, in the following format:
+
+```yaml
+nested.field.names1: internal_field_name1
+nested.field.names2: internal_field_name2
+```
 
 ## Additional Resources
 
