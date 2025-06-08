@@ -1,3 +1,5 @@
+"""Script for extracting URLs, date/time, sending agency, and location from text using regex and NER."""
+
 import re
 import subprocess
 import sys
