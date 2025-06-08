@@ -5,7 +5,7 @@ from typing import Mapping, Union
 import jsonschema
 from jsonschema import RefResolver
 
-from src.data.enums import Status, MsgType, Scope, Urgency, Category, Severity, Certainty, ResponseType
+from src.data.enums import Status, MsgType, Scope, Urgency, Category, Severity, Certainty, ResponseType, Language
 from src.utils.file import read_jsonl_in_batches
 from src.utils.paths import DATA_DIR
 
@@ -52,7 +52,7 @@ SCHEMA = {
         "id": {"type": ["string", "null"]},
         "xmlns": {"type": ["string", "null"]},
 
-        "info": {"type": ["array", "null"], "items": {"$ref": "#/$defs/info"}}
+        "info": {"type": ["array"], "items": {"$ref": "#/$defs/info"}}
     },
 
     "$defs": {
@@ -158,34 +158,32 @@ class Cap:
         Parameters:
             content: A dictionary representing the CAP content.
         """
-        self.content = Cap._create_empty_cap(SCHEMA)
+        self.content = Cap.create_empty_cap(SCHEMA)
 
     def __repr__(self):
         return f"Cap(content={json.dumps(self.content, indent=4)})"
 
     @staticmethod
-    def _create_empty_cap(schema) -> dict:
+    def create_empty_cap(schema) -> dict:
         t = schema.get("type")
-        if t == "object":
+        if t == "object" or "object" in t:
             obj = {}
             for k, sub in schema.get("properties", {}).items():
-                if "default" in sub:
-                    obj[k] = copy.deepcopy(sub["default"])
-                elif sub.get("type") == "array":
+                if "array" in sub.get("type"):
                     obj[k] = []
-                elif sub.get("type") == "object":
-                    obj[k] = Cap._create_empty_cap(sub)
+                elif "object" in sub.get("type"):
+                    obj[k] = Cap.create_empty_cap(sub)
                 else:
                     obj[k] = None
             return obj
-        elif t == "array":
+        elif t == "array" or "array" in t:
             return []
         else:
             return None
 
     @staticmethod
-    def _create_info() -> dict:
-        return Cap._create_empty_cap(SCHEMA.get('$defs', {}).get('info', {}))
+    def create_info() -> dict:
+        return Cap.create_empty_cap(SCHEMA.get('$defs', {}).get('info', {}))
 
     @staticmethod
     def _update_template(original: dict, updates: dict) -> dict:
@@ -209,8 +207,16 @@ class Cap:
         return original
 
     @classmethod
-    def from_string(self, content: str) -> 'Cap':
-        raise NotImplementedError
+    def from_string(cls, headline: str, description: str, instruction: str, language: Language = Language.en) -> 'Cap':
+        cap = cls()
+        info = {
+            "headline": headline,
+            "description": description,
+            "instruction": instruction,
+            "language": language.name
+        }
+        cap.add_info(info)
+        return cap
 
     @classmethod
     def from_dict(cls, content: dict) -> 'Cap':

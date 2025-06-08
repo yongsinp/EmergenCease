@@ -1,12 +1,10 @@
-TornadoEmergency:
-  -
+TornadoEmergency: None
 
 TornadoWarning:
   - Tornado Warning
   - Tornado Watch
 
-FlashFloodEmergency:
-  -
+FlashFloodEmergency: None
 
 FlashFloodWarning:
   - Flash Flood Warning
