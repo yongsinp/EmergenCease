@@ -6,6 +6,11 @@ import pandas as pd
 import yaml
 
 
+def read_json(file_path: str) -> Any:
+    with open(file_path, 'r', encoding='utf-8') as r:
+        return json.load(r)
+
+
 def read_jsonl_in_batches(file_path: str, batch_size=1000) -> Iterator[list[dict[str, Any]]]:
     """Yields batches of parsed JSON objects from a JSONL file."""
     batch = []
