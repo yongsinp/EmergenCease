@@ -1,3 +1,4 @@
+import json
 import os
 from functools import singledispatch
 from typing import Union
@@ -8,13 +9,13 @@ from tqdm import tqdm
 
 from src.data.download import download_ipaws_data
 from src.data.enums import Event
-from src.utils.file import read_yaml, read_jsonl_in_batches, write_csv
 from src.utils.attribute_filter import get_nested_value, is_valid_alert
+from src.utils.file import read_yaml, read_jsonl_in_batches
 from src.utils.paths import DATA_DIR
 
-_EVENT_MAP = {
+EVENT_MAP = {
     syn: event
-    for event, syn_list in read_yaml("event_map.yaml").items()  # Todo: Remove hardcoded path
+    for event, syn_list in read_yaml(os.path.join(os.path.dirname(__file__), "event_map.yaml")).items()  # Todo: Remove hardcoded path
     for syn in syn_list
 }
 
@@ -32,7 +33,7 @@ def _(data: dict, config: dict) -> dict:
 
     for k, v in config.items():
         value = get_nested_value(data, k, None)
-        new_data[v] = _EVENT_MAP.get(value, Event.Other) if v == 'event' else value
+        new_data[v] = EVENT_MAP.get(value, Event.Other) if v == 'event' else value
 
     return new_data
 
@@ -134,20 +135,20 @@ if __name__ == "__main__":
     sample_dataset(
         subset_train,
         column_name="event",
-        classes=set(_EVENT_MAP.values()),
+        classes=set(EVENT_MAP.values()),
         num_sample_per_class=2
     ).to_csv(DATA_DIR / "finetune_train.csv", index=False)
     subset_val = pd.read_csv(DATA_DIR / "extracted_data_val.csv")
     sample_dataset(
         subset_val,
         column_name="event",
-        classes=set(_EVENT_MAP.values()),
+        classes=set(EVENT_MAP.values()),
         num_sample_per_class=2
     ).to_csv(DATA_DIR / "finetune_val.csv", index=False)
     subset_test = pd.read_csv(DATA_DIR / "extracted_data_test.csv")
     sample_dataset(
         subset_test,
         column_name="event",
-        classes=set(_EVENT_MAP.values()),
+        classes=set(EVENT_MAP.values()),
         num_sample_per_class=2
     ).to_csv(DATA_DIR / "finetune_test.csv", index=False)
