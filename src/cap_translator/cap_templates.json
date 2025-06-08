@@ -99,7 +99,7 @@
     "ru": "{SENDING_AGENCY}: В {LOCATION} до {TIME} объявлено ПРЕДУПРЕЖДЕНИЕ О ШКВАЛИСТОМ СНЕГЕ. По возможности отложите поездки. В противном случае снизьте скорость передвижения. Возможно резкое ухудшение видимости до нулевой, а также обледенение дорог из-за сильного снегопада. {URL}",
     "es": "{SENDING_AGENCY}: UNA ADVERTENCIA DE TORMENTA DE NIEVE está en efecto para {LOCATION} hasta {TIME} ¡Baje la velocidad o postergue su viaje! Prepárese para una repentina reducción o ausencia total de visibilidad y carreteras congeladas con intensas nevadas. {URL}",
     "tl": "{SENDING_AGENCY}: May bisa ang BABALA SA SNOW SQUALL para sa {LOCATION} hanggang {TIME}. Bagalan o ipagpaliban ang paglalakbay! Maging handa para sa biglaang pagbaba na halos zero visibility at sa nagyeyelong mga kalsada sa makapal na niyebe. {URL}",
-    "vi": "{SENDING_AGENCY}: CẢNH BÁO BÃO TUYẾT có hiệu lực tại {LOCATION} cho đến {TIME}. Chậm lại hoặc trì hoãn việc đi lại! Hãy sẵn sàng khi tầm nhìn giảm đột ngột xuống 0 và đường đóng băng do tuyết rơi dầy. {URL}",
+    "vi": "{SENDING_AGENCY}: CẢNH BÁO BÃO TUYẾT có hiệu lực tại {LOCATION} cho đến {TIME}. Chậm lại hoặc trì hoãn việc đi lại! Hãy sẵn sàng khi tầm nhìn giảm đột ngột xuống 0 và đường đóng băng do tuyết rơi dầy. {URL}"
   },
   "DustStormWarning": {
     "en": "{SENDING_AGENCY}: A DUST STORM WARNING is in effect for {LOCATION} until {TIME}. Be ready for sudden drop to zero visibility. Pull Aside, Stay Alive! When visibility drops, pull far off the road and put your vehicle in park. Turn the lights off and keep your foot off the brake. Infants, the elderly, and those with trouble breathing urged to take precautions. {URL}",
