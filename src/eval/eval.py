@@ -1,3 +1,4 @@
+import argparse
 import difflib
 import os.path
 import time
@@ -286,14 +287,27 @@ class Evaluator:
 
 def main():
     """Example code for the Evaluator."""
-    model_path = os.path.join(MODEL_DIR, "Llama-3.2-1B-Instruct")
-    adapter_path = os.path.join(MODEL_DIR, "LoRA-Llama-3.2-1B-Instruct")
-    data_path = os.path.join(DATA_DIR, "finetune", "finetune_test.csv")
+    parser = argparse.ArgumentParser(description="Script for evaluating LLM extractors.")
+
+    parser.add_argument('--model', type=str, default='meta-llama/Llama-3.2-1B-Instruct',
+                        help='Model to use for extraction (default: meta-llama/Llama-3.2-1B-Instruct)')
+    parser.add_argument('--adapter', type=str, default=None,
+                        help='Path to the model adapter (default: None)')
+    parser.add_argument('--test-data', type=str, default=None,
+                        help='Path to the test data CSV file. `/data/finetune/finetune_test.csv` is used if not provided. (default: None)')
+    parser.add_argument('--runs', type=int, default=5,
+                        help='Number of runs for averaging results (default: 5)')
+
+    args = parser.parse_args()
+
+    model_path = os.path.join(MODEL_DIR, args.model)
+    adapter_path = os.path.join(MODEL_DIR, args.adapter) if args.adapter else None
+    data_path = args.test_data if args.test_data else os.path.join(DATA_DIR, "finetune", "finetune_test.csv")
 
     evalulator = Evaluator(model_path, adapter=adapter_path)
 
     # Run multiple evaluations to get more reliable results
-    runs = 5
+    runs = args.runs
     results = []
     for _ in range(runs):
         result = evalulator.evaluate(data_path)

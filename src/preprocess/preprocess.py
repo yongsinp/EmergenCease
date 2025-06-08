@@ -1,3 +1,4 @@
+import argparse
 import os
 from functools import singledispatch
 from typing import Union
@@ -12,9 +13,12 @@ from src.utils.attribute_filter import get_nested_value, is_valid_alert
 from src.utils.file import read_yaml, read_jsonl_in_batches, write_csv
 from src.utils.paths import DATA_DIR
 
+CURR_DIR = os.path.join(os.path.dirname(__file__))
+
 EVENT_MAP = {
     syn: event
-    for event, syn_list in read_yaml(os.path.join(os.path.dirname(__file__), "event_map.yaml")).items()  # Todo: Remove hardcoded path
+    for event, syn_list in read_yaml(os.path.join(CURR_DIR, "event_map.yaml")).items()
+    # Todo: Remove hardcoded path
     for syn in syn_list
 }
 
@@ -147,11 +151,26 @@ def sample_dataset(data: DataFrame, column_name: str, classes: set[str], num_sam
 
 def main():
     """Main function to preprocess the IPAWS data."""
+    parser = argparse.ArgumentParser(description="Script for preprocessing the IPAWS Archived Alerts dataset.")
+
+    parser.add_argument('--train', type=float, default=0.8,
+                        help='Train split ratio (default: 0.8)')
+    parser.add_argument('--val', type=float, default=0.1,
+                        help='Validation split ratio (default: 0.1)')
+    parser.add_argument('--test', type=float, default=0.1,
+                        help='Test split ratio (default: 0.1)')
+    parser.add_argument('--random-seed', type=int, default=575,
+                        help='Random seed for reproducibility (default: 575)')
+    parser.add_argument('--sample-per-class', type=int, default=2,
+                        help='Number of samples to take per event (default: 2)')
+
+    args = parser.parse_args()
+
     # Download data
     download_ipaws_data()
 
     # Set file paths
-    config_file = "ner_config.yaml"
+    config_file = os.path.join(CURR_DIR, "ner_config.yaml")
     input_file = DATA_DIR / "IpawsArchivedAlerts.jsonl"
     output_file = DATA_DIR / "extracted_data.csv"
 
@@ -172,10 +191,10 @@ def main():
         write_csv(output_file, extracted_data)
 
     # Split data
-    split_dataset(output_file, 0.8, 0.1, 0.1, 575)
+    split_dataset(output_file, args.train, args.val, args.test, 575)
 
     # Sample specific number of instances per class for fine-tuning
-    sample_per_class = 2
+    sample_per_class = args.sample_per_class
 
     # Process training data
     subset_train = pd.read_csv(DATA_DIR / "extracted_data_train.csv")

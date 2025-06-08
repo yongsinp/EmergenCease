@@ -11,6 +11,7 @@ from typing import Mapping, Optional, Union
 import torch
 import yaml
 
+from src.utils.model import download_model
 from src.utils.paths import MODEL_DIR, CONFIG_DIR, DATA_DIR
 
 
@@ -119,34 +120,6 @@ class ModelTuner:
         for handler in cls._logger.handlers:
             handler.setLevel(level)
 
-    @classmethod
-    def download_model(cls, model: str, hf_token: Optional[str] = None) -> None:
-        """
-        Downloads the model from Hugging Face.
-
-        Parameters:
-            model: Model to download from Hugging Face.
-            hf_token: Hugging Face token for authentication. Searches environment variables if not provided.
-        """
-        if hf_token is None:
-            hf_token = os.getenv('HF_TOKEN', None)
-
-        model_path = os.path.join(MODEL_DIR, model.split("/")[-1])
-
-        # Download the model if it doesn't exist.
-        if not os.path.exists(model_path):
-            cls._logger.info(f"Downloading {model} model to: {model_path}")
-            cls._logger.info("This may take a while.")
-
-            cmd = [
-                "tune", "download",
-                model,
-                "--hf-token", hf_token,
-                "--output-dir", model_path,
-                "--ignore-patterns", "original/consolidated.00.pth",
-            ]
-            subprocess.run(cmd, check=True)
-
     def create_config(self, model: str, output_dir: str, train_data: str, epochs: int = 1, batch_size: int = 1,
                       use_dev_data: bool = False, resume: bool = False) -> str:
         """
@@ -232,7 +205,7 @@ class ModelTuner:
             train_data: Path to the training data file. If None, uses the default training data.
             use_dev: Whether to use dev data for training.
         """
-        self.download_model(self._model, self._hf_token)
+        download_model(self._model, self._hf_token)
 
         # Output directory
         model = self._model.split('/')[-1].lower().replace("-", "_")
@@ -256,7 +229,7 @@ class ModelTuner:
 
 def main():
     """Main function to parse arguments and run ModelTuner."""
-    parser = argparse.ArgumentParser(description="Script for fine-tuning LLaMa 3 Instruct models.")
+    parser = argparse.ArgumentParser(description="Script for fine-tuning Llama 3 Instruct models.")
 
     # Dataset arguments
     parser.add_argument('--train-data', type=str, default=None,

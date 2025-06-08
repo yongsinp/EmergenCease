@@ -161,7 +161,7 @@ class Cap:
         self.content = Cap.create_empty_cap(SCHEMA)
 
     def __repr__(self):
-        return f"Cap(content={json.dumps(self.content, indent=4)})"
+        return f"Cap(content={json.dumps(self.content, indent=4, ensure_ascii=False)})"
 
     @staticmethod
     def create_empty_cap(schema) -> dict:

@@ -13,7 +13,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 from src.data.enums import Event
 from src.extraction.ner import REGEX_URL
 from src.utils.file import read_csv_in_batches
-from src.utils.paths import DATA_DIR
+from src.utils.model import download_model, check_model
+from src.utils.paths import DATA_DIR, MODEL_DIR
 
 SCHEMA = {
     "type": "object",
@@ -132,21 +133,22 @@ class Extractor:
     _logger = None
 
     def __init__(self, model: str, schema: str = SCHEMA, prompt: str = USER_PROMPT, adapter: str = None,
-                 retries: int = 4) -> None:
+                 retries: int = 4, hf_token: Optional[str] = None) -> None:
         """
         Initializes the Extractor with a specified LLM.
 
         Parameters:
-            model: A local path or Hugging Face model identifier for the model used in extraction.
+            model: Hugging Face model identifier for the model used in extraction.
             schema: A JSON schema defining the expected output format.
             prompt: A user prompt to guide the LLM in generating the output.
             adapter: Optional path to a model adapter.
             retries: Number of retries for generating output if the first attempt fails.
+            hf_token: Optional Hugging Face token for authentication. Searches environment variables if not provided.
         """
         self._initialize_class_attributes()
 
-        self._model_name = model
-        self._adapter_path = adapter
+        self._model_name = model.split('/')[-1]
+        self._adapter_path = os.path.join(MODEL_DIR, adapter)
         self._schema = schema
         self._system_prompt = SYSTEM_PROMPT.format(
             schema=json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4)
@@ -155,13 +157,17 @@ class Extractor:
         self._retries = retries
         self._device = self._get_accelerator()
 
+        if not check_model(model):
+            download_model(model, hf_token)
+
         # Load model and tokenizer
+        model_path = os.path.join(MODEL_DIR, self._model_name)
         self._model = AutoModelForCausalLM.from_pretrained(
-            self._model_name,
+            model_path,
             device_map=self._device,
         )
         self._tokenizer = AutoTokenizer.from_pretrained(
-            model,
+            model_path,
             padding_side="left",
             use_fast=True,
         )
@@ -396,7 +402,7 @@ class Extractor:
 def main():
     """Example code for extracting information from alert texts using the Extractor class."""
     data_path = DATA_DIR / "finetune" / "finetune_test.csv"
-    extractor = Extractor(model="unsloth/Llama-3.2-3B-Instruct")
+    extractor = Extractor(model="meta-llama/Llama-3.2-1B-Instruct")
     extractor.set_logger_level(logging.DEBUG)
 
     for batch in read_csv_in_batches(data_path):
