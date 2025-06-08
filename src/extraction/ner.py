@@ -8,7 +8,7 @@ import spacy
 __all__ = ["get_urls"]
 
 # URL extraction
-REGEX_URL = re.compile(r"(?i)\b(?:https?:\/\/)?(?:www\.)?[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?:\/\S*)?\b")
+REGEX_URL = re.compile(r"(?i)\b(?:https?:\/\/)?(?:www\.)?([A-Za-z0-9-]+\.?)+\.[A-Za-z]{2,}(?:\/\S*)?\b")
 
 # Date time extraction
 MODEL_NAME = "en_core_web_sm"
