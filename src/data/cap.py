@@ -5,7 +5,7 @@ from typing import Mapping, Union
 import jsonschema
 from jsonschema import RefResolver
 
-from src.data.enums import Status, MsgType, Scope, Urgency, Category, Severity, Certainty, ResponseType
+from src.data.enums import Status, MsgType, Scope, Urgency, Category, Severity, Certainty, ResponseType, Language
 from src.utils.file import read_jsonl_in_batches
 from src.utils.paths import DATA_DIR
 
@@ -158,13 +158,13 @@ class Cap:
         Parameters:
             content: A dictionary representing the CAP content.
         """
-        self.content = Cap._create_empty_cap(SCHEMA)
+        self.content = Cap.create_empty_cap(SCHEMA)
 
     def __repr__(self):
         return f"Cap(content={json.dumps(self.content, indent=4)})"
 
     @staticmethod
-    def _create_empty_cap(schema) -> dict:
+    def create_empty_cap(schema) -> dict:
         t = schema.get("type")
         if t == "object" or "object" in t:
             obj = {}
@@ -172,7 +172,7 @@ class Cap:
                 if "array" in sub.get("type"):
                     obj[k] = []
                 elif "object" in sub.get("type"):
-                    obj[k] = Cap._create_empty_cap(sub)
+                    obj[k] = Cap.create_empty_cap(sub)
                 else:
                     obj[k] = None
             return obj
@@ -182,8 +182,8 @@ class Cap:
             return None
 
     @staticmethod
-    def _create_info() -> dict:
-        return Cap._create_empty_cap(SCHEMA.get('$defs', {}).get('info', {}))
+    def create_info() -> dict:
+        return Cap.create_empty_cap(SCHEMA.get('$defs', {}).get('info', {}))
 
     @staticmethod
     def _update_template(original: dict, updates: dict) -> dict:
@@ -207,10 +207,13 @@ class Cap:
         return original
 
     @classmethod
-    def from_string(cls, content: str) -> 'Cap':
+    def from_string(cls, headline: str, description: str, instruction: str, language: Language = Language.en) -> 'Cap':
         cap = cls()
         info = {
-            "description": content,
+            "headline": headline,
+            "description": description,
+            "instruction": instruction,
+            "language": language.name
         }
         cap.add_info(info)
         return cap
