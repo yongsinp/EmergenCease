@@ -42,6 +42,10 @@ export HF_TOKEN="YOUR_HF_TOKEN"  # Replace with your actual Hugging Face token
 
 The project's main code is located in the `src` directory. Use this directory as the working directory to run scripts.
 
+```bash
+export PYTHONPATH=/PATH_TO_PROJECT/EmergenCease:$PYTHONPATH
+```
+
 ### Running the Pipeline
 
 Run the following command with at least one of the `--headline`, `--description`, or `--instruction` arguments to
