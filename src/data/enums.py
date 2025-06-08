@@ -30,6 +30,7 @@ class Category(StrEnum):
     Transport = auto()
 
 
+# Todo: Dynamically add members from the cap_templates.json file
 class Event(StrEnum):
     """
     Event types from FCC Alert Templates.
