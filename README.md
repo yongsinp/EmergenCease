@@ -63,6 +63,10 @@ python -m src.cap_translator.translate --headline ALERT_HEADLINE --description A
 
 Run `python -m src.cap_translator.translate -h` for help.
 
+> [NOTE]  
+> The `run_eval.sh` script in the project root runs the sample alert translation shown above and the evaluation pipeline described below. 
+> You must set the `HF_TOKEN` environment variable in the script. 
+
 ### Downloading Models
 
 The **Llama 3.2 1B Instruct** model is downloaded automatically from Hugging Face to the `models` directory.
