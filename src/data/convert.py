@@ -1,4 +1,5 @@
 """Converts csv files to JSON files for fine-tuning with torchtune."""
+import json
 
 import pandas as pd
 
@@ -41,7 +42,7 @@ def main():
             data.append(
                 {
                     "user_prompt": user_prompt,
-                    "json_output": json_output
+                    "json_output": json.dumps(json_output, indent=4)
                 }
             )
 
