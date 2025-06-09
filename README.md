@@ -72,9 +72,8 @@ the
 models if necessary. Refer to [Additional Resources](#additional-resources) for more information on Hugging Face
 authentication.
 
-You can pass the token with the model name, or set a `HF_TOKEN` environment variable.
-To set the enviroment variable, add the following to `.bashrc` or run the command to set up Hugging Face authentication
-token:
+You can pass the token with the model name, or set a `HF_TOKEN` environment variable. To set the enviroment variable,
+add the following to `.bashrc` or run the command to set up the Hugging Face authentication token:
 
 ```bash
 export HF_TOKEN="YOUR_HF_TOKEN"  # Replace with your actual Hugging Face token
