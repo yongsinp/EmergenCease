@@ -127,7 +127,7 @@ class Translator:
 
             # Update required_info with extracted information
             for key in missing_info:
-                required_info[key] = extracted_info[key]
+                required_info[key] = extracted_info[key] if extracted_info[key] else "--"
 
         # Add multilingual info blocks using the templates
         languages = set(Translator._get_language(item) for item in info)
