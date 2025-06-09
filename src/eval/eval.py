@@ -300,11 +300,8 @@ def main():
 
     args = parser.parse_args()
 
-    model_path = os.path.join(MODEL_DIR, args.model)
-    adapter_path = os.path.join(MODEL_DIR, args.adapter) if args.adapter else None
     data_path = args.test_data if args.test_data else os.path.join(DATA_DIR, "finetune", "finetune_test.csv")
-
-    evalulator = Evaluator(model_path, adapter=adapter_path)
+    evalulator = Evaluator(args.model, adapter=args.adapter)
 
     # Run multiple evaluations to get more reliable results
     runs = args.runs

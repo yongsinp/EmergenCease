@@ -148,7 +148,7 @@ class Extractor:
         self._initialize_class_attributes()
 
         self._model_name = model.split('/')[-1]
-        self._adapter_path = os.path.join(MODEL_DIR, adapter)
+        self._adapter_path = os.path.join(MODEL_DIR, adapter) if adapter else None
         self._schema = schema
         self._system_prompt = SYSTEM_PROMPT.format(
             schema=json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4)
