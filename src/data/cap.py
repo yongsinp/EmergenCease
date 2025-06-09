@@ -161,7 +161,7 @@ class Cap:
         self.content = Cap.create_empty_cap(SCHEMA)
 
     def __repr__(self):
-        return f"Cap(content={json.dumps(self.content, indent=4)})"
+        return f"Cap(content={json.dumps(self.content, indent=4, ensure_ascii=False)})"
 
     @staticmethod
     def create_empty_cap(schema) -> dict:
@@ -193,6 +193,7 @@ class Cap:
         Parameters:
             original: Original content dictionary.
             updates: Updates to be applied.
+
         Returns:
             dict: New updated content dictionary.
         """
@@ -208,6 +209,7 @@ class Cap:
 
     @classmethod
     def from_string(cls, headline: str, description: str, instruction: str, language: Language = Language.en) -> 'Cap':
+        """ Creates a Cap instance from string inputs."""
         cap = cls()
         info = {
             "headline": headline,
@@ -220,6 +222,7 @@ class Cap:
 
     @classmethod
     def from_dict(cls, content: dict) -> 'Cap':
+        """ Creates a Cap instance from a dictionary conforming to the CAP schema."""
         jsonschema.validate(instance=content, schema=SCHEMA)
 
         # Create a new Cap instance and set its content
@@ -257,6 +260,16 @@ class Cap:
 
 
 def main():
+    """Example code for creating a Cap instance."""
+    # Example usage with test
+    cap = Cap.from_string(
+        headline="This is an alert headline.",
+        description="This is an alert description.",
+        instruction="This is an alert instruction.",
+        language=Language.en
+    )
+
+    # Example usage with dictionary conforming to the CAP schema
     data_path = DATA_DIR / "IpawsArchivedAlerts.jsonl"
     batch = next(read_jsonl_in_batches(data_path, batch_size=10))
     caps = [Cap.from_dict(alert) for alert in batch]

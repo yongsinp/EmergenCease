@@ -1,13 +1,15 @@
-"""Converts csv files to JSON files for torchtune."""
+"""Converts csv files to JSON files for fine-tuning with torchtune."""
+import json
 
 import pandas as pd
 
-from src.utils.file import write_json
 from src.extraction.llm import USER_PROMPT
+from src.utils.file import write_json
 from src.utils.paths import DATA_DIR
 
 
 def main():
+    """Example script to convert CSV files to JSON files for finetuning."""
     files = [
         "finetune_train.csv",
         "finetune_val.csv",
@@ -40,7 +42,7 @@ def main():
             data.append(
                 {
                     "user_prompt": user_prompt,
-                    "json_output": json_output
+                    "json_output": json.dumps(json_output, indent=4)
                 }
             )
 

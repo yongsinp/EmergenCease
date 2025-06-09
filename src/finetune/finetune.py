@@ -11,6 +11,7 @@ from typing import Mapping, Optional, Union
 import torch
 import yaml
 
+from src.utils.model import download_model
 from src.utils.paths import MODEL_DIR, CONFIG_DIR, DATA_DIR
 
 
@@ -21,8 +22,9 @@ def update_config(original: dict, updates: dict) -> dict:
     Parameters:
         original: Original config dictionary.
         updates: Updates to be applied.
+
     Returns:
-        dict: Updated config dictionary.
+        dict: The updated config dictionary.
     """
     original = copy.deepcopy(original)
 
@@ -31,13 +33,15 @@ def update_config(original: dict, updates: dict) -> dict:
             original[key] = update_config(original.get(key, {}) or {}, value)
         else:
             original[key] = value
+
     return original
 
 
 class ModelTuner:
+    """A class to fine-tune LLMs using the torchtune framework."""
     _logger = None
 
-    def __init__(self, model: str, hf_token: Optional[str] = None):
+    def __init__(self, model: str, hf_token: Optional[str] = None) -> None:
         """
         Initializes the ModelTuner class.
 
@@ -51,7 +55,7 @@ class ModelTuner:
 
     @property
     def model(self) -> str:
-        """Model to fine-tune."""
+        """Name or path of the model to fine-tune."""
         return self._model
 
     @staticmethod
@@ -74,7 +78,15 @@ class ModelTuner:
 
     @staticmethod
     def get_epochs_trained(output_dir: str) -> int:
-        """Checks the maximum number of epochs the model has been trained before."""
+        """
+        Checks the maximum number of epochs the model has been trained before.
+
+        Parameters:
+            output_dir: Directory where the model weights are saved.
+
+        Returns:
+            int: The maximum number of epochs trained, or 0 if no epochs are found.
+        """
         regex_epoch = re.compile(r'^epoch_(\d+)$')
         epochs = [0]
 
@@ -86,9 +98,10 @@ class ModelTuner:
         return max(epochs)
 
     @classmethod
-    def _initialize_class_attributes(cls):
+    def _initialize_class_attributes(cls) -> None:
+        """Initializes class-level attributes."""
+        # Set up logger
         if cls._logger is None:
-            # Set up logger
             cls._logger = cls._setup_logger()
             cls.set_logger_level(logging.INFO)
 
@@ -107,34 +120,6 @@ class ModelTuner:
         for handler in cls._logger.handlers:
             handler.setLevel(level)
 
-    @classmethod
-    def download_model(cls, model: str, hf_token: Optional[str] = None) -> None:
-        """
-        Downloads the model from Hugging Face.
-
-        Parameters:
-            model: Model to download from Hugging Face.
-            hf_token: Hugging Face token for authentication. Searches environment variables if not provided.
-        """
-        if hf_token is None:
-            hf_token = os.getenv('HF_TOKEN', None)
-
-        model_path = os.path.join(MODEL_DIR, model.split("/")[-1])
-
-        # Download the model if it doesn't exist.
-        if not os.path.exists(model_path):
-            cls._logger.info(f"Downloading {model} model to: {model_path}")
-            cls._logger.info("This may take a while.")
-
-            cmd = [
-                "tune", "download",
-                model,
-                "--hf-token", hf_token,
-                "--output-dir", model_path,
-                "--ignore-patterns", "original/consolidated.00.pth",
-            ]
-            subprocess.run(cmd, check=True)
-
     def create_config(self, model: str, output_dir: str, train_data: str, epochs: int = 1, batch_size: int = 1,
                       use_dev_data: bool = False, resume: bool = False) -> str:
         """
@@ -143,6 +128,7 @@ class ModelTuner:
         Parameters:
             model: Model to fine-tune.
             output_dir: Directory to save the output and config file.
+            train_data: Path to the training data file.
             epochs: Number of epochs to train the model.
             batch_size: Batch size for training.
             use_dev_data: Whether to use dev data for training.
@@ -200,7 +186,8 @@ class ModelTuner:
         return new_config_path
 
     @classmethod
-    def _run_torchtune(cls, config_path: str) -> subprocess.Popen:
+    def _run_torchtune(cls, config_path: str) -> None:
+        """ Runs the torchtune command with the specified config file."""
         cmd = (["tune", "run"] +
                ["lora_finetune_single_device"] +
                ["--config", config_path])
@@ -218,7 +205,7 @@ class ModelTuner:
             train_data: Path to the training data file. If None, uses the default training data.
             use_dev: Whether to use dev data for training.
         """
-        self.download_model(self._model, self._hf_token)
+        download_model(self._model, self._hf_token)
 
         # Output directory
         model = self._model.split('/')[-1].lower().replace("-", "_")
@@ -226,7 +213,7 @@ class ModelTuner:
 
         # Data file
         if train_data is None:
-            train_data = DATA_DIR / "finetune" / "finetune_train.json"
+            train_data = os.path.join(DATA_DIR, "finetune", "finetune_train.json")
 
         # Get trained epochs
         epochs_trained = self.get_epochs_trained(output_dir)
@@ -241,7 +228,8 @@ class ModelTuner:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Script for fine-tuning LLaMa 3 Instruct models.")
+    """Main function to parse arguments and run ModelTuner."""
+    parser = argparse.ArgumentParser(description="Script for fine-tuning Llama 3 Instruct models.")
 
     # Dataset arguments
     parser.add_argument('--train-data', type=str, default=None,

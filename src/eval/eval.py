@@ -1,9 +1,12 @@
+import argparse
 import difflib
+import json
+import logging
 import os.path
 import time
 from dataclasses import dataclass
 from functools import wraps
-from typing import Iterable
+from typing import Iterable, Union
 
 import Levenshtein as levenshtein
 import nltk
@@ -12,12 +15,13 @@ from nltk.translate.bleu_score import sentence_bleu
 from rouge import Rouge
 from tqdm import tqdm
 
-from src.extraction.llm import Extractor
+from src.extraction.llm import Extractor, get_logger
 from src.utils.paths import DATA_DIR, MODEL_DIR
 
 
 @dataclass
 class Result:
+    """A dataclass to store evaluation results."""
     event: float  # F1
     location_em: float  # Set F1 (exact match)
     location_partial: float  # Set F1 (partial match)
@@ -31,7 +35,19 @@ class Result:
 
 
 class Evaluator:
-    def __init__(self, model: str, adapter: str = None):
+    """A class to evaluate LLM extractor performance."""
+    _logger = None
+
+    def __init__(self, model: str, adapter: str = None) -> None:
+        """
+        Initializes the Translator with a specified LLM.
+
+        Parameters:
+            model: A local path or Hugging Face model identifier for the model used in extraction.
+            adapter: Optional path to a model adapter.
+        """
+        self._initialize_class_attributes()
+
         self._extractor = Extractor(model, adapter=adapter)
         self._rouge = None
 
@@ -42,6 +58,8 @@ class Evaluator:
 
     @staticmethod
     def _normalize_input(func):
+        """Decorator to normalize input strings before passing them to the evaluation functions."""
+
         @wraps(func)
         def wrapper(self, pred, ref, *args, **kwargs):
             pred = self._normalize(pred)
@@ -49,6 +67,23 @@ class Evaluator:
             return func(self, pred, ref, *args, **kwargs)
 
         return wrapper
+
+    @classmethod
+    def _initialize_class_attributes(cls) -> None:
+        """Initializes class-level attributes."""
+        if cls._logger is None:
+            cls._logger = logging.getLogger(cls.__name__)
+            cls._logger.setLevel(logging.INFO)
+
+    @classmethod
+    def set_logger_level(cls, level: Union[str, int] = logging.INFO) -> None:
+        """
+        Sets logging level for the class logger.
+
+        Parameters:
+            level: Logging level. [DEBUG, INFO, WARNING, ERROR, CRITICAL]
+        """
+        cls._logger.setLevel(level)
 
     @_normalize_input
     def exact_match(self, pred: str, ref: str) -> int:
@@ -62,8 +97,15 @@ class Evaluator:
     @_normalize_input
     def fuzzy_match(self, pred: str, ref: str, method: str = "Gestalt") -> float:
         """
-        Measures fuzzy match using SequenceMatcher to calculate the ratio of similarity.
-        Returns a float between 0 and 1, where 1 means exact match.
+        Measures the fuzzy match between the predicted and actual answer using specified method.
+
+        Parameters:
+            pred: The predicted answer.
+            ref: The actual answer.
+            method: Fuzzy matching method to use. ["Gestalt", "Levenshtein"]
+
+        Returns:
+            A float representing the fuzzy match score between 0 and 1.
         """
         match method:
             case "Gestalt":
@@ -87,6 +129,9 @@ class Evaluator:
             pred: The predicted answer.
             ref: The actual answer.
             tokenization: The method of tokenization to use. ["space", "nltk"]
+
+        Returns:
+            A float representing the F1 score between 0 and 1.
         """
         match tokenization:
             case "space":
@@ -103,10 +148,13 @@ class Evaluator:
         Calculates the F1 score between the predicted and actual answer.
 
         Parameters:
-            pred: Predicted answers as a list.
-            ref: Actual answers as a list.
-            match_: The type of match to use for F1 calculation. ["exact", "partial"]
-            ratio: The threshold for fuzzy matching, only used in "partial" match.
+            pred: A list of predicted answers.
+            ref: A list of actual answers.
+            match_: Match type to use. "partial" uses "Gestalt" fuzzy matching. ["exact", "partial"]
+            ratio: Threshold for fuzzy matching, only used for "partial" match.
+
+        Returns:
+            A float representing the F1 score between 0 and 1.
         """
         # Explicitly handle empty arguments
         if not pred and not ref:
@@ -135,7 +183,16 @@ class Evaluator:
 
     @_normalize_input
     def bleu(self, pred: str, ref: str) -> float:
-        """Calculates the BLEU score between the predicted and actual answer."""
+        """
+        Calculates the BLEU score between the predicted and actual answer.
+
+        Parameters:
+            pred: The predicted answer.
+            ref: The actual answer.
+
+        Returns:
+            A float representing the BLEU score between 0 and 1.
+        """
         # Tokenize using nltk
         pred_tokens = nltk.word_tokenize(pred)
         ans_tokens = nltk.word_tokenize(ref)
@@ -144,7 +201,16 @@ class Evaluator:
 
     @_normalize_input
     def rouge_l(self, pred: str, ref: str) -> float:
-        """Calculates the ROUGE score between the predicted and actual answer."""
+        """
+        Calculates the ROUGE score between the predicted and actual answer.
+
+        Parameters:
+            pred: The predicted answer.
+            ref: The actual answer.
+
+        Returns:
+            A float representing the ROUGE-L score between 0 and 1.
+        """
         if self._rouge is None:
             self._rouge = Rouge()
 
@@ -161,11 +227,29 @@ class Evaluator:
     def rouge_s(self, pred: str, ref: str) -> float:
         """
         Calculates the ROUGE-S score between the predicted and actual answer.
+
         This may be a better fit for time extraction tasks.
+        This method has not been implemented yet.
+
+        Parameters:
+            pred: The predicted answer.
+            ref: The actual answer.
+
+        Returns:
+            A float representing the ROUGE-S score between 0 and 1.
         """
         raise NotImplementedError()
 
     def evaluate(self, eval_file: str) -> Result:
+        """
+        Evaluates the extractor's performance on a given evaluation file.
+
+        Parameters:
+            eval_file: Path to the CSV file containing evaluation data.
+
+        Returns:
+            Result: A Result instance containing evaluation metrics.
+        """
         data = pd.read_csv(eval_file)
         data = data.fillna("").replace({None: ""})  # Replace NaNs and Nones with empty strings
 
@@ -180,18 +264,21 @@ class Evaluator:
         url_partial = 0
         failed = 0
 
-        start = time.time()
+        start = time.time()  # For processing time measurement
         for index, row in tqdm(data.iterrows(), total=len(data), desc="Evaluating"):
             input = {
                 "headline": row["headline"],
                 "description": row["description"],
                 "instruction": row["instruction"]
             }
+            self._logger.debug(f"\nInput: {json.dumps(input, indent=4)}\n")
+
             try:
                 extracted_data = self._extractor.extract(**input)
+                self._logger.debug(f"\nExtracted data: {json.dumps(extracted_data, indent=4)}\n")
 
                 # Todo: Try bidirectional match
-                # Todo: Simply evaluation by putting these in a dictionary
+                # Todo: Simplify evaluation by putting these in a dictionary
                 event += self.exact_match(extracted_data['event'], row['event'])
                 location_em += self.set_f1(extracted_data['location'].split(";"), row['location'].split(";"),
                                            match_="exact")
@@ -203,11 +290,13 @@ class Evaluator:
                 url_em += self.set_f1(extracted_data['url'].split(";"), row['url'].split(";"), match_="exact")
                 url_partial += self.set_f1(extracted_data['url'].split(";"), row['url'].split(";"), match_="partial")
             except RuntimeError as e:
-                print(f"Error processing {row['uuid']}: {e}")
+                self._logger.warning(f"Error processing {row['uuid']}: {e}")
                 failed += 1
 
+        # Adjust for failed samples
         len_data = len(data) - failed
-        return Result(
+
+        result = Result(
             event=event / len_data,
             location_em=location_em / len_data,
             location_partial=location_partial / len_data,
@@ -219,24 +308,43 @@ class Evaluator:
             failed=failed,
             time_per_sample=(time.time() - start) / len(data)
         )
+        self._logger.info(result)
+
+        return result
 
 
-if __name__ == '__main__':
-    models = [
-        "Llama-3.1-8B-Instruct",
-        "Llama-3.2-1B-Instruct",
-        "Llama-3.2-3B-Instruct"
-    ]
-    adapter_path = "/gscratch/stf/yongsinp/EmergenCease/models/finetuned_llama_3.1_8b_instruct/epoch_0"
-    evalulator = Evaluator(os.path.join(MODEL_DIR, models[0]), adapter=adapter_path)
+def main():
+    """Example code for the Evaluator."""
+    parser = argparse.ArgumentParser(description="Script for evaluating LLM extractors.")
 
-    runs = 5
+    # Evaluation arguments
+    parser.add_argument('--model', type=str, default='meta-llama/Llama-3.2-1B-Instruct',
+                        help='Model to use for extraction (default: meta-llama/Llama-3.2-1B-Instruct)')
+    parser.add_argument('--adapter', type=str, default=None,
+                        help='Path to the model adapter (default: None)')
+    parser.add_argument('--test-data', type=str, default=None,
+                        help='Path to the test data CSV file. `/data/finetune/finetune_test.csv` is used if not provided. (default: None)')
+    parser.add_argument('--runs', type=int, default=5,
+                        help='Number of runs for averaging results (default: 5)')
+
+    # Logger arguments
+    parser.add_argument('--log-level', type=str, default='INFO',
+                        help='Logging level [DEBUG, INFO, WARNING, ERROR, CRITICAL] (default: INFO)')
+
+    args = parser.parse_args()
+
+    data_path = args.test_data if args.test_data else os.path.join(DATA_DIR, "finetune", "finetune_test.csv")
+    evalulator = Evaluator(args.model, adapter=args.adapter)
+    evalulator.set_logger_level(args.log_level)
+
+    # Run multiple evaluations to get more reliable results
+    runs = args.runs
     results = []
     for _ in range(runs):
-        result = evalulator.evaluate(DATA_DIR / "finetune" / "finetune_test.csv")
+        result = evalulator.evaluate(data_path)
         results.append(result)
-        print(result)
 
+    # Todo: Simplify
     # Print average
     average_result = Result(
         event=sum(r.event for r in results) / runs,
@@ -250,4 +358,8 @@ if __name__ == '__main__':
         failed=sum(r.failed for r in results) / runs,
         time_per_sample=sum(r.time_per_sample for r in results) / runs
     )
-    print(average_result)
+    print(f"\nAveraged {average_result}")
+
+
+if __name__ == '__main__':
+    main()

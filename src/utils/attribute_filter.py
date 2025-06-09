@@ -2,6 +2,8 @@ from typing import Any, Optional
 
 __all__ = ["get_nested_value", "is_valid_alert"]
 
+from src.data.enums import Language
+
 
 def get_nested_value(data: dict, key_path: str, default: Any = None) -> Any:
     """
@@ -11,6 +13,9 @@ def get_nested_value(data: dict, key_path: str, default: Any = None) -> Any:
         data: The dictionary to search.
         key_path: A dot-separated string representing the path to the value.
         default: The value to return if the key path does not exist.
+
+    Returns:
+        The value at the specified key path.
     """
     keys = key_path.split('.')
     result = data
@@ -41,20 +46,24 @@ def _validate(data: dict, key_path: str, value: Any) -> bool:
 
 
 def is_valid_status(data: dict) -> bool:
+    """Checks if the status of the alert is 'Actual'."""
     return _validate(data, "status", "Actual")
 
 
 def is_valid_msg_type(data: dict) -> bool:
+    """Checks if the message type of the alert is 'Alert'."""
     return _validate(data, "msgType", "Alert")
 
 
 def is_valid_scope(data: dict) -> bool:
+    """Checks if the scope of the alert is 'Public'."""
     return _validate(data, "scope", "Public")
 
 
 def is_valid_language(data: dict) -> bool:
+    """ Checks if the language of the alert is English('en')."""
     is_valid: Optional[str] = get_nested_value(data, "language")
-    return is_valid is None or is_valid.startswith("en")
+    return is_valid is None or is_valid.startswith(Language.en)
 
 
 def is_valid_alert(data: dict) -> bool:

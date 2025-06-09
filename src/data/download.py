@@ -1,10 +1,9 @@
 import os
 
 import requests
+from tqdm import tqdm
 
 from src.utils.paths import DATA_DIR
-
-from tqdm import tqdm
 
 
 def download_file(url: str, destination: str) -> None:
@@ -29,10 +28,10 @@ def download_file(url: str, destination: str) -> None:
 
     with open(destination, "wb") as w:
         with tqdm(
-            unit="B",
-            unit_scale=True,
-            desc="Downloading",
-    ) as progress_bar:
+                unit="B",
+                unit_scale=True,
+                desc="Downloading",
+        ) as progress_bar:
             for chunk in response.iter_content(chunk_size=8192):
                 if chunk:
                     w.write(chunk)
@@ -60,5 +59,10 @@ def download_ipaws_data() -> None:
     download_data("https://www.fema.gov/api/open/v1/IpawsArchivedAlerts.jsonl")
 
 
-if __name__ == "__main__":
+def main():
+    """Example code for downloading the IPAWS data."""
     download_ipaws_data()
+
+
+if __name__ == "__main__":
+    main()

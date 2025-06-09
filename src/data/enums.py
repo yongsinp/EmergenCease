@@ -16,6 +16,7 @@ __all__ = [
 
 
 class Category(StrEnum):
+    """Category types as per CAP 1.2."""
     CBRNE = auto()
     Env = "Environmental"
     Fire = auto()
@@ -33,15 +34,17 @@ class Category(StrEnum):
 # Todo: Dynamically add members from the cap_templates.json file
 class Event(StrEnum):
     """
-    Event types from FCC Alert Templates.
-    All event types are in CamelCase, and 911 is replaced with NineOneOne.
+    Event types from the FCC Wireless Emergency Alert Templates.
+
+    All event types are in CamelCase.
+    "911 Outage Alert" can either be `911OutageAlert` or `NineOneOneOutageAlert`.
     """
 
     def __eq__(self, other):
         if isinstance(other, str):
             other = other.replace(" ", "")
 
-        """Normalize and compare."""
+        # Normalize for comparison
         if self.name == "NineOneOneOutageAlert":
             return other == "911OutageAlert" or other == self.name
 
@@ -65,10 +68,11 @@ class Event(StrEnum):
     AvalancheWarning = auto()
     FireWarning = auto()
     HazardousMaterialsWarning = auto()
-    Other = "Other"
+    Other = "Other"  # A custom event type for all event not mappable to the templates.
 
 
 class Severity(StrEnum):
+    "Severity levels as per CAP 1.2."
     Extreme = auto()
     Minor = auto()
     Moderate = auto()
@@ -77,6 +81,7 @@ class Severity(StrEnum):
 
 
 class Urgency(StrEnum):
+    """Urgency levels as per CAP 1.2."""
     Expected = auto()
     Future = auto()
     Immediate = auto()
@@ -85,6 +90,7 @@ class Urgency(StrEnum):
 
 
 class Certainty(StrEnum):
+    """Certainty levels as per CAP 1.2."""
     Likely = auto()
     Observed = auto()
     Possible = auto()
@@ -94,6 +100,7 @@ class Certainty(StrEnum):
 
 
 class Status(StrEnum):
+    """Status levels as per CAP 1.2."""
     Actual = auto()  # Actionable by all targeted recipients
     Exercise = auto()  # Actionable only by designated exercise participants
     System = auto()  # For messages that support alert network internal functions
@@ -101,6 +108,7 @@ class Status(StrEnum):
 
 
 class MsgType(StrEnum):
+    """Message types as per CAP 1.2."""
     Ack = "Acknowledgment"  # Acknowledges receipt and acceptance of the message(s)
     Alert = auto()  # Initial information requiring attention by targeted recipients
     Cancel = auto()  # Cancels the earlier message(s)
@@ -110,11 +118,12 @@ class MsgType(StrEnum):
 class ResponseType(StrEnum):
     """
     Response types as per CAP 1.2.
-    None is replaced with None_ to avoid conflict with the NoneType.
+
+    None is replaced with None_ to avoid conflict with the NoneType, but can either be compared with "None" or "None_".
     """
 
     def __eq__(self, other):
-        """Normalize and compare."""
+        # Normalize for comparison
         if self.name == "None_":
             return other == "None" or other == self.name
 
@@ -132,6 +141,7 @@ class ResponseType(StrEnum):
 
 
 class Scope(StrEnum):
+    """Scope levels as per CAP 1.2."""
     Private = auto()
     Public = auto()  # For general dissemination to unrestricted audiences.
     Restricted = auto()
@@ -377,8 +387,9 @@ class Region(StrEnum):
 
 class Language(StrEnum):
     """
-    Undercased language codes as per ISO 639.
-    Hyphens are replaced with underscores.
+    Language codes as per ISO 639.
+
+    Some codes use underscores to avoid conflicts with Python keywords (e.g., `as_`and `is_`), but can still be compared with their original names (e.g., `as` and `is`).
     """
 
     def __eq__(self, other):

@@ -6,14 +6,15 @@ from copy import deepcopy
 from typing import Optional, Union, Any
 
 import jsonschema
-import pandas as pd
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 
 from src.data.enums import Event
 from src.extraction.ner import REGEX_URL
-from src.utils.paths import DATA_DIR
+from src.utils.file import read_csv_in_batches
+from src.utils.model import download_model, check_model
+from src.utils.paths import DATA_DIR, MODEL_DIR
 
 SCHEMA = {
     "type": "object",
@@ -43,6 +44,7 @@ SCHEMA = {
     "required": ["url", "expires", "sender", "location", "event"]
 }
 
+# Todo: Move prompts to a config file
 SYSTEM_PROMPT = """You are a helpful and scrupulous assistant that extracts relevant information from the given data and generates a JSON object with the following schema:
 {schema}"""
 
@@ -125,17 +127,28 @@ def get_logger(name: str, level: Optional[Union[int, str]] = logging.INFO) -> lo
 
 class Extractor:
     """
-    Extractor for extracting relevant information from alert messages using a predefined schema.
+    Extractor for extracting relevant information from alert messages using an LLM and a predefined schema.
     """
     REGEX_JSON = re.compile(r'\{[\s\S]+\}')
     _logger = None
 
     def __init__(self, model: str, schema: str = SCHEMA, prompt: str = USER_PROMPT, adapter: str = None,
-                 retries: int = 3) -> None:
+                 retries: int = 4, hf_token: Optional[str] = None) -> None:
+        """
+        Initializes the Extractor with a specified LLM.
+
+        Parameters:
+            model: Hugging Face model identifier for the model used in extraction.
+            schema: A JSON schema defining the expected output format.
+            prompt: A user prompt to guide the LLM in generating the output.
+            adapter: Optional path to a model adapter.
+            retries: Number of retries for generating output if the first attempt fails.
+            hf_token: Optional Hugging Face token for authentication. Searches environment variables if not provided.
+        """
         self._initialize_class_attributes()
 
-        self._model_name = model
-        self._adapter_path = adapter
+        self._model_name = model.split('/')[-1]
+        self._adapter_path = os.path.join(MODEL_DIR, adapter) if adapter else None
         self._schema = schema
         self._system_prompt = SYSTEM_PROMPT.format(
             schema=json.dumps({key: value['description'] for key, value in SCHEMA['properties'].items()}, indent=4)
@@ -144,13 +157,17 @@ class Extractor:
         self._retries = retries
         self._device = self._get_accelerator()
 
+        if not check_model(model):
+            download_model(model, hf_token)
+
         # Load model and tokenizer
+        model_path = os.path.join(MODEL_DIR, self._model_name)
         self._model = AutoModelForCausalLM.from_pretrained(
-            self._model_name,
+            model_path,
             device_map=self._device,
         )
         self._tokenizer = AutoTokenizer.from_pretrained(
-            model,
+            model_path,
             padding_side="left",
             use_fast=True,
         )
@@ -172,14 +189,17 @@ class Extractor:
 
     @property
     def model(self) -> str:
+        """Model name or path."""
         return self._model_name
 
     @property
     def schema(self) -> dict:
+        """JSON schema defining the expected output format."""
         return self._schema
 
     @property
     def prompt(self) -> str:
+        """User prompt to guide the LLM in generating the output."""
         return self._user_prompt
 
     @property
@@ -189,12 +209,19 @@ class Extractor:
 
     @retries.setter
     def retries(self, value: int) -> None:
+        """
+        Number of retries for generating output.
+
+        Parameters:
+            value: A non-negative integer representing the number of retries.
+        """
         if value < 0:
             raise ValueError("Retries must be a non-negative integer.")
         self._retries = value
 
     @property
     def device(self) -> torch.device:
+        """The accelerator on which the model is loaded."""
         return self._device
 
     @staticmethod
@@ -221,13 +248,13 @@ class Extractor:
         Post-processes the extracted JSON data.
 
         Parameters:
+            source: A dictionary containing the source fields to check against.
             json_data: A dictionary to post-process.
 
         Returns:
             A dictionary with post-processed values.
         """
         new_data = deepcopy(json_data)
-
         Extractor._replace(new_data, None, "")
 
         # Replace unrecognized event types with "Other"
@@ -248,8 +275,11 @@ class Extractor:
 
     @classmethod
     def _initialize_class_attributes(cls) -> None:
+        """Initializes class-level attributes."""
         if cls._logger is None:
             cls._logger = get_logger(cls.__name__, level=logging.INFO)
+            # Silence lower-level transformers log
+            logging.getLogger("transformers").setLevel(logging.ERROR)
 
     @classmethod
     def set_logger_level(cls, level: Union[str, int] = logging.INFO) -> None:
@@ -257,7 +287,7 @@ class Extractor:
         Sets logging level for the class logger.
 
         Parameters:
-            level: Logging level.
+            level: Logging level. [DEBUG, INFO, WARNING, ERROR, CRITICAL]
         """
         cls._logger.setLevel(level)
         for handler in cls._logger.handlers:
@@ -267,7 +297,7 @@ class Extractor:
     @classmethod
     def _validate_json(cls, source: dict, json_data: dict) -> bool:
         """
-        Validates the JSON object against the predefined schema.
+        Validates the JSON object against the predefined schema and rules.
 
         Parameters:
             source: A dictionary containing the source fields to check against.
@@ -293,6 +323,7 @@ class Extractor:
 
     @classmethod
     def _get_accelerator(cls) -> torch.device:
+        """Returns the available accelerator."""
         # Check for NVIDIA GPU
         if torch.cuda.is_available():
             device = torch.device('cuda')
@@ -308,9 +339,11 @@ class Extractor:
             device = torch.device('cpu')
 
         cls._logger.info(f"Using device: {device}")
+
         return device
 
     def _apply_cml(self, user_prompt: str) -> list:
+        """Returns model input in the chat markup language format."""
         return [
             {"role": "system", "content": self._system_prompt},
             {"role": "user", "content": user_prompt},
@@ -323,7 +356,7 @@ class Extractor:
         Extracts relevant fields from the alert message.
 
         Parameters:
-           source: Keyword arguments containing the alert message fields.
+           source: Keyword arguments containing the alert message fields (headline, description, and instruction).
 
         Returns:
             A dictionary containing the extracted fields.
@@ -336,22 +369,19 @@ class Extractor:
             )
         ]
 
+        # Create model input
         model_inputs = self._tokenizer(
             prompts,
             return_tensors="pt",
             padding=True,
-            # truncation=True,
-            # max_length=2048
         ).to(self._model.device)
-        input_length = model_inputs["input_ids"].shape[1]
+        input_length = model_inputs["input_ids"].shape[1]  # For extracting the generated output
 
         # Generate output
         for _ in range(1 + self._retries):
             generated_ids = self._model.generate(
                 **model_inputs,
                 max_new_tokens=128,
-                # do_sample=False,
-                # temperature=0.1
             )
             output = self._tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)[0].strip()
 
@@ -371,17 +401,10 @@ class Extractor:
         raise RuntimeError(f"Failed to generate a valid JSON after {self._retries + 1} tries.")
 
 
-if __name__ == "__main__":
-    def read_csv_in_batches(file_path: str, batch_size: int = 10):
-        """
-        Reads a CSV file in batches.
-        """
-        for chunk in pd.read_csv(file_path, chunksize=batch_size):
-            yield chunk
-
-
+def main():
+    """Example code for extracting information from alert texts using the Extractor class."""
     data_path = DATA_DIR / "finetune" / "finetune_test.csv"
-    extractor = Extractor(model="unsloth/Llama-3.2-3B-Instruct")
+    extractor = Extractor(model="meta-llama/Llama-3.2-1B-Instruct")
     extractor.set_logger_level(logging.DEBUG)
 
     for batch in read_csv_in_batches(data_path):
@@ -397,3 +420,7 @@ if __name__ == "__main__":
             except RuntimeError as e:
                 pass
         break
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,16 @@
+# Include license and readme
+include LICENSE
+include README.md
+include requirements.txt
+
+# Include all files in a specific directory
+recursive-include data *.json *.csv
+
+# Include documentation
+recursive-include docs *.md *.rst
+
+# Exclude certain files/directories
+exclude .gitignore
+prune .git
+prune .github
+prune tests
