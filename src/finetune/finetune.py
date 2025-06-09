@@ -213,7 +213,7 @@ class ModelTuner:
 
         # Data file
         if train_data is None:
-            train_data = DATA_DIR / "finetune" / "finetune_train.json"
+            train_data = os.path.join(DATA_DIR, "finetune", "finetune_train.json")
 
         # Get trained epochs
         epochs_trained = self.get_epochs_trained(output_dir)
