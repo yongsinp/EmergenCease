@@ -1,10 +1,12 @@
 import argparse
 import difflib
+import json
+import logging
 import os.path
 import time
 from dataclasses import dataclass
 from functools import wraps
-from typing import Iterable
+from typing import Iterable, Union
 
 import Levenshtein as levenshtein
 import nltk
@@ -13,7 +15,7 @@ from nltk.translate.bleu_score import sentence_bleu
 from rouge import Rouge
 from tqdm import tqdm
 
-from src.extraction.llm import Extractor
+from src.extraction.llm import Extractor, get_logger
 from src.utils.paths import DATA_DIR, MODEL_DIR
 
 
@@ -34,6 +36,7 @@ class Result:
 
 class Evaluator:
     """A class to evaluate LLM extractor performance."""
+    _logger = None
 
     def __init__(self, model: str, adapter: str = None) -> None:
         """
@@ -43,6 +46,8 @@ class Evaluator:
             model: A local path or Hugging Face model identifier for the model used in extraction.
             adapter: Optional path to a model adapter.
         """
+        self._initialize_class_attributes()
+
         self._extractor = Extractor(model, adapter=adapter)
         self._rouge = None
 
@@ -62,6 +67,23 @@ class Evaluator:
             return func(self, pred, ref, *args, **kwargs)
 
         return wrapper
+
+    @classmethod
+    def _initialize_class_attributes(cls) -> None:
+        """Initializes class-level attributes."""
+        if cls._logger is None:
+            cls._logger = logging.getLogger(cls.__name__)
+            cls._logger.setLevel(logging.INFO)
+
+    @classmethod
+    def set_logger_level(cls, level: Union[str, int] = logging.INFO) -> None:
+        """
+        Sets logging level for the class logger.
+
+        Parameters:
+            level: Logging level. [DEBUG, INFO, WARNING, ERROR, CRITICAL]
+        """
+        cls._logger.setLevel(level)
 
     @_normalize_input
     def exact_match(self, pred: str, ref: str) -> int:
@@ -249,8 +271,11 @@ class Evaluator:
                 "description": row["description"],
                 "instruction": row["instruction"]
             }
+            self._logger.debug(f"\nInput: {json.dumps(input, indent=4)}")
+
             try:
                 extracted_data = self._extractor.extract(**input)
+                self._logger.debug(f"\nExtracted data: {json.dumps(extracted_data, indent=4)}")
 
                 # Todo: Try bidirectional match
                 # Todo: Simplify evaluation by putting these in a dictionary
@@ -265,13 +290,13 @@ class Evaluator:
                 url_em += self.set_f1(extracted_data['url'].split(";"), row['url'].split(";"), match_="exact")
                 url_partial += self.set_f1(extracted_data['url'].split(";"), row['url'].split(";"), match_="partial")
             except RuntimeError as e:
-                print(f"Error processing {row['uuid']}: {e}")
+                self._logger.warning(f"Error processing {row['uuid']}: {e}")
                 failed += 1
 
         # Adjust for failed samples
         len_data = len(data) - failed
 
-        return Result(
+        result = Result(
             event=event / len_data,
             location_em=location_em / len_data,
             location_partial=location_partial / len_data,
@@ -283,12 +308,16 @@ class Evaluator:
             failed=failed,
             time_per_sample=(time.time() - start) / len(data)
         )
+        self._logger.info(result)
+
+        return result
 
 
 def main():
     """Example code for the Evaluator."""
     parser = argparse.ArgumentParser(description="Script for evaluating LLM extractors.")
 
+    # Evaluation arguments
     parser.add_argument('--model', type=str, default='meta-llama/Llama-3.2-1B-Instruct',
                         help='Model to use for extraction (default: meta-llama/Llama-3.2-1B-Instruct)')
     parser.add_argument('--adapter', type=str, default=None,
@@ -298,10 +327,15 @@ def main():
     parser.add_argument('--runs', type=int, default=5,
                         help='Number of runs for averaging results (default: 5)')
 
+    # Logger arguments
+    parser.add_argument('--log-level', type=str, default='INFO',
+                        help='Logging level [DEBUG, INFO, WARNING, ERROR, CRITICAL] (default: INFO)')
+
     args = parser.parse_args()
 
     data_path = args.test_data if args.test_data else os.path.join(DATA_DIR, "finetune", "finetune_test.csv")
     evalulator = Evaluator(args.model, adapter=args.adapter)
+    evalulator.set_logger_level(args.log_level)
 
     # Run multiple evaluations to get more reliable results
     runs = args.runs
