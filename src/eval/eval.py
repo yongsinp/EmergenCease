@@ -358,7 +358,7 @@ def main():
         failed=sum(r.failed for r in results) / runs,
         time_per_sample=sum(r.time_per_sample for r in results) / runs
     )
-    print(average_result)
+    print(f"\nAveraged {average_result}")
 
 
 if __name__ == '__main__':

@@ -90,7 +90,7 @@ Run `python -m src.utils.model -h` for help.
 ### Fine-tuning
 
 You can fine-tune Llama 3 (`3.1-8B`, `3.2-1B`, and `3.2-3B`) models for better performance. If the model does not
-already exist in the `models` directory, it will be downloaded automatically. Trained LoRA adpaters will be saved in the
+already exist in the `models` directory, it will be downloaded automatically. The trained LoRA adpaters will be saved in the
 `models` directory.
 
 ```bash
