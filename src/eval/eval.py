@@ -271,11 +271,11 @@ class Evaluator:
                 "description": row["description"],
                 "instruction": row["instruction"]
             }
-            self._logger.debug(f"\nInput: {json.dumps(input, indent=4)}")
+            self._logger.debug(f"\nInput: {json.dumps(input, indent=4)}\n")
 
             try:
                 extracted_data = self._extractor.extract(**input)
-                self._logger.debug(f"\nExtracted data: {json.dumps(extracted_data, indent=4)}")
+                self._logger.debug(f"\nExtracted data: {json.dumps(extracted_data, indent=4)}\n")
 
                 # Todo: Try bidirectional match
                 # Todo: Simplify evaluation by putting these in a dictionary
