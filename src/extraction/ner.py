@@ -7,7 +7,7 @@ import sys
 import pandas as pd
 import spacy
 
-__all__ = ["get_urls"]
+__all__ = ["get_urls", "REGEX_URL"]
 
 # URL extraction
 REGEX_URL = re.compile(r"(?i)\b(?:https?:\/\/)?(?:www\.)?([A-Za-z0-9-]+\.?)+\.[A-Za-z]{2,}(?:\/\S*)?\b")
