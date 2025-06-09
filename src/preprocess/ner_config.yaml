@@ -1,0 +1,14 @@
+# Others
+id: uuid
+
+# Inputs
+info.headline: headline
+info.description: description
+info.instruction: instruction
+
+# NEs
+info.areas.areaDesc: location
+info.senderName: sending_agency
+info.expires: time
+info.web: url
+info.event: event
