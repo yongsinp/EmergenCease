@@ -278,6 +278,8 @@ class Extractor:
         """Initializes class-level attributes."""
         if cls._logger is None:
             cls._logger = get_logger(cls.__name__, level=logging.INFO)
+            # Silence lower-level transformers log
+            logging.getLogger("transformers").setLevel(logging.ERROR)
 
     @classmethod
     def set_logger_level(cls, level: Union[str, int] = logging.INFO) -> None:
