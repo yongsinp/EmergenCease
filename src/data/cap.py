@@ -152,12 +152,7 @@ class Cap:
     """
 
     def __init__(self):
-        """
-        Initializes the Cap instance with a content.
-
-        Parameters:
-            content: A dictionary representing the CAP content.
-        """
+        """Initializes the Cap instance with a content."""
         self.content = Cap.create_empty_cap(SCHEMA)
 
     def __repr__(self):

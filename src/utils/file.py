@@ -109,3 +109,10 @@ def write_csv(file_path: str, data: list[dict[str, Any]], mode: str = 'a') -> No
     df = pd.DataFrame(data)
     header = not os.path.exists(file_path)
     df.to_csv(file_path, mode=mode, index=False, encoding='utf-8', header=header)
+
+
+def write_file(path: str, data: [str]) -> None:
+    """Writes a list of strings to a file."""
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as file:
+        file.write("\n".join(data))

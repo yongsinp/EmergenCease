@@ -127,7 +127,7 @@ class Translator:
 
             # Update required_info with extracted information
             for key in missing_info:
-                required_info[key] = extracted_info[key]
+                required_info[key] = extracted_info[key] if extracted_info[key] else "--"
 
         # Add multilingual info blocks using the templates
         languages = set(Translator._get_language(item) for item in info)
@@ -155,7 +155,7 @@ class Translator:
 def main():
     """Example code for using the Translator class."""
 
-    parser = argparse.ArgumentParser(description="Script for evaluating LLM extractors.")
+    parser = argparse.ArgumentParser(description="Script for converting English alerts into multilingual CAP data.")
 
     # Model arguments
     parser.add_argument('--model', type=str, default='meta-llama/Llama-3.2-1B-Instruct',
