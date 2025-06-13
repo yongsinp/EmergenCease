@@ -205,7 +205,7 @@
   },
   "EarthquakeWarning": {
     "en": "EARTHQUAKE DETECTED! Drop, Cover, Hold On. Protect Yourself. {SENDING_AGENCY} {URL}",
-    "ar": "تماكتشافزلزال!انحناأرضا،واختبئ تحت غطاء، وال تتحرك. احم نفسك.{URL} {SENDING AGENCY}",
+    "ar": "تماكتشافزلزال!انحناأرضا،واختبئ تحت غطاء، وال تتحرك. احم نفسك.{URL} {SENDING_AGENCY}",
     "zh": "检测到地震！请放下手中的一切、寻求掩护、坚持住。保护好自己。{SENDING_AGENCY} {URL}",
     "zh-TW": "偵測到地震！請放下手中的一切、尋求掩護、堅持住。保護自己。{SENDING_AGENCY} {URL}",
     "fr": "TREMBLEMENT DE TERRE DÉTECTÉ ! Baissez-vous, couvrez-vous et tenez-vous bien. Protégez-vous. {SENDING_AGENCY} {URL}",

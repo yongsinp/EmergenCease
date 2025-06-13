@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Add environment variables
+# Add environment variables - HF_TOKEN must be set
 export HF_TOKEN="YOUR_HF_TOKEN"
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"

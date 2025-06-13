@@ -1,8 +1,32 @@
 # EmergenCease
 
-This project builds a pipeline to generate multilingual emergency alerts using FCC Wireless Emergency Alert Templates in
-14 languages. It classifies the emergency type, extracts key information, and fills out multilingual templates in the
-Common Alerting Protocol (CAP) format. The goal is to improve alert accessibility for non-native speakers.
+## Overview
+
+This project builds a pipeline to generate multilingual emergency alerts using Federal Communications Commission's (FCC)
+Wireless Emergency Alert (WEA) Templates in 14 languages. It classifies the emergency type, extracts key information,
+and fills out multilingual templates in the Common Alerting Protocol (CAP) format. The goal is to improve alert
+accessibility for non-native speakers.
+
+### Common Alerting Protocol (CAP)
+
+CAP is an XML-based data format for exchanging public warnings and emergencies between alerting technologies. CAP allows
+a warning message to be consistently disseminated simultaneously over many warning systems to many applications, such as
+Google Public Alerts and Cell Broadcast. CAP increases warning effectiveness and simplifies the task of activating a
+warning for responsible officials. In this project, we use a JSON-based version of CAP.
+
+For more information on CAP, refer to [Additional Resources](#additional-resources).
+
+### Federal Communications Commission (FCC) Wireless Emergency Alert (WEA) Templates
+
+The FCC WEA templates provide standardized multilingual templates for 18 different emergency types (including Test
+Alert) in 15 spoken languages (including American Sign Language (ASL)). Each template includes up to four placeholders:
+sending agency [SENDING_AGENCY], affected area [LOCATION], expiration time [TIME], and URL for additional
+information [URL]. The information for these placeholders is what we aim to extract. Additionally, we include an “Other”
+event type to handle emergency types not covered by the existing templates. We currently do not support the ASL
+template.
+
+For more information on the FCC Wireless Emergency Alert Templates, refer
+to [Additional Resources](#additional-resources).
 
 ## Getting Started
 
@@ -53,8 +77,8 @@ generate a multilingual CAP alert.
 You can also choose to run the command with the `--cap` argument which expects a JSON string conforming to the Common
 Alerting Protocol (CAP) format.
 
-By default, the pipeline uses the **Llama 3.2 1B Instruct** model with a LoRA adapter trained on a small set of IPAWS
-Archived Alerts data to generate the alert.
+By default, the pipeline uses the **Llama 3.2 1B Instruct** model with a LoRA adapter trained on a small set of
+Integrated Public Alert and Warning System (IPAWS) Archived Alerts data to generate the alert.
 
 ```bash
 # Running the command without any arguments will generate a sample Tornado Warning alert
@@ -63,23 +87,27 @@ python -m src.cap_translator.translate --headline ALERT_HEADLINE --description A
 
 Run `python -m src.cap_translator.translate -h` for help.
 
+> [NOTE]  
+> The `run_eval.sh` script in the project root runs the sample alert translation shown above and the evaluation pipeline
+> described below.
+> You must set the `HF_TOKEN` environment variable in the script.
+
 ### Downloading Models
 
 The **Llama 3.2 1B Instruct** model is downloaded automatically from Hugging Face to the `models` directory.
 Models may require authentication due to licensing restrictions.
 To use these models, you need to have a Hugging Face account, set up your authentication token, and request access to
-the
-models if necessary. Refer to [Additional Resources](#additional-resources) for more information on Hugging Face
+the models if necessary. Refer to [Additional Resources](#additional-resources) for more information on Hugging Face
 authentication.
 
 You can pass the token with the model name, or set a `HF_TOKEN` environment variable. To set the enviroment variable,
-add the following to `.bashrc` or run the command to set up the Hugging Face authentication token:
+run or add the following to `.bashrc`:
 
 ```bash
 export HF_TOKEN="YOUR_HF_TOKEN"  # Replace with your actual Hugging Face token
 ```
 
-You can use the following command to manually download the models of your choice:
+You can use the following command to manually download the model of your choice:
 
 ```bash
 python -m src.utils.model  # --model "meta-llama/Llama-3.2-1B-Instruct" --hf-token "YOUR_HF_TOKEN" 
@@ -90,7 +118,8 @@ Run `python -m src.utils.model -h` for help.
 ### Fine-tuning
 
 You can fine-tune Llama 3 (`3.1-8B`, `3.2-1B`, and `3.2-3B`) models for better performance. If the model does not
-already exist in the `models` directory, it will be downloaded automatically. The trained LoRA adpaters will be saved in the
+already exist in the `models` directory, it will be downloaded automatically. The trained LoRA adpaters will be saved in
+the
 `models` directory.
 
 ```bash
@@ -117,6 +146,8 @@ downloaded by running the following command:
 ```bash
 python -m src.data.download
 ```
+
+For more information on the dataset, refer to [Additional Resources](#additional-resources).
 
 ### (Optional) Preprocessing
 
@@ -190,12 +221,12 @@ nested.field.names2: internal_field_name2
 
 ## Additional Resources
 
+- [Common Alerting Protocol Version 1.2](https://docs.oasis-open.org/emergency/cap/v1.2/CAP-v1.2-os.pdf)
+- [FCC Multilingual Wireless Emergency Alert Templates](https://www.fcc.gov/multilingual-wireless-emergency-alerts)
+- [OpenFEMA Dataset: IPAWS Archived Alerts - v1](https://www.fema.gov/openfema-data-page/ipaws-archived-alerts-v1)
 - [Llama 3.2 1B Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct)
 - [Hugging Face User Access Tokens](https://huggingface.co/docs/hub/en/security-tokens)
 - [Manage Your Hugging Face Access Tokens](https://huggingface.co/settings/tokens)
-- [OpenFEMA Dataset: IPAWS Archived Alerts - v1](https://www.fema.gov/openfema-data-page/ipaws-archived-alerts-v1)
-- [Common Alerting Protocol Version 1.2](https://docs.oasis-open.org/emergency/cap/v1.2/CAP-v1.2-os.pdf)
-- [FCC Multilingual Wireless Emergency Alert Templates](https://www.fcc.gov/multilingual-wireless-emergency-alerts)
 
 ## Acknowledgments
 
